@@ -1,0 +1,155 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/sections/Header.astro';
+import Footer from '../components/sections/Footer.astro';
+import ScrollToTop from '../components/common/ScrollToTop.astro';
+import Breadcrumb from '../components/navigation/Breadcrumb.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  publishDate?: Date | string;
+  updatedDate?: Date | string;
+  author?: string;
+  authorImage?: string;
+  category?: string;
+  canonical?: string;
+  noindex?: boolean;
+  nofollow?: boolean;
+}
+
+const { 
+  title, 
+  description, 
+  image, 
+  publishDate,
+  updatedDate,
+  author,
+  authorImage,
+  category,
+  canonical,
+  noindex,
+  nofollow 
+} = Astro.props;
+
+const site = await import('../data/site.json');
+const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateString('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}) : null;
+
+const formattedUpdatedDate = updatedDate ? new Date(updatedDate).toLocaleDateString('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}) : null;
+
+const breadcrumbItems = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Blog', href: '/blog' },
+  { label: title, active: true }
+];
+---
+
+<BaseLayout 
+  title={title} 
+  description={description} 
+  image={image}
+  canonical={canonical}
+  noindex={noindex}
+  nofollow={nofollow}
+  ogType="article"
+>
+  <Header />
+  
+  <main class="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+    <article class="prose lg:prose-xl mx-auto">
+      <Breadcrumb items={breadcrumbItems} class="mb-6" />
+      
+      {image && (
+        <img 
+          src={image} 
+          alt={title} 
+          class="w-full h-64 sm:h-96 object-cover rounded-lg mb-6"
+        />
+      )}
+      
+      <h1 class="text-3xl font-bold mb-4">{title}</h1>
+      
+      <div class="flex items-center space-x-4 mb-8">
+        {author && (
+          <div class="flex items-center">
+            {authorImage && (
+              <img 
+                src={authorImage} 
+                alt={author} 
+                class="w-10 h-10 rounded-full mr-2"
+              />
+            )}
+            <span class="text-gray-700">{author}</span>
+          </div>
+        )}
+        
+        {formattedPublishDate && (
+          <div class="text-gray-500">
+            <span>Publicado: {formattedPublishDate}</span>
+            {formattedUpdatedDate && formattedPublishDate !== formattedUpdatedDate && (
+              <span class="ml-2">(Actualizado: {formattedUpdatedDate})</span>
+            )}
+          </div>
+        )}
+        
+        {category && (
+          <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+            {category}
+          </span>
+        )}
+      </div>
+      
+      <div class="blog-content">
+        <slot />
+      </div>
+    </article>
+  </main>
+  
+  <Footer />
+  <ScrollToTop />
+</BaseLayout>
+
+<style>
+  .blog-content :global(img) {
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+  }
+  
+  .blog-content :global(h2) {
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .blog-content :global(p) {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+  
+  .blog-content :global(ul), .blog-content :global(ol) {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  .blog-content :global(blockquote) {
+    border-left: 4px solid #e2e8f0;
+    padding-left: 1rem;
+    font-style: italic;
+    margin: 1.5rem 0;
+  }
+  
+  .blog-content :global(pre) {
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+</style>

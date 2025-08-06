@@ -1,0 +1,17 @@
+---
+import Navbar from '../navigation/Navbar.astro';
+
+interface Props {
+  transparent?: boolean;
+}
+
+const { 
+  transparent = false
+} = Astro.props;
+---
+
+<header class={`w-full bg-white shadow-sm`}>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <Navbar transparent={transparent} />
+  </div>
+</header>

@@ -1,0 +1,30 @@
+{
+  "headline": "What Our Clients Say",
+  "subheadline": "Don't just take our word for it, see what our clients have to say about our services",
+  "testimonials": [
+    {
+      "name": "Sarah Johnson",
+      "position": "Marketing Director",
+      "company": "TechCorp Inc.",
+      "content": "This landing page template helped us increase our conversion rate by 45%. The design is clean, professional, and exactly what we needed to showcase our product.",
+      "avatar": "/images/testimonials/avatar-1.jpg",
+      "rating": 5
+    },
+    {
+      "name": "Michael Rodriguez",
+      "position": "CEO",
+      "company": "StartupX",
+      "content": "We were able to launch our new product in record time thanks to this template. The modular structure made it easy to customize and the performance is outstanding.",
+      "avatar": "/images/testimonials/avatar-2.jpg",
+      "rating": 5
+    },
+    {
+      "name": "Emily Chen",
+      "position": "Product Manager",
+      "company": "InnovateHub",
+      "content": "The responsive design works flawlessly across all devices. Our mobile conversion rate has doubled since we started using this landing page template.",
+      "avatar": "/images/testimonials/avatar-3.jpg",
+      "rating": 4
+    }
+  ]
+}

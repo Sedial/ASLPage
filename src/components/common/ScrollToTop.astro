@@ -1,0 +1,77 @@
+---
+interface Props {
+  threshold?: number;
+  smooth?: boolean;
+  offset?: number;
+  size?: 'sm' | 'md' | 'lg';
+  position?: 'right' | 'left';
+  class?: string;
+}
+
+const {
+  threshold = 300,
+  smooth = true,
+  offset = 20,
+  size = 'md',
+  position = 'right',
+  class: className = '',
+} = Astro.props;
+
+const sizeClasses = {
+  sm: 'w-8 h-8 text-xs',
+  md: 'w-10 h-10 text-sm',
+  lg: 'w-12 h-12 text-base'
+};
+
+const positionClasses = {
+  right: 'right-4 sm:right-6',
+  left: 'left-4 sm:left-6'
+};
+
+const bottomOffset = `${offset}px`;
+---
+
+<button
+  id="scroll-to-top"
+  aria-label="Scroll to top"
+  class={`fixed bottom-[${bottomOffset}] ${positionClasses[position]} ${sizeClasses[size]} rounded-full bg-blue-600 text-white shadow-md flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 ${className}`}
+>
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+  </svg>
+</button>
+
+<script define:vars={{ threshold, smooth, bottomOffset }}>
+  const scrollToTopBtn = document.getElementById('scroll-to-top');
+  
+  const scrollFunction = () => {
+    if (document.body.scrollTop > threshold || document.documentElement.scrollTop > threshold) {
+      scrollToTopBtn.classList.remove('opacity-0', 'invisible');
+      scrollToTopBtn.classList.add('opacity-100', 'visible');
+    } else {
+      scrollToTopBtn.classList.remove('opacity-100', 'visible');
+      scrollToTopBtn.classList.add('opacity-0', 'invisible');
+    }
+  };
+  
+  const scrollToTop = () => {
+    const currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+    
+    if (currentPosition > 0) {
+      if (smooth) {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    }
+  };
+  
+  window.addEventListener('scroll', scrollFunction);
+  scrollToTopBtn.addEventListener('click', scrollToTop);
+  
+  // Fix position on load
+  scrollToTopBtn.style.bottom = bottomOffset;
+</script>

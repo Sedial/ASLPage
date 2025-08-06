@@ -1,0 +1,71 @@
+{
+  "headline": "Nuestros Servicios",
+  "subheadline": "Descubre todo lo que podemos ofrecerte",
+  "columns": [
+    {
+      "title": "Servicio 1",
+      "items": [
+        {
+          "title": "Item 1",
+          "content": "Contenido del primer ítem del primer servicio."
+        },
+        {
+          "title": "Item 2",
+          "content": "Contenido del segundo ítem del primer servicio."
+        }
+      ]
+    },
+    {
+      "title": "Servicio 2",
+      "items": [
+        {
+          "title": "Item 1",
+          "content": "Contenido del primer ítem del segundo servicio."
+        },
+        {
+          "title": "Item 2",
+          "content": "Contenido del segundo ítem del segundo servicio."
+        }
+      ]
+    },
+    {
+      "title": "Servicio 3",
+      "items": [
+        {
+          "title": "Item 1",
+          "content": "Contenido del primer ítem del tercer servicio."
+        },
+        {
+          "title": "Item 2",
+          "content": "Contenido del segundo ítem del tercer servicio."
+        }
+      ]
+    },
+    {
+      "title": "Servicio 4",
+      "items": [
+        {
+          "title": "Item 1",
+          "content": "Contenido del primer ítem del cuarto servicio."
+        },
+        {
+          "title": "Item 2",
+          "content": "Contenido del segundo ítem del cuarto servicio."
+        }
+      ]
+    },
+    {
+      "title": "Servicio 5",
+      "items": [
+        {
+          "title": "Item 1",
+          "content": "Contenido del primer ítem del quinto servicio."
+        },
+        {
+          "title": "Item 2",
+          "content": "Contenido del segundo ítem del quinto servicio."
+        }
+      ]
+    }
+  ]
+}

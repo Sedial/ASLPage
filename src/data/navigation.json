@@ -1,0 +1,73 @@
+{
+  "mainNav": [
+    {
+      "title": "Home",
+      "href": "/"
+    },
+    {
+      "title": "About",
+      "href": "/about"
+    },
+    {
+      "title": "Services",
+      "href": "/services"
+    },
+    {
+      "title": "Pricing",
+      "href": "/pricing"
+    },
+    {
+      "title": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "footerNav": [
+    {
+      "title": "Company",
+      "items": [
+        {
+          "title": "About",
+          "href": "/about"
+        },
+        {
+          "title": "Services",
+          "href": "/services"
+        },
+        {
+          "title": "Team",
+          "href": "/team"
+        }
+      ]
+    },
+    {
+      "title": "Resources",
+      "items": [
+        {
+          "title": "Blog",
+          "href": "/blog"
+        },
+        {
+          "title": "Documentation",
+          "href": "/docs"
+        },
+        {
+          "title": "FAQ",
+          "href": "/faq"
+        }
+      ]
+    },
+    {
+      "title": "Legal",
+      "items": [
+        {
+          "title": "Privacy Policy",
+          "href": "/privacy"
+        },
+        {
+          "title": "Terms of Service",
+          "href": "/terms"
+        }
+      ]
+    }
+  ]
+}

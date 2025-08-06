@@ -1,0 +1,97 @@
+---
+import Button from '../ui/Button.astro';
+
+interface Post {
+  title: string;
+  slug: string;
+  excerpt: string;
+  date: string;
+  author: string;
+  category: string;
+  coverImage: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  viewAllLink?: string;
+  viewAllText?: string;
+  posts: Post[];
+  limit?: number;
+}
+
+const {
+  title = 'Latest from our blog',
+  subtitle = 'Stay updated with our latest news, tips, and insights',
+  viewAllLink = '/blog',
+  viewAllText = 'View all posts',
+  posts = [],
+  limit = 3,
+} = Astro.props;
+
+// Format the date to a more readable format
+function formatDate(dateString: string): string {
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('en-US', options);
+}
+
+// Limit the number of posts shown
+const displayedPosts = posts.slice(0, limit);
+---
+
+<section class="section bg-gray-50">
+  <div class="container">
+    <div class="section-heading">
+      <h2 class="section-title">{title}</h2>
+      <p class="section-subtitle">{subtitle}</p>
+    </div>
+    
+    {displayedPosts.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {displayedPosts.map((post) => (
+          <article class="bg-white rounded-lg overflow-hidden shadow-md transition duration-300 hover:shadow-lg">
+            <a href={`/blog/${post.slug}`} class="block overflow-hidden group">
+              <div class="relative overflow-hidden aspect-video">
+                <img 
+                  src={post.coverImage} 
+                  alt={post.title}
+                  class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute top-4 right-4 bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  {post.category}
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="text-gray-500 text-sm mb-2">
+                  {formatDate(post.date)} • by {post.author}
+                </div>
+                <h3 class="text-xl font-bold mb-2 group-hover:text-primary-600 transition duration-300">
+                  {post.title}
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                  {post.excerpt}
+                </p>
+                <span class="text-primary-600 font-medium inline-flex items-center">
+                  Read more
+                  <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <div class="py-12 text-center">
+        <p class="text-gray-500">No blog posts available at the moment.</p>
+      </div>
+    )}
+    
+    {posts.length > limit && (
+      <div class="mt-12 text-center">
+        <Button href={viewAllLink} variant="secondary">{viewAllText}</Button>
+      </div>
+    )}
+  </div>
+</section>

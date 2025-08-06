@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import blogData from '../../data/blog.json';
+
+// Page metadata
+const pageTitle = 'Our Blog';
+const pageDescription = 'Insights, tutorials, and news from our team of experts.';
+
+// Get all posts and sort by date (newest first)
+const allPosts = blogData.posts.sort((a, b) => {
+  return new Date(b.date).getTime() - new Date(a.date).getTime();
+});
+
+// Format the date to a more readable format
+function formatDate(dateString: string): string {
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('en-US', options);
+}
+
+// Get all unique categories
+const categories = [...new Set(allPosts.map(post => post.category))];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="section bg-gray-50 pt-24 md:pt-32">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">{pageTitle}</h1>
+        <p class="text-xl text-gray-600">{pageDescription}</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Blog Content -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Main Content -->
+        <div class="lg:w-2/3">
+          {allPosts.length > 0 ? (
+            <div class="space-y-10">
+              {allPosts.map((post) => (
+                <article class="bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition duration-300">
+                  <a href={`/blog/${post.slug}`} class="block overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-video">
+                      <img 
+                        src={post.coverImage} 
+                        alt={post.title}
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div class="absolute top-4 right-4 bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        {post.category}
+                      </div>
+                    </div>
+                  </a>
+                  <div class="p-6">
+                    <div class="text-gray-500 text-sm mb-2">
+                      {formatDate(post.date)} u2022 by {post.author}
+                    </div>
+                    <h2 class="text-2xl font-bold mb-3 hover:text-primary-600 transition duration-300">
+                      <a href={`/blog/${post.slug}`}>{post.title}</a>
+                    </h2>
+                    <p class="text-gray-600 mb-4">
+                      {post.excerpt}
+                    </p>
+                    <Button href={`/blog/${post.slug}`} variant="secondary" size="sm">
+                      Read more
+                    </Button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div class="py-16 text-center">
+              <p class="text-gray-500">No blog posts available at the moment.</p>
+            </div>
+          )}
+          
+          <!-- Pagination - For future implementation -->
+          <div class="mt-10 flex justify-center">
+            <div class="inline-flex gap-2">
+              <span class="px-4 py-2 bg-primary-100 text-primary-700 font-medium rounded-md">1</span>
+              <a href="#" class="px-4 py-2 bg-white text-gray-600 hover:bg-gray-50 font-medium rounded-md">2</a>
+              <a href="#" class="px-4 py-2 bg-white text-gray-600 hover:bg-gray-50 font-medium rounded-md">3</a>
+              <span class="px-4 py-2 bg-white text-gray-400">u2026</span>
+              <a href="#" class="px-4 py-2 bg-white text-gray-600 hover:bg-gray-50 font-medium rounded-md">Next</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="lg:w-1/3 space-y-8">
+          <!-- Categories -->
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold mb-4">Categories</h3>
+            <ul class="space-y-2">
+              {categories.map((category) => (
+                <li>
+                  <a 
+                    href={`#${category.toLowerCase().replace(/\s+/g, '-')}`} 
+                    class="flex items-center justify-between py-2 text-gray-700 hover:text-primary-600 transition duration-150"
+                  >
+                    <span>{category}</span>
+                    <span class="bg-white px-2 py-1 rounded-full text-xs font-medium">
+                      {allPosts.filter(post => post.category === category).length}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <!-- Recent Posts -->
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold mb-4">Recent Posts</h3>
+            <div class="space-y-4">
+              {allPosts.slice(0, 3).map((post) => (
+                <div class="flex gap-3">
+                  <a href={`/blog/${post.slug}`} class="flex-shrink-0">
+                    <img 
+                      src={post.coverImage} 
+                      alt={post.title}
+                      class="w-16 h-16 rounded-md object-cover"
+                    />
+                  </a>
+                  <div class="flex-grow">
+                    <h4 class="font-medium line-clamp-2 mb-1">
+                      <a href={`/blog/${post.slug}`} class="hover:text-primary-600 transition duration-150">
+                        {post.title}
+                      </a>
+                    </h4>
+                    <div class="text-xs text-gray-500">
+                      {formatDate(post.date)}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <!-- Newsletter Signup -->
+          <div class="bg-primary-600 rounded-lg p-6 text-white">
+            <h3 class="text-xl font-bold mb-2">Subscribe to our newsletter</h3>
+            <p class="text-primary-100 mb-4">Get the latest updates and news delivered to your inbox.</p>
+            <form class="space-y-3">
+              <div>
+                <input 
+                  type="email" 
+                  placeholder="Your email address" 
+                  class="w-full px-4 py-2 rounded-md border-0 focus:ring-2 focus:ring-white text-gray-800"
+                  required
+                />
+              </div>
+              <button 
+                type="submit" 
+                class="w-full bg-white text-primary-700 font-medium py-2 px-4 rounded-md hover:bg-primary-50 transition duration-150"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

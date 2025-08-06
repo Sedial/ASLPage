@@ -1,0 +1,11 @@
+ # robots.txt for Astro Landing Page Template
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yourwebsite.com/sitemap.xml
+
+# Disallow access to certain directories
+Disallow: /api/
+Disallow: /admin/

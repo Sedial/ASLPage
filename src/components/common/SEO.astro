@@ -1,0 +1,63 @@
+---
+// Primero aseguramos que existe la carpeta common
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  ogType?: 'website' | 'article' | 'profile';
+  twitterCard?: 'summary' | 'summary_large_image' | 'app' | 'player';
+  noindex?: boolean;
+  nofollow?: boolean;
+}
+
+const site = await import('../../data/site.json');
+
+const {
+  title = site.default.title,
+  description = site.default.description,
+  canonical = Astro.url.pathname,
+  image = site.default.image,
+  ogType = 'website',
+  twitterCard = 'summary_large_image',
+  noindex = false,
+  nofollow = false
+} = Astro.props;
+
+const fullUrl = new URL(canonical, Astro.site || 'https://example.com').toString();
+const imageUrl = image.startsWith('http') ? image : new URL(image, Astro.site || 'https://example.com').toString();
+
+const robots = [];
+if (noindex) robots.push('noindex');
+if (nofollow) robots.push('nofollow');
+---
+
+<!-- SEO -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={fullUrl} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={fullUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:site_name" content={site.default.title} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content={twitterCard} />
+<meta name="twitter:url" content={fullUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+{site.default.twitterHandle && <meta name="twitter:site" content={site.default.twitterHandle} />}
+
+<!-- Robots -->
+{robots.length > 0 && <meta name="robots" content={robots.join(', ')} />}
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/favicon.png" />
+
+<!-- Additional SEO elements -->
+<slot />

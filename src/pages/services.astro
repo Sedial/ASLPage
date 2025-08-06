@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import CTA from '../components/sections/CTA.astro';
+
+// Services page content
+const pageTitle = 'Our Services';
+const pageDescription = 'Discover our comprehensive range of services designed to help your business thrive in the digital world.';
+
+// Services data
+const services = [
+  {
+    id: 'web-development',
+    title: 'Web Development',
+    shortDescription: 'Custom websites and web applications tailored to your business needs.',
+    icon: 'code',
+    image: '/images/services/web-development.jpg',
+    benefits: [
+      'Responsive design that works on all devices',
+      'Custom functionality and features',
+      'SEO optimization built-in',
+      'Performance-focused development',
+      'Ongoing maintenance and support',
+    ],
+  },
+  {
+    id: 'digital-marketing',
+    title: 'Digital Marketing',
+    shortDescription: 'Strategic marketing solutions to boost your online presence and drive growth.',
+    icon: 'chart',
+    image: '/images/services/digital-marketing.jpg',
+    benefits: [
+      'Search engine optimization (SEO)',
+      'Pay-per-click advertising',
+      'Social media marketing',
+      'Email marketing campaigns',
+      'Analytics and performance reporting',
+    ],
+  },
+  {
+    id: 'branding',
+    title: 'Branding & Design',
+    shortDescription: 'Creative design services to build a strong, memorable brand identity.',
+    icon: 'palette',
+    image: '/images/services/branding.jpg',
+    benefits: [
+      'Logo and visual identity design',
+      'Brand strategy development',
+      'Marketing materials design',
+      'UI/UX design for digital products',
+      'Brand guidelines documentation',
+    ],
+  },
+  {
+    id: 'consulting',
+    title: 'Business Consulting',
+    shortDescription: 'Expert guidance to optimize your operations and accelerate growth.',
+    icon: 'briefcase',
+    image: '/images/services/consulting.jpg',
+    benefits: [
+      'Business process optimization',
+      'Digital transformation strategy',
+      'Market research and analysis',
+      'Competitive positioning',
+      'Growth planning and execution',
+    ],
+  },
+];
+
+// Service process steps
+const processSteps = [
+  {
+    number: '01',
+    title: 'Discovery',
+    description: 'We start by understanding your business, goals, and challenges through in-depth consultation.',
+  },
+  {
+    number: '02',
+    title: 'Strategy',
+    description: 'Based on our findings, we develop a customized strategy tailored to your specific needs.',
+  },
+  {
+    number: '03',
+    title: 'Implementation',
+    description: 'Our expert team executes the plan with precision, keeping you informed every step of the way.',
+  },
+  {
+    number: '04',
+    title: 'Optimization',
+    description: 'We continuously monitor, analyze, and refine our approach to maximize results.',
+  },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="section bg-gray-50 pt-24 md:pt-32">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">{pageTitle}</h1>
+        <p class="text-xl text-gray-600 mb-8">{pageDescription}</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          {services.map((service) => (
+            <a 
+              href={`#${service.id}`} 
+              class="inline-flex items-center px-4 py-2 rounded-md bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition duration-150"
+            >
+              {service.title}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services Overview -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="space-y-24">
+        {services.map((service, index) => (
+          <div id={service.id} class="scroll-mt-24">
+            <div class={`grid md:grid-cols-2 gap-12 ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
+              <div class={`${index % 2 === 1 ? 'md:col-start-2' : ''}`}>
+                <h2 class="text-3xl font-bold mb-4">{service.title}</h2>
+                <p class="text-xl text-gray-600 mb-6">{service.shortDescription}</p>
+                
+                <h3 class="text-xl font-bold mb-3">Benefits</h3>
+                <ul class="space-y-2 mb-8">
+                  {service.benefits.map((benefit) => (
+                    <li class="flex items-start">
+                      <svg class="w-5 h-5 text-primary-600 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button href="/contact" variant="primary">Request Service</Button>
+              </div>
+              
+              <div class={`${index % 2 === 1 ? 'md:col-start-1' : ''}`}>
+                <div class="relative">
+                  <div class="bg-primary-100 absolute -bottom-4 -right-4 w-full h-full rounded-lg"></div>
+                  <img 
+                    src={service.image} 
+                    alt={`${service.title} service`} 
+                    class="relative rounded-lg shadow-md w-full h-auto"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Our Process -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="section-heading">
+        <h2 class="section-title">Our Process</h2>
+        <p class="section-subtitle">How we deliver exceptional results for our clients</p>
+      </div>
+      
+      <div class="mt-12 relative">
+        <!-- Process steps connector line -->
+        <div class="hidden md:block absolute left-1/2 top-8 bottom-8 w-0.5 bg-gray-200 -translate-x-1/2"></div>
+        
+        <div class="space-y-16 md:space-y-0 relative z-10">
+          {processSteps.map((step, index) => (
+            <div class={`md:flex items-center ${index % 2 === 0 ? 'md:text-right' : ''} md:grid md:grid-cols-5`}>
+              <div class={`md:col-span-2 ${index % 2 === 0 ? 'md:order-first' : 'md:order-last'}`}>
+                <div class="p-6">
+                  <h3 class="text-2xl font-bold mb-2">{step.title}</h3>
+                  <p class="text-gray-600">{step.description}</p>
+                </div>
+              </div>
+              
+              <div class="flex justify-center items-center md:col-span-1">
+                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-600 text-white font-bold text-xl shadow-lg">
+                  {step.number}
+                </div>
+              </div>
+              
+              <div class="md:col-span-2"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="section-heading">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Answers to common questions about our services</p>
+      </div>
+      
+      <div class="mt-12 max-w-3xl mx-auto">
+        <div class="space-y-6">
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold mb-3">How long does a typical project take?</h3>
+            <p class="text-gray-600">Project timelines vary depending on scope and complexity. A simple website might take 4-6 weeks, while more complex projects can take several months. We'll provide a detailed timeline during our initial consultation.</p>
+          </div>
+          
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold mb-3">What is your pricing structure?</h3>
+            <p class="text-gray-600">We offer flexible pricing options including project-based quotes and monthly retainers. Each solution is customized based on your specific needs and objectives. Contact us for a detailed quote.</p>
+          </div>
+          
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold mb-3">Do you offer ongoing support after project completion?</h3>
+            <p class="text-gray-600">Yes, we offer various maintenance and support packages to ensure your digital assets continue to perform optimally. Our team is always available to help with updates, improvements, and troubleshooting.</p>
+          </div>
+          
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold mb-3">How do you measure success?</h3>
+            <p class="text-gray-600">We establish clear KPIs at the beginning of each project and provide regular reporting on progress. Our focus is on delivering measurable results that align with your business objectives.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <CTA 
+    title="Ready to elevate your business?" 
+    description="Schedule a free consultation with our team to discuss your project."
+    primaryCTA={{ text: 'Get Started', href: '/contact' }}
+    secondaryCTA={{ text: 'Learn More', href: '/about' }}
+  />
+</BaseLayout>

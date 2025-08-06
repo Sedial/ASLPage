@@ -1,0 +1,11 @@
+{
+  "name": "Astro Landing Template",
+  "description": "A modular landing page template built with Astro and Tailwind CSS",
+  "url": "https://your-site.com",
+  "ogImage": "/images/og-image.jpg",
+  "links": {
+    "twitter": "https://twitter.com/youraccount",
+    "github": "https://github.com/youraccount",
+    "linkedin": "https://linkedin.com/in/youraccount"
+  }
+}

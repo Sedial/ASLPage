@@ -1,0 +1,218 @@
+---
+import { useState } from 'preact/hooks';
+
+// Load features data
+const featuresData = await import('../../data/features.json');
+const { headline, subheadline, columns } = featuresData;
+
+// Enhanced client-side script for accordion functionality
+const accordionScript = `
+  document.addEventListener('DOMContentLoaded', () => {
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    
+    // Set first item as active by default
+    if (accordionItems.length > 0) {
+      const firstItem = accordionItems[0];
+      firstItem.classList.add('is-active');
+      const firstContent = firstItem.querySelector('.accordion-content');
+      if (firstContent) {
+        firstContent.style.maxHeight = firstContent.scrollHeight + 'px';
+      }
+    }
+    
+    accordionItems.forEach((item, index) => {
+      const header = item.querySelector('.accordion-header');
+      const content = item.querySelector('.accordion-content');
+      const arrow = item.querySelector('.accordion-arrow');
+      
+      header?.addEventListener('click', () => {
+        const isActive = item.classList.contains('is-active');
+        
+        // Close all other accordion items with smooth animation
+        accordionItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('is-active');
+            const otherContent = otherItem.querySelector('.accordion-content');
+            const otherArrow = otherItem.querySelector('.accordion-arrow');
+            if (otherContent) {
+              otherContent.style.maxHeight = '0';
+            }
+          }
+        });
+        
+        // Toggle current item
+        if (isActive) {
+          item.classList.remove('is-active');
+          if (content) {
+            content.style.maxHeight = '0';
+          }
+        } else {
+          item.classList.add('is-active');
+          if (content) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+          }
+        }
+      });
+      
+      // Add hover effects
+      header?.addEventListener('mouseenter', () => {
+        if (!item.classList.contains('is-active')) {
+          header.style.backgroundColor = '#f8fafc';
+        }
+      });
+      
+      header?.addEventListener('mouseleave', () => {
+        if (!item.classList.contains('is-active')) {
+          header.style.backgroundColor = '';
+        }
+      });
+    });
+  });
+`;
+---
+
+<section class="section bg-gradient-to-br from-gray-50 to-white py-20" id="features">
+  <div class="container mx-auto px-4 max-w-7xl">
+    <!-- Header Section -->
+    <div class="text-center mb-20">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
+        <svg class="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      </div>
+      <h2 class="text-5xl font-bold text-gray-900 mb-6 leading-tight">
+        {headline}
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        {subheadline}
+      </p>
+    </div>
+    
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+      {columns.map((column, index) => (
+        <div class="accordion-item group">
+          <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100">
+            <!-- Header -->
+            <div class="accordion-header cursor-pointer relative">
+              <div class="p-8 pb-6">
+                <!-- Icon Placeholder - Aquí puedes agregar tus imágenes -->
+                <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                  <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                
+                <h3 class="text-xl font-bold text-gray-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors duration-300">
+                  {column.title}
+                </h3>
+                
+                <!-- Arrow -->
+                <div class="absolute top-8 right-8">
+                  <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-blue-100 transition-all duration-300">
+                    <svg class="w-5 h-5 text-gray-600 group-hover:text-blue-600 transform transition-all duration-300 accordion-arrow" 
+                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Content -->
+            <div class="accordion-content overflow-hidden transition-all duration-500 ease-out">
+              <div class="px-8 pb-8">
+                <div class="border-t border-gray-100 pt-6">
+                  {column.items.map((item, itemIndex) => (
+                    <div class="mb-6 last:mb-0">
+                      <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                        <div class="flex-1">
+                          <h4 class="font-semibold text-gray-900 mb-2 text-base">
+                            {item.title}
+                          </h4>
+                          <p class="text-gray-600 text-sm leading-relaxed">
+                            {item.content}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Bottom CTA -->
+    <div class="text-center mt-16">
+      <p class="text-gray-600 mb-6">¿Necesitas más información sobre nuestras características?</p>
+      <button class="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+        <span>Explorar todas las características</span>
+        <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Enhanced Script -->
+  <script set:html={accordionScript} />
+  
+  <style>
+    .accordion-item.is-active .accordion-arrow {
+      transform: rotate(180deg);
+    }
+    
+    .accordion-item.is-active .accordion-header {
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+    }
+    
+    .accordion-item.is-active .accordion-content {
+      max-height: 1000px;
+    }
+    
+    /* Hover animations */
+    .accordion-item:hover {
+      transform: translateY(-4px);
+    }
+    
+    .accordion-item.is-active {
+      transform: translateY(-2px);
+    }
+    
+    /* Smooth transitions for all interactive elements */
+    .accordion-item,
+    .accordion-header,
+    .accordion-content,
+    .accordion-arrow {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Custom scrollbar for content */
+    .accordion-content::-webkit-scrollbar {
+      width: 4px;
+    }
+    
+    .accordion-content::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 2px;
+    }
+    
+    .accordion-content::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 2px;
+    }
+    
+    .accordion-content::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</section>

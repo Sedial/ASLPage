@@ -1,0 +1,59 @@
+---
+import Button from '../ui/Button.astro';
+
+// Load pricing data
+const pricingData = await import('../../data/pricing.json');
+const { headline, subheadline, tiers } = pricingData;
+---
+
+<section class="section bg-white" id="pricing">
+  <div class="container">
+    <div class="section-heading">
+      <h2 class="section-title">{headline}</h2>
+      <p class="section-subtitle">{subheadline}</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+      {tiers.map((tier) => (
+        <div class={`relative flex flex-col rounded-lg border ${tier.popular ? 'border-primary-600 shadow-lg' : 'border-gray-200'} p-6 lg:p-8`}>
+          {tier.popular && (
+            <div class="absolute -top-4 left-0 right-0 mx-auto w-32 rounded-full bg-primary-600 px-3 py-1 text-xs font-medium text-white text-center">
+              Most Popular
+            </div>
+          )}
+          
+          <div class="mb-5">
+            <h3 class="text-xl font-bold">{tier.name}</h3>
+            <p class="mt-2 text-gray-600">{tier.description}</p>
+          </div>
+          
+          <div class="mb-6">
+            <span class="text-4xl font-bold">{tier.price}</span>
+            <span class="text-gray-600">/month</span>
+          </div>
+          
+          <ul class="mb-8 space-y-3">
+            {tier.features.map((feature) => (
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-primary-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          
+          <div class="mt-auto">
+            <Button 
+              href={tier.cta.href} 
+              variant={tier.popular ? 'primary' : 'outline'}
+              class="w-full justify-center"
+            >
+              {tier.cta.text}
+            </Button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

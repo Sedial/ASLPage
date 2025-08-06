@@ -1,0 +1,386 @@
+---
+import Button from '../ui/Button.astro';
+
+// Load navigation from the JSON data
+const navigationData = await import('../../data/navigation.json');
+const mainNav = navigationData.mainNav || [];
+
+interface Props {
+  transparent?: boolean;
+}
+
+const { transparent = false } = Astro.props;
+
+// Helper function to determine active link
+const isActive = (href: string) => {
+  if (typeof window === 'undefined') return false;
+  return window.location.pathname === href;
+};
+---
+
+<nav class={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 backdrop-blur-xl transition-all duration-500 ${
+  transparent 
+    ? 'bg-white/5 border-white/10' 
+    : 'bg-white/90 border-gray-200/20'
+} border-b shadow-lg hover:shadow-2xl mx-2 sm:mx-4 my-2 rounded-full`}>
+  
+  <!-- Logo con animación mejorada -->
+  <div class="flex items-center">
+    <a href="/" class="flex items-center space-x-2 sm:space-x-3 group relative">
+      <!-- Efecto de resplandor -->
+      <div class="absolute -inset-2 bg-gradient-to-r from-primary-500/20 to-primary-600/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+      
+      <!-- Logo responsivo -->
+      <img src="/images/logo.webp" alt="ASL Logo" class="w-10 h-10 sm:w-12 sm:h-12 object-contain transition-all duration-500 group-hover:scale-110" />
+      
+      <div class="flex flex-col">
+        <span class={`text-xl sm:text-2xl font-black tracking-tight transition-all duration-500 ${
+          transparent ? 'text-white' : 'text-gray-900'
+        } group-hover:text-primary-500`}>
+          ASL
+        </span>
+        <span class={`text-xs font-medium opacity-60 transition-all duration-500 ${
+          transparent ? 'text-white/80' : 'text-gray-500'
+        } group-hover:opacity-100`}>
+          Innovation
+        </span>
+      </div>
+    </a>
+  </div>
+
+  <!-- Desktop Navigation con efectos mejorados -->
+  <div class="hidden lg:flex items-center space-x-2">
+    <ul class="flex space-x-1">
+      {mainNav.map((item) => (
+        <li class="relative group">
+          <a 
+            href={item.href}
+            class={`relative px-4 xl:px-5 py-2.5 xl:py-3 rounded-full text-sm font-semibold transition-all duration-400 overflow-hidden ${
+              transparent 
+                ? 'text-white/90 hover:text-white hover:bg-white/15' 
+                : 'text-gray-500 hover:text-primary-500 hover:bg-gradient-to-r hover:from-primary-50 hover:to-primary-100'
+            } ${
+              isActive(item.href) 
+                ? transparent 
+                  ? 'text-white bg-white/20 shadow-lg' 
+                  : 'text-primary-500 bg-gradient-to-r from-primary-50 to-primary-100 shadow-lg font-bold'
+                : ''
+            }`}
+          >
+            <span class="relative z-10 tracking-wide">{item.title}</span>
+            
+            <!-- Efecto de hover con gradiente animado -->
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-500/0 via-primary-600/10 to-primary-500/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
+            
+            <!-- Indicador activo animado -->
+            {isActive(item.href) && (
+              <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-primary-500 rounded-full animate-pulse"></div>
+            )}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Botón CTA mejorado -->
+    <div class="ml-6 xl:ml-8 flex items-center space-x-4">
+      <Button 
+        href="/contacto" 
+        variant={transparent ? 'outline-white' : 'primary'}
+        class="relative px-6 xl:px-8 py-2.5 xl:py-3 text-sm font-bold rounded-full transform transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:-translate-y-1 group overflow-hidden"
+      >
+        <span class="relative z-10">Solicitar Demo</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left"></div>
+      </Button>
+    </div>
+  </div>
+
+  <!-- Mobile menu button mejorado -->
+  <div class="lg:hidden">
+    <button 
+      id="mobile-menu-button" 
+      class={`relative p-2.5 sm:p-3 rounded-full transition-all duration-400 hover:scale-110 active:scale-95 focus:outline-none ${
+        transparent 
+          ? 'text-white hover:bg-white/20' 
+          : 'text-gray-500 hover:bg-primary-50 hover:text-primary-500'
+      }`}
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <!-- Hamburger animado -->
+      <div class="w-5 h-5 sm:w-6 sm:h-6 relative">
+        <span class="hamburger-line absolute left-0 top-0.5 sm:top-1 w-5 sm:w-6 h-0.5 bg-current rounded-full transition-all duration-300"></span>
+        <span class="hamburger-line absolute left-0 top-2 sm:top-2.5 w-5 sm:w-6 h-0.5 bg-current rounded-full transition-all duration-300"></span>
+        <span class="hamburger-line absolute left-0 top-3.5 sm:top-4 w-5 sm:w-6 h-0.5 bg-current rounded-full transition-all duration-300"></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Mobile menu premium -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 lg:hidden transform transition-all duration-500 opacity-0 invisible">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" id="mobile-menu-backdrop"></div>
+    
+    <!-- Menu Container -->
+    <div class="absolute top-20 left-4 right-4 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-200/50 overflow-hidden transform transition-all duration-500 scale-95 translate-y-4" id="mobile-menu-container">
+      
+      <!-- Header elegante -->
+      <div class="bg-gradient-to-r from-primary-500/5 to-primary-600/5 px-6 py-4 border-b border-gray-200/30">
+        <div class="flex items-center space-x-3">
+          <div class="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></div>
+          <span class="text-lg font-bold text-gray-900">Navegación</span>
+        </div>
+      </div>
+
+      <!-- Enlaces del menú con mejor diseño -->
+      <div class="p-6">
+        <ul class="space-y-2 mb-6">
+          {mainNav.map((item, index) => (
+            <li style={`animation-delay: ${index * 80}ms`} class="mobile-menu-item">
+              <a
+                href={item.href}
+                class={`flex items-center justify-between px-4 py-4 rounded-2xl transition-all duration-300 group relative overflow-hidden ${
+                  isActive(item.href) 
+                    ? 'bg-gradient-to-r from-primary-50 to-primary-100 text-primary-600 font-bold shadow-lg border border-primary-200/50' 
+                    : 'text-gray-600 hover:bg-gradient-to-r hover:from-gray-50 hover:to-primary-50 hover:text-primary-600'
+                }`}
+              >
+                <!-- Efecto de fondo animado -->
+                <div class="absolute inset-0 bg-gradient-to-r from-primary-500/0 via-primary-500/5 to-primary-500/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-center"></div>
+                
+                <div class="flex items-center space-x-3 relative z-10">
+                  <!-- Indicador activo -->
+                  {isActive(item.href) && (
+                    <div class="w-2 h-2 bg-primary-500 rounded-full"></div>
+                  )}
+                  {!isActive(item.href) && (
+                    <div class="w-2 h-2 bg-gray-300 rounded-full group-hover:bg-primary-400 transition-colors duration-300"></div>
+                  )}
+                  <span class="text-base font-semibold">{item.title}</span>
+                </div>
+                
+                <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <!-- Botón CTA móvil mejorado -->
+        <div class="pt-4 border-t border-gray-200/50">
+          <Button
+            href="/contacto"
+            variant="primary"
+            class="w-full justify-center px-6 py-4 text-base font-bold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700"
+          >
+            <span class="flex items-center space-x-2">
+              <span>Solicitar Demo</span>
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </span>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  
+  /* Mobile menu animations mejoradas */
+  #mobile-menu.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  #mobile-menu.show #mobile-menu-container {
+    transform: scale(1) translateY(0);
+  }
+  
+  .mobile-menu-item {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: slideInUp 0.4s ease-out forwards;
+  }
+  
+  @keyframes slideInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Hamburger animation mejorada */
+  #mobile-menu-button.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+  }
+  
+  #mobile-menu-button.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+  }
+  
+  #mobile-menu-button.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+  }
+  
+  /* Scroll effects - TUS ANIMACIONES ORIGINALES */
+  .navbar-scrolled {
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1) !important;
+    border-color: rgba(229, 231, 235, 0.3) !important;
+  }
+  
+  .navbar-scrolled.transparent {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  /* Mejoras responsivas */
+  @media (max-width: 640px) {
+    nav {
+      margin: 0.25rem;
+      padding: 0.75rem 1rem;
+    }
+  }
+
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
+  /* Touch improvements */
+  @media (hover: none) and (pointer: coarse) {
+    .group:hover .group-hover\:scale-110 {
+      transform: scale(1);
+    }
+    
+    .group:active .group-hover\:scale-110 {
+      transform: scale(1.05);
+    }
+  }
+</style>
+
+<script>
+  // Enhanced mobile menu functionality
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+  let isMenuOpen = false;
+
+  function toggleMobileMenu() {
+    isMenuOpen = !isMenuOpen;
+    
+    if (isMenuOpen) {
+      mobileMenu?.classList.add('show');
+      menuButton?.classList.add('active');
+      menuButton?.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
+      // Prevent scroll restoration
+      document.body.style.top = `-${window.scrollY}px`;
+    } else {
+      mobileMenu?.classList.remove('show');
+      menuButton?.classList.remove('active');
+      menuButton?.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+      // Restore scroll position
+      const scrollY = document.body.style.top;
+      document.body.style.top = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+  }
+
+  // Event listeners
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobileMenu();
+    });
+  }
+
+  // Close menu when clicking on backdrop
+  mobileMenuBackdrop?.addEventListener('click', toggleMobileMenu);
+
+  // Close when clicking on navigation links
+  const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (isMenuOpen) {
+        setTimeout(toggleMobileMenu, 150); // Small delay for better UX
+      }
+    });
+  });
+
+  // TUS ANIMACIONES DE SCROLL ORIGINALES MANTENIDAS
+  let lastScrollY = window.scrollY;
+  let isScrollingUp = false;
+
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    const currentScrollY = window.scrollY;
+    
+    // Determine scroll direction
+    isScrollingUp = currentScrollY < lastScrollY;
+    lastScrollY = currentScrollY;
+
+    if (nav) {
+      if (currentScrollY > 50) {
+        nav.classList.add('navbar-scrolled');
+        
+        // Hide navbar when scrolling down, show when scrolling up
+        if (isScrollingUp || currentScrollY < 100) {
+          nav.style.transform = 'translateY(0)';
+        } else {
+          nav.style.transform = 'translateY(-100%)';
+        }
+      } else {
+        nav.classList.remove('navbar-scrolled');
+        nav.style.transform = 'translateY(0)';
+      }
+    }
+  });
+
+  // Handle escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isMenuOpen) {
+      toggleMobileMenu();
+    }
+  });
+
+  // Handle resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      if (window.innerWidth >= 1024 && isMenuOpen) {
+        toggleMobileMenu();
+      }
+    }, 250);
+  });
+
+  // TU INTERSECTION OBSERVER ORIGINAL MANTENIDO
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, observerOptions);
+
+  // Observe mobile menu items for staggered animation
+  document.querySelectorAll('.mobile-menu-item').forEach(item => {
+    observer.observe(item);
+  });
+</script>

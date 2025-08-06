@@ -1,0 +1,64 @@
+---
+import Button from '../ui/Button.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  primaryCTA?: {
+    text: string;
+    href: string;
+  };
+  secondaryCTA?: {
+    text: string;
+    href: string;
+  };
+  background?: 'light' | 'dark' | 'gradient';
+}
+
+const {
+  title = 'Ready to get started?',
+  description = 'Join thousands of satisfied customers who are already using our landing page template to grow their business.',
+  primaryCTA = {
+    text: 'Get Started',
+    href: '/contact',
+  },
+  secondaryCTA = {
+    text: 'Contact Sales',
+    href: '/contact',
+  },
+  background = 'gradient',
+} = Astro.props;
+
+const backgroundClasses = {
+  light: 'bg-white',
+  dark: 'bg-gray-900 text-white',
+  gradient: 'bg-gradient-to-r from-primary-600 to-secondary-600 text-white',
+};
+---
+
+<section class={`py-16 md:py-24 ${backgroundClasses[background]}`}>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
+    <p class="text-lg max-w-2xl mx-auto mb-8 opacity-90">{description}</p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <Button 
+        href={primaryCTA.href} 
+        variant={background === 'gradient' ? 'ghost' : 'primary'}
+        size="lg"
+        class={background === 'gradient' ? 'bg-white/10 hover:bg-white/20 text-white border-white' : ''}
+      >
+        {primaryCTA.text}
+      </Button>
+      
+      <Button 
+        href={secondaryCTA.href} 
+        variant={background === 'gradient' ? 'outline' : 'ghost'}
+        size="lg"
+        class={background === 'gradient' ? 'border-white text-white hover:bg-white/10' : ''}
+      >
+        {secondaryCTA.text}
+      </Button>
+    </div>
+  </div>
+</section>

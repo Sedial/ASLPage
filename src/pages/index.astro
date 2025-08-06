@@ -1,0 +1,42 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Features from '../components/sections/Features.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import Pricing from '../components/sections/Pricing.astro';
+import CTA from '../components/sections/CTA.astro';
+import Blog from '../components/sections/Blog.astro';
+import blogData from '../data/blog.json';
+
+// Get the 3 most recent blog posts
+const recentPosts = [...blogData.posts]
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 3);
+---
+
+<LandingLayout 
+  title="ASL Logística - Operadores Logísticos en Colombia" 
+  description="ASL Logística, empresa 4PL con más de 16 años de experiencia en soluciones logísticas integrales a nivel nacional e internacional"
+>  
+  <Hero 
+    title="Soluciones logísticas integrales para su negocio"
+    subtitle="Somos una empresa de logística 4PL con más de 16 años de experiencia, especializada en ofrecer soluciones a la medida en toda la cadena de suministro nacional e internacional."
+    primaryCTA={{ text: 'Solicitar Cotización', href: '/contact' }}
+    secondaryCTA={{ text: 'Nuestros Servicios', href: '#features' }}
+  />
+  
+  <Features id="features" />
+  
+  <Testimonials />
+  
+  <Pricing />
+  
+  <Blog posts={recentPosts} />
+  
+  <CTA 
+    title="Ready to get started?" 
+    description="Contact us today to learn how we can help your business grow."
+    primaryCTA={{ text: 'Contact Us', href: '/contact' }}
+    secondaryCTA={{ text: 'View Services', href: '/services' }}
+  />
+</LandingLayout>

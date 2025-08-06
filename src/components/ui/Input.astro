@@ -1,0 +1,59 @@
+---
+interface Props {
+  type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'search' | 'date';
+  id: string;
+  name: string;
+  label?: string;
+  placeholder?: string;
+  value?: string | number;
+  required?: boolean;
+  disabled?: boolean;
+  error?: string;
+  helperText?: string;
+  class?: string;
+}
+
+const {
+  type = 'text',
+  id,
+  name,
+  label,
+  placeholder,
+  value,
+  required = false,
+  disabled = false,
+  error,
+  helperText,
+  class: className = ''
+} = Astro.props;
+---
+
+<div class={`mb-4 ${className}`}>
+  {label && (
+    <label for={id} class="block mb-2 text-sm font-medium text-gray-900">
+      {label}{required && <span class="text-red-500 ml-1">*</span>}
+    </label>
+  )}
+  <input
+    type={type}
+    id={id}
+    name={name}
+    class={`bg-gray-50 border ${error ? 'border-red-500' : 'border-gray-300'} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ${disabled ? 'cursor-not-allowed bg-gray-100' : ''}`}
+    placeholder={placeholder}
+    value={value}
+    required={required}
+    disabled={disabled}
+    aria-describedby={error ? `${id}-error` : helperText ? `${id}-helper` : undefined}
+    aria-invalid={error ? 'true' : undefined}
+  />
+  {error && (
+    <p id={`${id}-error`} class="mt-2 text-sm text-red-600">
+      {error}
+    </p>
+  )}
+  {!error && helperText && (
+    <p id={`${id}-helper`} class="mt-2 text-sm text-gray-500">
+      {helperText}
+    </p>
+  )}
+</div>
