@@ -1,0 +1,66 @@
+{
+  "headline": "Nuestro Proceso Logístico",
+  "subheadline": "Un flujo optimizado que garantiza eficiencia y transparencia en cada etapa de la cadena de suministro",
+  "steps": [
+    {
+      "id": 1,
+      "title": "Recepción y Verificación",
+      "description": "Recibimos tu mercancía con protocolos estrictos de calidad y verificación de inventario en tiempo real.",
+      "icon": "inbox",
+      "technologies": ["Sistema WMS", "Códigos QR", "Verificación Digital"],
+      "duration": "2-4 horas",
+      "color": "primary"
+    },
+    {
+      "id": 2,
+      "title": "Almacenamiento Inteligente",
+      "description": "Ubicación estratégica en nuestras bodegas con control de temperatura, humedad y seguridad 24/7.",
+      "icon": "warehouse",
+      "technologies": ["Control Climático", "CCTV", "Sistema FIFO"],
+      "duration": "Según necesidad",
+      "color": "secondary"
+    },
+    {
+      "id": 3,
+      "title": "Preparación de Pedidos",
+      "description": "Picking y packing automatizado con verificación múltiple para garantizar precisión del 99.8%.",
+      "icon": "package",
+      "technologies": ["Picking Automático", "Verificación Dual", "Etiquetado Inteligente"],
+      "duration": "1-3 horas",
+      "color": "accent-green"
+    },
+    {
+      "id": 4,
+      "title": "Planificación de Rutas",
+      "description": "Optimización de rutas con IA para reducir tiempos y costos, considerando tráfico y condiciones climáticas.",
+      "icon": "route",
+      "technologies": ["IA de Rutas", "GPS Avanzado", "Predicción Climática"],
+      "duration": "30 minutos",
+      "color": "accent-yellow"
+    },
+    {
+      "id": 5,
+      "title": "Transporte y Seguimiento",
+      "description": "Flota especializada con tracking en tiempo real y comunicación constante con el cliente.",
+      "icon": "truck",
+      "technologies": ["GPS en Tiempo Real", "Sensores IoT", "Comunicación 24/7"],
+      "duration": "Según distancia",
+      "color": "primary"
+    },
+    {
+      "id": 6,
+      "title": "Entrega y Confirmación",
+      "description": "Entrega certificada con firma digital, fotografías y confirmación inmediata al cliente.",
+      "icon": "check",
+      "technologies": ["Firma Digital", "Fotografía de Entrega", "Notificación Automática"],
+      "duration": "15 minutos",
+      "color": "accent-green"
+    }
+  ],
+  "metrics": {
+    "accuracy": "99.8%",
+    "onTimeDelivery": "96.5%",
+    "customerSatisfaction": "98.2%",
+    "processingTime": "< 4 horas"
+  }
+}
