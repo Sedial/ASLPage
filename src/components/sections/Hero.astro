@@ -29,12 +29,51 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative pt-28 lg:pt-32 min-h-[95vh] flex items-center bg-white overflow-hidden">
-  <!-- Elementos decorativos de fondo -->
+<section class="relative pt-28 lg:pt-32 min-h-[95vh] flex items-center bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+  <!-- Elementos decorativos de fondo modernos -->
   <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute top-20 right-10 w-32 h-32 bg-primary-50 rounded-full opacity-60 bg-decoration"></div>
-    <div class="absolute bottom-20 left-10 w-24 h-24 bg-secondary-50 rounded-full opacity-40 bg-decoration"></div>
-    <div class="absolute top-1/2 right-1/4 w-16 h-16 bg-accent-yellow opacity-20 rounded-full bg-decoration"></div>
+    <!-- Gradiente de fondo principal -->
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-50/30 via-transparent to-secondary-50/20"></div>
+    
+    <!-- Formas geométricas grandes - Ocultas en móvil -->
+    <div class="hidden md:block absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full opacity-30 blur-3xl animate-pulse-slow"></div>
+    <div class="hidden md:block absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-secondary-100 to-secondary-200 rounded-full opacity-25 blur-3xl animate-float"></div>
+    
+    <!-- Elementos geométricos medianos - Reducidos en móvil -->
+    <div class="absolute top-20 right-4 md:right-20 w-16 h-16 md:w-32 md:h-32 bg-gradient-to-br from-primary-200 to-primary-300 rounded-2xl md:rounded-3xl opacity-20 md:opacity-40 transform rotate-12 animate-float-delayed"></div>
+    <div class="absolute bottom-32 left-4 md:left-16 w-12 h-12 md:w-24 md:h-24 bg-gradient-to-tr from-accent-yellow to-orange-200 rounded-xl md:rounded-2xl opacity-30 md:opacity-50 transform -rotate-12 animate-float"></div>
+    
+    <!-- Elementos pequeños dinámicos - Simplificados en móvil -->
+    <div class="hidden lg:block absolute top-1/3 right-1/4 w-16 h-16 bg-gradient-to-br from-primary-300 to-primary-400 rounded-full opacity-30 animate-bounce-slow"></div>
+    <div class="hidden lg:block absolute top-2/3 left-1/3 w-12 h-12 bg-gradient-to-br from-secondary-300 to-secondary-400 rounded-lg opacity-40 transform rotate-45 animate-spin-slow"></div>
+    
+    <!-- Líneas decorativas - Solo en desktop -->
+    <div class="hidden md:block absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent opacity-30"></div>
+    <div class="hidden md:block absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary-200 to-transparent opacity-20"></div>
+    
+    <!-- Patrón de puntos - Solo en desktop -->
+    <div class="hidden lg:block absolute top-16 left-1/4 grid grid-cols-3 gap-2 opacity-20">
+      <div class="w-2 h-2 bg-primary-400 rounded-full"></div>
+      <div class="w-2 h-2 bg-primary-300 rounded-full"></div>
+      <div class="w-2 h-2 bg-primary-400 rounded-full"></div>
+      <div class="w-2 h-2 bg-primary-300 rounded-full"></div>
+      <div class="w-2 h-2 bg-primary-400 rounded-full"></div>
+      <div class="w-2 h-2 bg-primary-300 rounded-full"></div>
+    </div>
+    
+    <!-- Hexágonos decorativos - Solo en desktop -->
+    <div class="hidden lg:block absolute bottom-16 right-1/3 opacity-25">
+      <svg width="40" height="40" viewBox="0 0 40 40" class="text-secondary-400 animate-spin-slow">
+        <polygon points="20,2 35,12 35,28 20,38 5,28 5,12" fill="currentColor" opacity="0.6"/>
+      </svg>
+    </div>
+    
+    <!-- Triángulos modernos - Solo en desktop -->
+    <div class="hidden lg:block absolute top-1/2 left-8 opacity-30">
+      <svg width="30" height="30" viewBox="0 0 30 30" class="text-accent-yellow animate-pulse">
+        <polygon points="15,5 25,25 5,25" fill="currentColor"/>
+      </svg>
+    </div>
   </div>
 
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -66,18 +105,18 @@ const {
         </div>
         
         <!-- Estadísticas clave -->
-        <div class="hero-stats grid grid-cols-3 gap-4 py-6">
+        <div class="hero-stats grid grid-cols-3 gap-6 py-8">
           <div class="stat-item text-center">
-            <div class="stat-number text-3xl font-bold text-primary-600">16+</div>
-            <div class="text-xs text-gray-500 font-medium">Años</div>
+            <div class="stat-number text-4xl lg:text-5xl font-bold text-primary-600">16+</div>
+            <div class="text-sm text-gray-500 font-medium">Años</div>
           </div>
           <div class="stat-item text-center">
-            <div class="stat-number text-3xl font-bold text-primary-600">3</div>
-            <div class="text-xs text-gray-500 font-medium">Ciudades</div>
+            <div class="stat-number text-4xl lg:text-5xl font-bold text-primary-600">100%</div>
+            <div class="text-sm text-gray-500 font-medium">Presencia Nacional</div>
           </div>
           <div class="stat-item text-center">
-            <div class="stat-number text-3xl font-bold text-primary-600">24/7</div>
-            <div class="text-xs text-gray-500 font-medium">Servicio</div>
+            <div class="stat-number text-4xl lg:text-5xl font-bold text-primary-600">24/7</div>
+            <div class="text-sm text-gray-500 font-medium">Servicio</div>
           </div>
         </div>
         
@@ -109,36 +148,46 @@ const {
       <div class="lg:col-span-5 relative">
         <!-- Contenedor principal de imágenes -->
         <div class="hero-image relative">
+          <!-- Efectos de fondo para la imagen - Simplificado en móvil -->
+          <div class="hidden md:block absolute inset-0 bg-gradient-to-br from-primary-100/20 to-secondary-100/20 rounded-3xl blur-xl transform scale-110 opacity-50"></div>
+          
           <!-- Imagen Principal Central -->
-          <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 shadow-2xl z-10">
+          <div class="relative bg-gradient-to-br from-white via-gray-50 to-blue-50/30 rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-xl md:shadow-2xl hover:shadow-2xl md:hover:shadow-3xl transition-all duration-500 z-10 border border-white/50 backdrop-blur-sm">
+            <!-- Efecto de brillo superior - Solo en desktop -->
+            <div class="hidden md:block absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-60"></div>
+            
+            <!-- Decoración esquina superior - Reducida en móvil -->
+            <div class="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-4 h-4 md:w-6 md:h-6 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full opacity-60 md:opacity-80 animate-pulse"></div>
+            <div class="absolute -top-0.5 -right-0.5 md:-top-1 md:-right-1 w-2 h-2 md:w-3 md:h-3 bg-white rounded-full"></div>
+            
             <img 
               src="/images/hero/hero1.webp" 
               alt="Soluciones logísticas ASL - Almacenamiento y distribución profesional"
-              class="w-full h-auto object-contain rounded-2xl"
+              class="w-full h-auto object-contain rounded-xl md:rounded-2xl transform hover:scale-105 transition-transform duration-500"
               loading="eager"
             />
             
             <!-- Badge flotante "En línea" -->
-            <div class="floating-badge absolute top-6 left-6 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg z-20">
-              <div class="flex items-center gap-2">
-                <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+            <div class="floating-badge absolute top-3 left-3 sm:top-6 sm:left-6 bg-green-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium shadow-lg z-20">
+              <div class="flex items-center gap-1.5 sm:gap-2">
+                <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse"></div>
                 En línea
               </div>
             </div>
             
             <!-- Card flotante de estadística -->
-            <div class="floating-stat absolute bottom-6 right-6 bg-white rounded-xl shadow-xl p-4 backdrop-blur-sm bg-white/95 z-20">
-              <div class="text-2xl font-bold text-primary-600">99.8%</div>
-              <div class="text-sm text-gray-600">Entregas perfectas</div>
+            <div class="floating-stat absolute bottom-3 right-3 sm:bottom-6 sm:right-6 bg-white rounded-lg sm:rounded-xl shadow-xl p-3 sm:p-4 backdrop-blur-sm bg-white/95 z-20">
+              <div class="text-xl sm:text-2xl font-bold text-primary-600">99.8%</div>
+              <div class="text-xs sm:text-sm text-gray-600">Entregas perfectas</div>
             </div>
           </div>
 
-          <!-- Imágenes Flat Decorativas Profesionales -->
+          <!-- Imágenes Flat Decorativas Profesionales - Solo en Desktop -->
           <!-- Imagen Almacenamiento - Superior Izquierda -->
           <img 
             src="/images/hero/almacenamiento.webp" 
             alt="Almacenamiento - Soluciones de bodegaje ASL"
-            class="absolute -top-12 -left-16 w-16 h-16 z-5 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 drop-shadow-lg"
+            class="hidden lg:block absolute -top-12 -left-16 w-16 h-16 z-5 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 drop-shadow-lg"
             loading="lazy"
           />
 
@@ -146,7 +195,7 @@ const {
           <img 
             src="/images/hero/inventario.webp" 
             alt="Inventarios - Gestión de stock ASL"
-            class="absolute -top-12 -right-16 w-16 h-16 z-5 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 drop-shadow-lg"
+            class="hidden lg:block absolute -top-12 -right-16 w-16 h-16 z-5 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 drop-shadow-lg"
             loading="lazy"
           />
 
@@ -154,14 +203,14 @@ const {
           <img 
             src="/images/hero/distribucion.webp" 
             alt="Distribución - Logística de entrega ASL"
-            class="absolute -bottom-12 -left-16 w-16 h-16 z-5 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 drop-shadow-lg"
+            class="hidden lg:block absolute -bottom-12 -left-16 w-16 h-16 z-5 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 drop-shadow-lg"
             loading="lazy"
           />
         </div>
         
-        <!-- Elementos decorativos adicionales -->
-        <div class="absolute -top-4 -right-4 w-8 h-8 bg-accent-yellow rounded-full opacity-80 bg-decoration"></div>
-        <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-primary-200 rounded-full opacity-60 bg-decoration"></div>
+        <!-- Elementos decorativos adicionales - Reducidos en móvil -->
+        <div class="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-4 h-4 sm:w-8 sm:h-8 bg-accent-yellow rounded-full opacity-60 sm:opacity-80 bg-decoration"></div>
+        <div class="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-3 h-3 sm:w-6 sm:h-6 bg-primary-200 rounded-full opacity-40 sm:opacity-60 bg-decoration"></div>
       </div>
       
     </div>
@@ -219,6 +268,66 @@ const {
     50% {
       opacity: 0.8;
     }
+  }
+
+  /* Nuevas animaciones para elementos decorativos modernos */
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes float-delayed {
+    0%, 100% {
+      transform: translateY(0px) rotate(12deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(12deg);
+    }
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Aplicar nuevas animaciones */
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float-delayed 5s ease-in-out infinite 2s;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
   }
 
   /* Aplicar animaciones */
@@ -291,6 +400,100 @@ const {
     .hero-subtitle {
       font-size: 1.125rem;
     }
+
+    /* Ajustes específicos para móvil */
+    .hero-image {
+      margin-top: 2rem;
+    }
+
+    /* Reducir animación de flotación en móvil */
+    .floating-badge,
+    .floating-stat {
+      animation: none;
+    }
+
+    /* Reducir animaciones decorativas en móvil para mejor rendimiento */
+    .animate-pulse-slow,
+    .animate-float,
+    .animate-float-delayed,
+    .animate-bounce-slow,
+    .animate-spin-slow {
+      animation: none;
+    }
+
+    /* Simplificar fondo en móvil */
+    section {
+      padding-top: 6rem;
+      min-height: 90vh;
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+    }
+
+    /* Simplificar elementos decorativos en móvil */
+    .absolute[class*="blur-"] {
+      display: none;
+    }
+
+    /* Optimizar imagen principal en móvil */
+    .hero-image > div {
+      backdrop-filter: none;
+      border: none;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Ajustar métricas en móvil */
+    .hero-stats {
+      gap: 1rem;
+      padding: 1.5rem 0;
+    }
+
+    .stat-number {
+      font-size: 2.5rem !important;
+      line-height: 1.1;
+    }
+
+    .stat-item div:last-child {
+      font-size: 0.75rem;
+    }
+
+    /* Optimizar badges flotantes en móvil */
+    .floating-badge {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      font-size: 0.75rem;
+      padding: 0.375rem 0.75rem;
+    }
+
+    .floating-stat {
+      position: absolute;
+      bottom: 0.75rem;
+      right: 0.75rem;
+      padding: 0.75rem;
+    }
+
+    .floating-stat .text-xl {
+      font-size: 1.25rem;
+    }
+
+    .floating-stat .text-xs {
+      font-size: 0.625rem;
+    }
+  }
+
+  /* Ajustes para pantallas muy pequeñas */
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    /* Reducir padding del contenedor principal */
+    .hero-image > div {
+      padding: 1.5rem;
+    }
   }
 
   /* Scroll reveal effect */
@@ -330,21 +533,53 @@ const {
     });
 
     // Contador animado para estadísticas
-    function animateCounter(element, target, duration = 2000) {
-      let start = 0;
-      const increment = target / (duration / 16);
+    function animateCounter(element, originalText, duration = 2000) {
+      const text = originalText.trim();
       
-      function updateCounter() {
-        start += increment;
-        if (start < target) {
-          element.textContent = Math.floor(start) + (target === 16 ? '+' : target === 3 ? '' : '/7');
-          requestAnimationFrame(updateCounter);
-        } else {
-          element.textContent = target + (target === 16 ? '+' : target === 3 ? '' : '/7');
+      // Manejar diferentes tipos de contadores
+      if (text.includes('+')) {
+        // Para "16+"
+        const target = parseInt(text);
+        let start = 0;
+        const increment = target / (duration / 16);
+        
+        function updateCounter() {
+          start += increment;
+          if (start < target) {
+            element.textContent = Math.floor(start) + '+';
+            requestAnimationFrame(updateCounter);
+          } else {
+            element.textContent = target + '+';
+          }
         }
+        updateCounter();
+        
+      } else if (text.includes('%')) {
+        // Para "100%"
+        const target = parseInt(text);
+        let start = 0;
+        const increment = target / (duration / 16);
+        
+        function updateCounter() {
+          start += increment;
+          if (start < target) {
+            element.textContent = Math.floor(start) + '%';
+            requestAnimationFrame(updateCounter);
+          } else {
+            element.textContent = target + '%';
+          }
+        }
+        updateCounter();
+        
+      } else if (text.includes('/')) {
+        // Para "24/7" - animación simple de aparición
+        element.style.opacity = '0';
+        setTimeout(() => {
+          element.style.transition = 'opacity 0.5s ease-in-out';
+          element.style.opacity = '1';
+          element.textContent = text;
+        }, duration / 4);
       }
-      
-      updateCounter();
     }
 
     // Activar contadores cuando sean visibles
@@ -354,8 +589,8 @@ const {
           const statNumber = entry.target.querySelector('.stat-number');
           if (statNumber && !statNumber.classList.contains('animated')) {
             statNumber.classList.add('animated');
-            const value = parseInt(statNumber.textContent);
-            animateCounter(statNumber, value);
+            const originalText = statNumber.textContent;
+            animateCounter(statNumber, originalText);
           }
         }
       });
