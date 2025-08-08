@@ -116,112 +116,574 @@ function getIconSVG(iconName: string) {
 }
 ---
 
-<section class="section bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden" id="process">
-  <!-- Background decorative elements -->
+<section class="section relative overflow-hidden" id="process">
+  <!-- Fondo innovador con efecto 3D y patrones geométricos -->
   <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary-100 rounded-full opacity-20 blur-3xl"></div>
-    <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary-100 rounded-full opacity-20 blur-3xl"></div>
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent-yellow/10 rounded-full opacity-30 blur-3xl"></div>
+    <!-- Gradiente de fondo con efecto de profundidad -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 opacity-90"></div>
+    
+    <!-- Patrón de cuadrícula 3D con efecto de perspectiva -->
+    <div class="absolute inset-0 opacity-5">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <pattern id="grid-pattern" width="50" height="50" patternUnits="userSpaceOnUse">
+          <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#000000" stroke-width="0.5" opacity="0.3"/>
+        </pattern>
+        <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+      </svg>
+    </div>
+    
+    <!-- Elementos decorativos 3D con efecto de flotación -->
+    <div class="absolute top-0 right-0 w-1/3 h-1/3 animate-float-slow">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full opacity-10 drop-shadow-2xl">
+        <path fill="#CA241C" d="M39.9,-65.7C51.1,-58.5,59.5,-46.3,65.2,-33.1C70.9,-19.9,73.9,-5.7,71.8,7.5C69.7,20.7,62.5,32.9,53.1,42.8C43.7,52.7,32.1,60.3,19.1,65.7C6.1,71.1,-8.3,74.3,-22.7,72.1C-37.1,69.9,-51.5,62.3,-60.8,50.5C-70.1,38.7,-74.3,22.7,-74.9,7.1C-75.5,-8.5,-72.5,-23.7,-64.7,-35.8C-56.9,-47.9,-44.3,-56.9,-31.3,-63.2C-18.3,-69.5,-4.9,-73.1,7.7,-71.5C20.3,-69.9,28.7,-72.9,39.9,-65.7Z" transform="translate(100 100)" />
+      </svg>
+    </div>
+    
+    <div class="absolute bottom-0 left-0 w-1/4 h-1/4 animate-float-slow-reverse">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full opacity-10 drop-shadow-2xl">
+        <path fill="#3D5A80" d="M47.7,-73.2C62.1,-67.3,74.5,-54.9,79.8,-40.1C85.1,-25.3,83.3,-8.1,79.9,8.1C76.5,24.3,71.5,39.5,61.8,51.2C52.1,62.9,37.7,71.1,22.2,75.8C6.7,80.5,-9.9,81.7,-24.8,77.1C-39.7,72.5,-52.9,62.1,-63.4,49C-73.9,35.9,-81.7,20.1,-83.2,3.4C-84.7,-13.3,-79.9,-30.8,-69.8,-43.9C-59.7,-57,-44.3,-65.6,-29.5,-71.1C-14.7,-76.6,-0.5,-79,12.8,-77.7C26,-76.4,33.3,-79.1,47.7,-73.2Z" transform="translate(100 100)" />
+      </svg>
+    </div>
+    
+    <div class="absolute top-1/3 left-1/4 w-1/5 h-1/5 animate-float-medium">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full opacity-10 drop-shadow-2xl">
+        <path fill="#F5C06B" d="M42.7,-76.4C53.9,-69.8,61.1,-54.9,68.1,-40.8C75.1,-26.6,82,-13.3,81.9,-0.1C81.8,13.2,74.8,26.3,67.1,39.2C59.4,52,51,64.5,39.1,71.8C27.3,79.1,13.6,81.2,-0.2,81.5C-14,81.8,-28,80.3,-40.9,74.3C-53.8,68.3,-65.5,57.8,-72.3,44.7C-79.1,31.5,-81,15.8,-79.9,0.6C-78.8,-14.5,-74.8,-29,-67.4,-41.8C-60,-54.5,-49.3,-65.5,-36.8,-71.3C-24.2,-77.1,-9.9,-77.7,3.4,-74.1C16.7,-70.5,31.5,-83,42.7,-76.4Z" transform="translate(100 100)" />
+      </svg>
+    </div>
+    
+    <div class="absolute bottom-1/4 right-1/5 w-1/6 h-1/6 animate-float-fast">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full opacity-10 drop-shadow-2xl">
+        <path fill="#A2C8A2" d="M48.2,-75.2C63.9,-69.1,79.5,-59.3,87.5,-45.2C95.5,-31.1,96,-12.7,92.1,4.2C88.3,21.2,80.2,36.8,69.2,49.7C58.2,62.6,44.3,72.8,29.1,77.9C13.9,83,-2.7,83,-18.2,79.1C-33.7,75.3,-48.1,67.6,-59.9,56.5C-71.7,45.4,-80.9,30.9,-85.2,14.7C-89.5,-1.6,-88.9,-19.5,-82.1,-34.5C-75.3,-49.5,-62.3,-61.5,-47.5,-68C-32.7,-74.5,-16.3,-75.5,-0.2,-75.2C16,-74.9,32.5,-81.3,48.2,-75.2Z" transform="translate(100 100)" />
+      </svg>
+    </div>
+    
+    <!-- Líneas de conexión dinámicas -->
+    <div class="absolute inset-0 opacity-10">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#CA241C" stop-opacity="0.3" />
+            <stop offset="50%" stop-color="#3D5A80" stop-opacity="0.3" />
+            <stop offset="100%" stop-color="#A2C8A2" stop-opacity="0.3" />
+          </linearGradient>
+        </defs>
+        <path d="M0,100 Q400,50 800,300 T1600,200" stroke="url(#line-gradient)" stroke-width="2" fill="none" />
+        <path d="M0,300 Q600,400 1200,250 T1600,500" stroke="url(#line-gradient)" stroke-width="1.5" fill="none" />
+        <path d="M0,500 Q300,300 900,400 T1600,300" stroke="url(#line-gradient)" stroke-width="1" fill="none" />
+      </svg>
+    </div>
   </div>
 
   <div class="container mx-auto px-4 max-w-7xl relative z-10">
-    <!-- Header Section -->
-    <div class="text-center mb-20">
-      <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl mb-8 shadow-lg">
-        <svg class="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    <!-- Header Section con diseño 3D y efectos visuales avanzados -->
+    <div class="relative mb-20">
+      <!-- Elementos decorativos del encabezado -->
+      <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-full h-40 opacity-20 overflow-hidden">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="url(#header-gradient)" />
+          <defs>
+            <linearGradient id="header-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#CA241C" />
+              <stop offset="50%" stop-color="#3D5A80" />
+              <stop offset="100%" stop-color="#A2C8A2" />
+            </linearGradient>
+          </defs>
         </svg>
       </div>
-      <h2 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-        {headline}
-      </h2>
-      <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-        {subheadline}
-      </p>
+      
+      <div class="text-center relative">
+        <!-- Icono 3D con efectos de iluminación -->
+        <div class="relative inline-block mb-10 group perspective">
+          <div class="absolute inset-0 rounded-full bg-gradient-to-r from-primary-500 via-accent-yellow to-secondary-500 opacity-70 blur-md group-hover:opacity-100 transition-all duration-700 animate-pulse-slow"></div>
+          <div class="relative inline-flex items-center justify-center w-28 h-28 bg-white rounded-full shadow-2xl transform group-hover:rotate-y-12 transition-transform duration-500">
+            <div class="absolute inset-2 rounded-full bg-gradient-to-br from-gray-50 to-white opacity-80"></div>
+            <div class="absolute inset-0 rounded-full shadow-inner"></div>
+            <svg class="relative w-14 h-14 text-primary-500 transform group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <!-- Efecto de brillo -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white opacity-0 group-hover:opacity-30 blur-xl rounded-full transition-opacity duration-700"></div>
+        </div>
+        
+        <!-- Título con efecto de profundidad y textura -->
+        <h2 class="relative text-5xl lg:text-7xl font-bold mb-8 leading-tight inline-block">
+          <span class="absolute inset-0 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 blur-sm opacity-50 transform -translate-y-1 translate-x-1"></span>
+          <span class="relative bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600">
+            {headline}
+          </span>
+          <!-- Decoración de líneas de conexión -->
+          <div class="absolute -bottom-4 left-0 right-0 h-1 overflow-hidden">
+            <div class="h-full w-full bg-gradient-to-r from-transparent via-primary-500 to-transparent rounded-full animate-pulse-slow"></div>
+          </div>
+        </h2>
+        
+        <!-- Subtítulo con tipografía mejorada y efecto de aparición -->
+        <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-10 animate-fade-in">
+          {subheadline}
+        </p>
+        
+        <!-- Separador decorativo con animación -->
+        <div class="relative h-1 max-w-md mx-auto">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-500 via-accent-yellow to-secondary-500 rounded-full animate-pulse-slow"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent rounded-full opacity-50 animate-pulse-fast"></div>
+        </div>
+      </div>
     </div>
 
-    <!-- Process Steps -->
-    <div class="relative mb-20">
-      <!-- Progress Line -->
-      <div class="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 rounded-full transform -translate-y-1/2 z-0">
-        <div class="progress-line h-full bg-gradient-to-r from-primary-500 to-primary-600 rounded-full transition-all duration-1000 ease-out" style="width: 16.67%;"></div>
-      </div>
+    <!-- Proceso Logístico - Diseño 3D Innovador -->
+    <div class="relative mb-32">
       
-      <!-- Steps Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
-        {steps.map((step, index) => (
-          <div class={`process-step bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border-2 border-transparent hover:border-${step.color}-200 ${index === 0 ? 'active' : ''}`} data-step={step.id}>
-            <!-- Step Number -->
-            <div class="flex items-center justify-between mb-6">
-              <div class={`w-12 h-12 bg-gradient-to-br from-${step.color}-500 to-${step.color}-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg`}>
-                {step.id}
+      <!-- Contenedor 3D con perspectiva -->
+      <div class="relative z-10 perspective-1000">
+        {steps.map((step, index) => {
+          const isEven = index % 2 === 0;
+          const colorMap = {
+            primary: {
+              gradient: 'from-primary-500 to-primary-600',
+              text: 'text-primary-500',
+              border: 'border-primary-500/20',
+              bg: 'bg-primary-50/30',
+              shadow: 'shadow-primary-500/20',
+              glow: 'group-hover:shadow-primary-500/30',
+              solid: 'bg-primary-500'
+            },
+            secondary: {
+              gradient: 'from-secondary-500 to-secondary-600',
+              text: 'text-secondary-500',
+              border: 'border-secondary-500/20',
+              bg: 'bg-secondary-50/30',
+              shadow: 'shadow-secondary-500/20',
+              glow: 'group-hover:shadow-secondary-500/30',
+              solid: 'bg-secondary-500'
+            },
+            'accent-yellow': {
+              gradient: 'from-accent-yellow to-amber-500',
+              text: 'text-amber-600',
+              border: 'border-amber-500/20',
+              bg: 'bg-amber-50/30',
+              shadow: 'shadow-amber-500/20',
+              glow: 'group-hover:shadow-amber-500/30',
+              solid: 'bg-accent-yellow'
+            },
+            'accent-green': {
+              gradient: 'from-accent-green to-green-500',
+              text: 'text-green-600',
+              border: 'border-green-500/20',
+              bg: 'bg-green-50/30',
+              shadow: 'shadow-green-500/20',
+              glow: 'group-hover:shadow-green-500/30',
+              solid: 'bg-accent-green'
+            }
+          }[step.color];
+          
+          return (
+            <div class={`process-step-container ${index === 0 ? 'active' : ''} mb-24 lg:mb-32`} data-step={step.id}>
+              {/* Diseño para escritorio con alternancia de lados */}
+              <div class="hidden lg:flex items-center justify-center relative">
+                {/* Línea conectora diagonal */}
+                {index > 0 && (
+                  <div class="absolute top-0 left-0 right-0 h-32 -mt-32 overflow-hidden">
+                    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d={isEven ? "M0,0 C30,50 70,50 100,100" : "M100,0 C70,50 30,50 0,100"} 
+                            stroke={`url(#gradient-${step.id})`} 
+                            stroke-width="2" 
+                            fill="none" 
+                            stroke-dasharray="5,5" />
+                      <defs>
+                        <linearGradient id={`gradient-${step.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#3D5A80" stop-opacity="0.3" />
+                          <stop offset="100%" stop-color={step.color === 'primary' ? '#CA241C' : 
+                                                step.color === 'secondary' ? '#3D5A80' : 
+                                                step.color === 'accent-yellow' ? '#F5C06B' : '#A2C8A2'} 
+                                stop-opacity="0.7" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                )}
+                
+                {/* Nodo de la línea de tiempo */}
+                <div class={`flex-shrink-0 ${isEven ? 'order-first' : 'order-last'}`}>
+                  <div class="relative">
+                    {/* Círculo exterior con efecto de brillo */}
+                    <div class={`process-node w-20 h-20 rounded-full bg-white border-2 ${colorMap.border} flex items-center justify-center z-20 shadow-lg transition-all duration-500 ${colorMap.shadow} group-hover:scale-110`}>
+                      {/* Efecto de brillo en hover */}
+                      <div class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-50 blur-md transition-opacity duration-500" style={`background: radial-gradient(circle at center, ${step.color === 'primary' ? '#CA241C' : step.color === 'secondary' ? '#3D5A80' : step.color === 'accent-yellow' ? '#F5C06B' : '#A2C8A2'} 0%, transparent 70%)`}></div>
+                      
+                      {/* Círculo interior con número */}
+                      <div class={`w-14 h-14 rounded-full bg-gradient-to-br ${colorMap.gradient} flex items-center justify-center transform transition-transform duration-500 group-hover:scale-105 shadow-inner`}>
+                        <span class="text-white text-xl font-bold">{step.id}</span>
+                      </div>
+                    </div>
+                    
+                    {/* Etiqueta de duración */}
+                    <div class="absolute top-full mt-3 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                      <span class={`text-xs font-medium px-3 py-1.5 rounded-full bg-white shadow-sm ${colorMap.border} ${colorMap.text} backdrop-blur-sm`}>
+                        {step.duration}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Contenido principal con efecto 3D */}
+                <div class={`w-2/5 ${isEven ? 'ml-10' : 'mr-10'}`}>
+                  <div class={`group relative bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden transform hover:-translate-y-1 ${colorMap.glow}`}>
+                    {/* Efecto de brillo en esquina */}
+                    <div class="absolute -top-10 -right-10 w-20 h-20 rounded-full bg-gradient-to-br opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-700" style={`background: radial-gradient(circle at center, ${step.color === 'primary' ? '#CA241C' : step.color === 'secondary' ? '#3D5A80' : step.color === 'accent-yellow' ? '#F5C06B' : '#A2C8A2'} 0%, transparent 70%)`}></div>
+                    
+                    {/* Decoración de fondo */}
+                    <div class="absolute -right-16 -bottom-16 w-48 h-48 rounded-full bg-gradient-to-br from-gray-50 to-gray-100 opacity-50 group-hover:opacity-70 transition-all duration-500"></div>
+                    
+                    <div class="relative">
+                      {/* Imagen del proceso con efecto 3D */}
+                      <div class="relative mb-6 overflow-hidden rounded-xl shadow-md transform group-hover:scale-105 transition-all duration-500">
+                        <img 
+                          src={`/images/process/step${step.id}.webp`} 
+                          alt={step.title} 
+                          class="w-full h-auto object-cover" 
+                          loading="lazy"
+                        />
+                        {/* Overlay con gradiente del color del paso */}
+                        <div class={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-br ${colorMap.gradient}`}></div>
+                      </div>
+                      {/* Encabezado con icono 3D */}
+                      <div class="flex items-start mb-6">
+                        <div class={`flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br ${colorMap.gradient} p-0.5 shadow-lg mr-5 overflow-hidden transform group-hover:rotate-3 transition-transform duration-500`}>
+                          <div class="w-full h-full bg-white rounded-lg flex items-center justify-center">
+                            <svg class={`w-8 h-8 ${colorMap.text}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <Fragment set:html={getIconSVG(step.icon)} />
+                            </svg>
+                          </div>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold text-gray-800 group-hover:text-gray-900 transition-colors duration-300">{step.title}</h3>
+                      </div>
+                      
+                      {/* Descripción con mejor tipografía */}
+                      <p class="text-gray-600 mb-6 leading-relaxed">{step.description}</p>
+                      
+                      {/* Tecnologías con diseño mejorado */}
+                      <div class="space-y-3">
+                        <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wider flex items-center">
+                          <span class={`inline-block w-3 h-3 rounded-full ${colorMap.solid} mr-2`}></span>
+                          Tecnologías Aplicadas
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                          {step.technologies.map((tech) => (
+                            <span class={`text-xs px-3 py-1.5 rounded-lg ${colorMap.bg} ${colorMap.text} border ${colorMap.border} transform transition-transform duration-300 hover:scale-105 hover:shadow-sm`}>
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class={`text-sm font-semibold text-${step.color}-600 bg-${step.color}-50 px-3 py-1 rounded-full`}>
-                {step.duration}
+              
+              {/* Diseño para móvil - Simplificado pero elegante */}
+              <div class="lg:hidden">
+                <div class="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-gray-100 overflow-hidden">
+                  {/* Imagen para móvil */}
+                  <div class="relative mb-4 overflow-hidden rounded-lg shadow-sm">
+                    <img 
+                      src={`/images/process/step${step.id}-mobile.webp`} 
+                      alt={step.title} 
+                      class="w-full h-auto object-cover" 
+                      loading="lazy"
+                    />
+                  </div>
+                  
+                  {/* Cabecera con número e icono */}
+                  <div class="flex items-center mb-4">
+                    <div class={`w-14 h-14 rounded-full bg-gradient-to-br ${colorMap.gradient} flex items-center justify-center shadow-md`}>
+                      <span class="text-white font-bold text-lg">{step.id}</span>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-800">{step.title}</h3>
+                      <span class={`text-xs font-medium px-2 py-1 rounded-full bg-white shadow-sm ${colorMap.border} ${colorMap.text} inline-block mt-1`}>
+                        {step.duration}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  {/* Línea separadora con gradiente */}
+                  <div class="w-full h-0.5 bg-gradient-to-r from-transparent via-gray-200 to-transparent my-4"></div>
+                  
+                  {/* Contenido */}
+                  <div class="space-y-4">
+                    <p class="text-gray-600 leading-relaxed">{step.description}</p>
+                    
+                    <div class="pt-2">
+                      <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 flex items-center">
+                        <svg class={`w-4 h-4 mr-1 ${colorMap.text}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <Fragment set:html={getIconSVG(step.icon)} />
+                        </svg>
+                        Tecnologías
+                      </h4>
+                      <div class="flex flex-wrap gap-1.5">
+                        {step.technologies.map((tech) => (
+                          <span class={`text-xs px-2 py-1 rounded-lg ${colorMap.bg} ${colorMap.text} border ${colorMap.border}`}>
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Conector vertical para móvil */}
+                {index < steps.length - 1 && (
+                  <div class="flex justify-center my-4">
+                    <div class="w-0.5 h-10 bg-gradient-to-b from-gray-300 to-transparent"></div>
+                  </div>
+                )}
               </div>
             </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- Process Metrics - Modern Dashboard Style with 3D Effects -->
+    <div class="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-100 overflow-hidden transform perspective-1000">
+      <!-- Background pattern for metrics section with enhanced 3D depth -->
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-50/80 to-white/80 opacity-70"></div>
+      <div class="absolute inset-0 opacity-5 transform rotate-1" 
+           style="background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%23000000" fill-opacity="0.1" fill-rule="evenodd"/%3E%3C/svg%3E');"></div>
+      
+      <!-- Floating 3D decorative elements -->
+      <div class="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-gradient-to-br from-primary-500/5 to-secondary-500/5 blur-xl animate-float-slow"></div>
+      <div class="absolute top-20 -left-10 w-32 h-32 rounded-full bg-gradient-to-br from-accent-yellow/5 to-accent-green/5 blur-xl animate-float-medium"></div>
+      
+      <div class="relative z-10">
+        <!-- Header with modern typography and 3D effects -->
+        <div class="text-center mb-12">
+          <h3 class="text-3xl lg:text-5xl font-bold mb-4 relative inline-block">
+            <!-- Shadow for 3D text effect -->
+            <span class="absolute inset-0 text-gray-800/10 blur-sm transform translate-x-1 translate-y-1">Resultados que Garantizamos</span>
+            <span class="relative">
+              Resultados que <span class="relative inline-block">
+                <span class="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-500">Garantizamos</span>
+                <span class="absolute -bottom-1 left-0 right-0 h-3 bg-accent-yellow/30 rounded-full -z-10 transform skew-x-3"></span>
+              </span>
+            </span>
+          </h3>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Nuestro proceso optimizado nos permite mantener los más altos estándares de calidad
+          </p>
+          
+          <!-- Decorative separator with 3D effect -->
+          <div class="relative h-1 max-w-md mx-auto mt-8">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-500/50 via-accent-yellow/50 to-secondary-500/50 rounded-full blur-sm"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-500 via-accent-yellow to-secondary-500 rounded-full opacity-70"></div>
+          </div>
+        </div>
+        
+        <!-- Metrics Dashboard with 3D cards -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 perspective">
+          <!-- Accuracy Metric with enhanced 3D effects -->
+          <div class="process-metric relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 hover:rotate-y-3">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-primary-500/5 rounded-full -mr-8 -mt-8 group-hover:bg-primary-500/10 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 w-16 h-16 bg-primary-500/5 rounded-full -ml-6 -mb-6 group-hover:bg-primary-500/10 transition-colors duration-500"></div>
             
-            <!-- Icon -->
-            <div class={`w-16 h-16 bg-${step.color}-100 rounded-2xl flex items-center justify-center mb-6`}>
-              <svg class={`w-8 h-8 text-${step.color}-600`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <Fragment set:html={getIconSVG(step.icon)} />
-              </svg>
-            </div>
-            
-            <!-- Content -->
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
-            <p class="text-gray-600 mb-6 leading-relaxed">{step.description}</p>
-            
-            <!-- Technologies -->
-            <div class="space-y-2">
-              <h4 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Tecnologías:</h4>
-              <div class="flex flex-wrap gap-2">
-                {step.technologies.map((tech) => (
-                  <span class={`text-xs px-3 py-1 bg-${step.color}-50 text-${step.color}-700 rounded-full border border-${step.color}-200`}>
-                    {tech}
-                  </span>
-                ))}
+            <div class="relative">
+              <div class="flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute w-12 h-12 bg-primary-500/10 rounded-full blur-md group-hover:bg-primary-500/20 transition-colors duration-500"></div>
+                <svg class="w-8 h-8 text-primary-500/70 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div class="text-4xl lg:text-5xl font-bold text-primary-500 mb-2 text-center group-hover:scale-105 transition-transform duration-500">{metrics.accuracy}</div>
+              <div class="text-gray-600 font-medium text-center">Precisión en Pedidos</div>
+              <div class="w-full h-2 bg-gray-100 rounded-full mt-4 overflow-hidden shadow-inner">
+                <div class="h-full bg-gradient-to-r from-primary-600 to-primary-500 rounded-full shadow" style="width: 99.8%">
+                  <!-- Shine effect -->
+                  <div class="absolute inset-0 w-full h-full bg-gradient-to-b from-white/30 to-transparent"></div>
+                </div>
               </div>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Process Metrics -->
-    <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-xl border border-gray-100">
-      <div class="text-center mb-12">
-        <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-          Resultados que <span class="text-primary-500">Garantizamos</span>
-        </h3>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Nuestro proceso optimizado nos permite mantener los más altos estándares de calidad
-        </p>
-      </div>
-      
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="process-metric text-center">
-          <div class="text-4xl lg:text-5xl font-bold text-primary-500 mb-2">{metrics.accuracy}</div>
-          <div class="text-gray-600 font-medium">Precisión en Pedidos</div>
-        </div>
-        <div class="process-metric text-center">
-          <div class="text-4xl lg:text-5xl font-bold text-secondary-500 mb-2">{metrics.onTimeDelivery}</div>
-          <div class="text-gray-600 font-medium">Entregas a Tiempo</div>
-        </div>
-        <div class="process-metric text-center">
-          <div class="text-4xl lg:text-5xl font-bold text-accent-green mb-2">{metrics.customerSatisfaction}</div>
-          <div class="text-gray-600 font-medium">Satisfacción Cliente</div>
-        </div>
-        <div class="process-metric text-center">
-          <div class="text-4xl lg:text-5xl font-bold text-accent-yellow mb-2">{metrics.processingTime}</div>
-          <div class="text-gray-600 font-medium">Tiempo Procesamiento</div>
+          
+          <!-- On-Time Delivery Metric with 3D effects -->
+          <div class="process-metric relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 hover:rotate-y-3">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-secondary-500/5 rounded-full -mr-8 -mt-8 group-hover:bg-secondary-500/10 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 w-16 h-16 bg-secondary-500/5 rounded-full -ml-6 -mb-6 group-hover:bg-secondary-500/10 transition-colors duration-500"></div>
+            
+            <div class="relative">
+              <div class="flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute w-12 h-12 bg-secondary-500/10 rounded-full blur-md group-hover:bg-secondary-500/20 transition-colors duration-500"></div>
+                <svg class="w-8 h-8 text-secondary-500/70 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="text-4xl lg:text-5xl font-bold text-secondary-500 mb-2 text-center group-hover:scale-105 transition-transform duration-500">{metrics.onTimeDelivery}</div>
+              <div class="text-gray-600 font-medium text-center">Entregas a Tiempo</div>
+              <div class="w-full h-2 bg-gray-100 rounded-full mt-4 overflow-hidden shadow-inner">
+                <div class="h-full bg-gradient-to-r from-secondary-600 to-secondary-500 rounded-full shadow" style="width: 96.5%">
+                  <!-- Shine effect -->
+                  <div class="absolute inset-0 w-full h-full bg-gradient-to-b from-white/30 to-transparent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Customer Satisfaction Metric with 3D effects -->
+          <div class="process-metric relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 hover:rotate-y-3">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-accent-green/5 rounded-full -mr-8 -mt-8 group-hover:bg-accent-green/10 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 w-16 h-16 bg-accent-green/5 rounded-full -ml-6 -mb-6 group-hover:bg-accent-green/10 transition-colors duration-500"></div>
+            
+            <div class="relative">
+              <div class="flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute w-12 h-12 bg-accent-green/10 rounded-full blur-md group-hover:bg-accent-green/20 transition-colors duration-500"></div>
+                <svg class="w-8 h-8 text-accent-green/70 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="text-4xl lg:text-5xl font-bold text-accent-green mb-2 text-center group-hover:scale-105 transition-transform duration-500">{metrics.customerSatisfaction}</div>
+              <div class="text-gray-600 font-medium text-center">Satisfacción Cliente</div>
+              <div class="w-full h-2 bg-gray-100 rounded-full mt-4 overflow-hidden shadow-inner">
+                <div class="h-full bg-gradient-to-r from-green-600 to-accent-green rounded-full shadow" style="width: 98.2%">
+                  <!-- Shine effect -->
+                  <div class="absolute inset-0 w-full h-full bg-gradient-to-b from-white/30 to-transparent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Processing Time Metric with 3D effects -->
+          <div class="process-metric relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 hover:rotate-y-3">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-accent-yellow/5 rounded-full -mr-8 -mt-8 group-hover:bg-accent-yellow/10 transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 w-16 h-16 bg-accent-yellow/5 rounded-full -ml-6 -mb-6 group-hover:bg-accent-yellow/10 transition-colors duration-500"></div>
+            
+            <div class="relative">
+              <div class="flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute w-12 h-12 bg-accent-yellow/10 rounded-full blur-md group-hover:bg-accent-yellow/20 transition-colors duration-500"></div>
+                <svg class="w-8 h-8 text-accent-yellow/70 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div class="text-4xl lg:text-5xl font-bold text-accent-yellow mb-2 text-center group-hover:scale-105 transition-transform duration-500">{metrics.processingTime}</div>
+              <div class="text-gray-600 font-medium text-center">Tiempo Procesamiento</div>
+              <div class="w-full h-2 bg-gray-100 rounded-full mt-4 overflow-hidden shadow-inner">
+                <div class="h-full bg-gradient-to-r from-amber-600 to-accent-yellow rounded-full shadow" style="width: 95%">
+                  <!-- Shine effect -->
+                  <div class="absolute inset-0 w-full h-full bg-gradient-to-b from-white/30 to-transparent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Interactive Script -->
-  <script set:html={interactiveScript} />
+  <!-- Interactive Script - Enhanced for timeline animation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const processSteps = document.querySelectorAll('.process-step-container');
+      const processNodes = document.querySelectorAll('.process-node');
+      
+      // Función para activar un paso específico (sin autoavance)
+      function activateStep(stepIndex) {
+        // Remove active class from all steps
+        processSteps.forEach(step => step.classList.remove('active'));
+        processNodes.forEach(node => {
+          node.classList.remove('scale-110');
+          node.classList.remove('border-4');
+          node.style.boxShadow = '';
+        });
+        
+        // Add active class to selected step with 3D effects
+        if (processSteps[stepIndex]) {
+          processSteps[stepIndex].classList.add('active');
+          const currentNode = processNodes[stepIndex];
+          if (currentNode) {
+            currentNode.classList.add('scale-110');
+            currentNode.classList.add('border-4');
+            // Add 3D glow effect
+            currentNode.style.boxShadow = '0 0 15px rgba(202, 36, 28, 0.3), 0 10px 20px -5px rgba(0, 0, 0, 0.2)';
+          }
+        }
+      }
+      
+      // Activar el primer paso inicialmente
+      activateStep(0);
+      
+      // Control manual de pasos con efectos interactivos mejorados
+      processSteps.forEach((step, index) => {
+        step.addEventListener('click', () => {
+          // Add click feedback animation
+          step.style.transform = 'scale(1.02)';
+          setTimeout(() => {
+            step.style.transform = '';
+          }, 300);
+          
+          // Activar el paso seleccionado
+          activateStep(index);
+        });
+
+        // Efectos de hover mejorados para mejor interactividad
+        step.addEventListener('mouseenter', () => {
+          if (!step.classList.contains('active')) {
+            step.style.transform = 'scale(1.03) translateY(-5px)';
+            step.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            
+            // Resaltar el nodo al pasar el mouse
+            const nodeIndex = Array.from(processSteps).indexOf(step);
+            if (nodeIndex >= 0 && processNodes[nodeIndex]) {
+              processNodes[nodeIndex].style.transform = 'scale(1.1)';
+              processNodes[nodeIndex].style.boxShadow = '0 0 15px rgba(202, 36, 28, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1)';
+              processNodes[nodeIndex].style.transition = 'all 0.3s ease';
+            }
+          }
+        });
+        
+        step.addEventListener('mouseleave', () => {
+          if (!step.classList.contains('active')) {
+            step.style.transform = 'scale(1) translateY(0)';
+            
+            // Restaurar el nodo al quitar el mouse
+            const nodeIndex = Array.from(processSteps).indexOf(step);
+            if (nodeIndex >= 0 && processNodes[nodeIndex]) {
+              processNodes[nodeIndex].style.transform = '';
+              processNodes[nodeIndex].style.boxShadow = '';
+            }
+          }
+        });
+      });
+      
+      // Enhanced Intersection Observer for 3D animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            // Add staggered entrance for 3D effect
+            setTimeout(() => {
+              entry.target.classList.add('animate-in');
+              // Add subtle rotation for 3D effect
+              if (entry.target.classList.contains('process-metric')) {
+                entry.target.style.transform = 'translateY(0) rotateY(2deg)';
+              }
+            }, i * 150); // Staggered timing
+          }
+        });
+      }, observerOptions);
+      
+      // Observe all process elements with initial 3D setup
+      document.querySelectorAll('.process-step-container, .process-metric').forEach(el => {
+        if (el.classList.contains('process-metric')) {
+          el.style.transform = 'translateY(30px) rotateY(-2deg)';
+        }
+        observer.observe(el);
+      });
+    });
+  </script>
 
   <style>
     :root {
@@ -233,85 +695,68 @@ function getIconSVG(iconName: string) {
       --color-accent-green: #A2C8A2;
     }
 
+    /* 3D Perspective and transform styles */
+    .perspective {
+      perspective: 1000px;
+    }
+    
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    
+    .rotate-y-3 {
+      transform: rotateY(3deg);
+    }
+
     /* Process Step Styles */
-    .process-step {
+    .process-step-container {
       transition: all 0.5s ease;
-      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
     }
     
-    .process-step.active {
-      transform: scale(1.05);
-      box-shadow: 0 25px 50px rgba(202, 36, 28, 0.15);
-      border-color: var(--color-primary-500);
+    .process-step-container.animate-in {
+      opacity: 1;
+      transform: translateY(0);
     }
     
-    .process-step.active::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      background: linear-gradient(135deg, var(--color-primary-500), var(--color-secondary-500));
-      border-radius: 1.5rem;
-      z-index: -1;
-      opacity: 0.1;
+    .process-step-container.active .process-node {
+      box-shadow: 0 0 0 8px rgba(202, 36, 28, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.1);
     }
     
-    /* Progress Line Animation */
-    .progress-line {
-      background: linear-gradient(90deg, var(--color-primary-500), var(--color-secondary-500), var(--color-accent-green));
-      box-shadow: 0 2px 10px rgba(202, 36, 28, 0.3);
-    }
+
     
     /* Metric Animations */
     .process-metric {
-      transition: all 0.3s ease;
+      transition: all 0.5s ease;
+      opacity: 0;
+      transform: translateY(20px);
     }
     
-    .process-metric:hover {
-      transform: translateY(-5px);
+    .process-metric.animate-in {
+      opacity: 1;
+      transform: translateY(0);
     }
     
-    /* Color Classes */
-    .bg-primary-50 { background-color: #fef2f2; }
-    .bg-primary-100 { background-color: #fee2e2; }
-    .bg-primary-500 { background-color: var(--color-primary-500); }
-    .bg-primary-600 { background-color: var(--color-primary-600); }
-    .text-primary-500 { color: var(--color-primary-500); }
-    .text-primary-600 { color: var(--color-primary-600); }
-    .text-primary-700 { color: #991b1b; }
-    .border-primary-200 { border-color: #fecaca; }
-    .border-primary-500 { border-color: var(--color-primary-500); }
-    
-    .bg-secondary-50 { background-color: #f8fafc; }
-    .bg-secondary-100 { background-color: #f1f5f9; }
-    .bg-secondary-500 { background-color: var(--color-secondary-500); }
-    .bg-secondary-600 { background-color: var(--color-secondary-600); }
-    .text-secondary-500 { color: var(--color-secondary-500); }
-    .text-secondary-600 { color: var(--color-secondary-600); }
-    .text-secondary-700 { color: #1e293b; }
-    .border-secondary-200 { border-color: #e2e8f0; }
-    
-    .bg-accent-green { background-color: var(--color-accent-green); }
-    .text-accent-green { color: var(--color-accent-green); }
-    .bg-accent-green-50 { background-color: #f0fdf4; }
-    .text-accent-green-700 { color: #15803d; }
-    .border-accent-green-200 { border-color: #bbf7d0; }
-    
-    .bg-accent-yellow { background-color: var(--color-accent-yellow); }
-    .text-accent-yellow { color: var(--color-accent-yellow); }
-    .bg-accent-yellow-50 { background-color: #fffbeb; }
-    .text-accent-yellow-700 { color: #a16207; }
-    .border-accent-yellow-200 { border-color: #fde68a; }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .process-step {
-        margin-bottom: 2rem;
-      }
-      
-      .progress-line {
-        display: none;
-      }
+    /* Background grid pattern for 3D depth */
+    .bg-grid-pattern {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
     }
+    
+    /* Animation delay for staggered entrance */
+    .process-step-container:nth-child(1) { transition-delay: 0ms; }
+    .process-step-container:nth-child(2) { transition-delay: 100ms; }
+    .process-step-container:nth-child(3) { transition-delay: 200ms; }
+    .process-step-container:nth-child(4) { transition-delay: 300ms; }
+    .process-step-container:nth-child(5) { transition-delay: 400ms; }
+    .process-step-container:nth-child(6) { transition-delay: 500ms; }
+    
+    .process-metric:nth-child(1) { transition-delay: 200ms; }
+    .process-metric:nth-child(2) { transition-delay: 300ms; }
+    .process-metric:nth-child(3) { transition-delay: 400ms; }
+    .process-metric:nth-child(4) { transition-delay: 500ms; }
     
     /* Animation keyframes */
     @keyframes fadeInUp {
@@ -334,8 +779,95 @@ function getIconSVG(iconName: string) {
       }
     }
     
-    .process-step.active {
-      animation: pulse 2s infinite;
+    /* Spin animation for decorative elements */
+    .animate-spin-slow {
+      animation: spin 20s linear infinite;
+    }
+    
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    
+    /* Float animations for 3D elements */
+    @keyframes float-slow {
+      0% {
+        transform: translateY(0px) translateX(0px);
+      }
+      50% {
+        transform: translateY(-15px) translateX(5px);
+      }
+      100% {
+        transform: translateY(0px) translateX(0px);
+      }
+    }
+    
+    @keyframes float-medium {
+      0% {
+        transform: translateY(0px) translateX(0px);
+      }
+      50% {
+        transform: translateY(-8px) translateX(-5px);
+      }
+      100% {
+        transform: translateY(0px) translateX(0px);
+      }
+    }
+    
+    @keyframes float-slow-reverse {
+      0% {
+        transform: translateY(0px) translateX(0px);
+      }
+      50% {
+        transform: translateY(-10px) translateX(-8px);
+      }
+      100% {
+        transform: translateY(0px) translateX(0px);
+      }
+    }
+    
+    @keyframes float-fast {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+    
+    .animate-float-slow {
+      animation: float-slow 8s ease-in-out infinite;
+    }
+    
+    .animate-float-slow-reverse {
+      animation: float-slow-reverse 9s ease-in-out infinite;
+    }
+    
+    .animate-float-medium {
+      animation: float-medium 7s ease-in-out infinite;
+    }
+    
+    .animate-float-fast {
+      animation: float-fast 5s ease-in-out infinite;
+    }
+    
+    .animate-pulse-slow {
+      animation: pulse 4s ease-in-out infinite;
+    }
+    
+    .animate-pulse-fast {
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    .animate-fade-in {
+      animation: fadeInUp 1.2s ease-out forwards;
     }
   </style>
 </section>
