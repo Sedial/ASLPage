@@ -1,0 +1,68 @@
+---
+import ContactForm from './ContactForm.astro';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  title = 'Contáctanos',
+  subtitle = 'Estamos listos para ayudarte con tus necesidades logísticas',
+} = Astro.props;
+---
+
+<section class="section bg-gray-50 py-16 md:py-24" id="contacto">
+  <div class="container">
+    <div class="section-heading text-center mb-16">
+      <h2 class="section-title text-primary-600">{title}</h2>
+      <p class="section-subtitle text-gray-600 max-w-2xl mx-auto">{subtitle}</p>
+    </div>
+    
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 lg:gap-8 items-start">
+      <!-- Mapa profesional más grande -->
+      <div class="xl:col-span-2 space-y-6">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+          <div class="h-[400px] md:h-[450px] lg:h-[500px] relative">
+            <iframe 
+              src="https://www.google.com/maps/d/u/0/embed?mid=1GfcjWce8Jah3S1Ez6iEekfJYKQ1g-j4&ehbc=2E312F&noprof=1" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mapa de cobertura ASL Logística"
+            ></iframe>
+          </div>
+        </div>
+        
+        <!-- Información de cobertura personalizada -->
+        <div class="bg-white rounded-xl p-6 lg:p-8 shadow-lg border border-gray-200">
+          <h3 class="text-xl lg:text-2xl font-bold text-primary-600 mb-3 lg:mb-4">Cobertura Nacional</h3>
+          <p class="text-gray-600 mb-4 lg:mb-6 text-base lg:text-lg leading-relaxed">
+            Operamos en las principales ciudades de Colombia, ofreciendo soluciones logísticas integrales para tu negocio a través de nuestros centros de distribución estratégicamente ubicados.
+          </p>
+          
+          <div class="bg-gray-50 rounded-lg p-4 lg:p-6">
+            <div class="flex items-center space-x-3 mb-3 lg:mb-4">
+              <div class="w-4 h-4 bg-primary-600 rounded-full shadow-sm flex-shrink-0"></div>
+              <span class="text-gray-800 font-semibold text-base lg:text-lg">Centros de Distribución</span>
+            </div>
+            <p class="text-gray-600 ml-7 text-sm lg:text-base leading-relaxed">
+              Nuestros centros de distribución están ubicados estratégicamente en las principales ciudades del país, 
+              garantizando una cobertura eficiente y tiempos de entrega optimizados para toda Colombia.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Formulario de contacto -->
+      <div class="xl:col-span-1">
+        <div class="bg-white rounded-xl shadow-lg p-6 lg:p-8 border border-gray-200 h-fit sticky top-8">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
