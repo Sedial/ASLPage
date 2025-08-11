@@ -18,9 +18,9 @@ const {
 } = Astro.props;
 
 const sizeClasses = {
-  sm: 'w-8 h-8 text-xs',
-  md: 'w-10 h-10 text-sm',
-  lg: 'w-12 h-12 text-base'
+  sm: 'w-10 h-10 text-xs',
+  md: 'w-12 h-12 text-sm',
+  lg: 'w-14 h-14 text-base'
 };
 
 const positionClasses = {
@@ -34,12 +34,29 @@ const bottomOffset = `${offset}px`;
 <button
   id="scroll-to-top"
   aria-label="Scroll to top"
-  class={`fixed bottom-[${bottomOffset}] ${positionClasses[position]} ${sizeClasses[size]} rounded-full bg-blue-600 text-white shadow-md flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 ${className}`}
+  class={`fixed bottom-[${bottomOffset}] ${positionClasses[position]} ${sizeClasses[size]} rounded-full bg-primary-600 text-white shadow-xl flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-400 transform hover:scale-105 z-50 border border-white/20 backdrop-blur-sm ${className}`}
 >
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 15l-6-6-6 6"/>
   </svg>
 </button>
+
+<style>
+  @keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 10px 15px -3px rgba(158, 36, 32, 0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 15px 20px -3px rgba(158, 36, 32, 0.4); }
+    100% { transform: scale(1); box-shadow: 0 10px 15px -3px rgba(158, 36, 32, 0.3); }
+  }
+  
+  #scroll-to-top.visible {
+    animation: pulse 3s infinite ease-in-out;
+  }
+  
+  #scroll-to-top:hover {
+    animation: none;
+    box-shadow: 0 20px 25px -5px rgba(158, 36, 32, 0.5);
+  }
+</style>
 
 <script define:vars={{ threshold, smooth, bottomOffset }}>
   const scrollToTopBtn = document.getElementById('scroll-to-top');

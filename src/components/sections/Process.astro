@@ -116,118 +116,45 @@ function getIconSVG(iconName: string) {
 }
 ---
 
-<section class="section relative overflow-hidden" id="process">
-  <!-- Fondo innovador con efecto 3D y patrones geométricos -->
+<section class="section relative overflow-hidden bg-gray-50" id="process">
+  <!-- Fondo minimalista con efecto sutil -->
   <div class="absolute inset-0 overflow-hidden">
-    <!-- Gradiente de fondo con efecto de profundidad -->
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 opacity-90"></div>
+    <!-- Gradiente de fondo simplificado -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-80"></div>
     
-    <!-- Patrón de cuadrícula 3D con efecto de perspectiva -->
-    <div class="absolute inset-0 opacity-5">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <pattern id="grid-pattern" width="50" height="50" patternUnits="userSpaceOnUse">
-          <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#000000" stroke-width="0.5" opacity="0.3"/>
-        </pattern>
-        <rect width="100%" height="100%" fill="url(#grid-pattern)" />
-      </svg>
-    </div>
-    
-    <!-- Elementos decorativos 3D con efecto de flotación -->
-    <div class="absolute top-0 right-0 w-1/3 h-1/3 animate-float-slow">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full opacity-10 drop-shadow-2xl">
+    <!-- Elemento decorativo más sutil -->
+    <div class="absolute top-0 right-0 w-1/4 h-1/4 opacity-10">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
         <path fill="#CA241C" d="M39.9,-65.7C51.1,-58.5,59.5,-46.3,65.2,-33.1C70.9,-19.9,73.9,-5.7,71.8,7.5C69.7,20.7,62.5,32.9,53.1,42.8C43.7,52.7,32.1,60.3,19.1,65.7C6.1,71.1,-8.3,74.3,-22.7,72.1C-37.1,69.9,-51.5,62.3,-60.8,50.5C-70.1,38.7,-74.3,22.7,-74.9,7.1C-75.5,-8.5,-72.5,-23.7,-64.7,-35.8C-56.9,-47.9,-44.3,-56.9,-31.3,-63.2C-18.3,-69.5,-4.9,-73.1,7.7,-71.5C20.3,-69.9,28.7,-72.9,39.9,-65.7Z" transform="translate(100 100)" />
-      </svg>
-    </div>
-    
-    <div class="absolute bottom-0 left-0 w-1/4 h-1/4 animate-float-slow-reverse">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full opacity-10 drop-shadow-2xl">
-        <path fill="#3D5A80" d="M47.7,-73.2C62.1,-67.3,74.5,-54.9,79.8,-40.1C85.1,-25.3,83.3,-8.1,79.9,8.1C76.5,24.3,71.5,39.5,61.8,51.2C52.1,62.9,37.7,71.1,22.2,75.8C6.7,80.5,-9.9,81.7,-24.8,77.1C-39.7,72.5,-52.9,62.1,-63.4,49C-73.9,35.9,-81.7,20.1,-83.2,3.4C-84.7,-13.3,-79.9,-30.8,-69.8,-43.9C-59.7,-57,-44.3,-65.6,-29.5,-71.1C-14.7,-76.6,-0.5,-79,12.8,-77.7C26,-76.4,33.3,-79.1,47.7,-73.2Z" transform="translate(100 100)" />
-      </svg>
-    </div>
-    
-    <div class="absolute top-1/3 left-1/4 w-1/5 h-1/5 animate-float-medium">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full opacity-10 drop-shadow-2xl">
-        <path fill="#F5C06B" d="M42.7,-76.4C53.9,-69.8,61.1,-54.9,68.1,-40.8C75.1,-26.6,82,-13.3,81.9,-0.1C81.8,13.2,74.8,26.3,67.1,39.2C59.4,52,51,64.5,39.1,71.8C27.3,79.1,13.6,81.2,-0.2,81.5C-14,81.8,-28,80.3,-40.9,74.3C-53.8,68.3,-65.5,57.8,-72.3,44.7C-79.1,31.5,-81,15.8,-79.9,0.6C-78.8,-14.5,-74.8,-29,-67.4,-41.8C-60,-54.5,-49.3,-65.5,-36.8,-71.3C-24.2,-77.1,-9.9,-77.7,3.4,-74.1C16.7,-70.5,31.5,-83,42.7,-76.4Z" transform="translate(100 100)" />
-      </svg>
-    </div>
-    
-    <div class="absolute bottom-1/4 right-1/5 w-1/6 h-1/6 animate-float-fast">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full opacity-10 drop-shadow-2xl">
-        <path fill="#A2C8A2" d="M48.2,-75.2C63.9,-69.1,79.5,-59.3,87.5,-45.2C95.5,-31.1,96,-12.7,92.1,4.2C88.3,21.2,80.2,36.8,69.2,49.7C58.2,62.6,44.3,72.8,29.1,77.9C13.9,83,-2.7,83,-18.2,79.1C-33.7,75.3,-48.1,67.6,-59.9,56.5C-71.7,45.4,-80.9,30.9,-85.2,14.7C-89.5,-1.6,-88.9,-19.5,-82.1,-34.5C-75.3,-49.5,-62.3,-61.5,-47.5,-68C-32.7,-74.5,-16.3,-75.5,-0.2,-75.2C16,-74.9,32.5,-81.3,48.2,-75.2Z" transform="translate(100 100)" />
-      </svg>
-    </div>
-    
-    <!-- Líneas de conexión dinámicas -->
-    <div class="absolute inset-0 opacity-10">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#CA241C" stop-opacity="0.3" />
-            <stop offset="50%" stop-color="#3D5A80" stop-opacity="0.3" />
-            <stop offset="100%" stop-color="#A2C8A2" stop-opacity="0.3" />
-          </linearGradient>
-        </defs>
-        <path d="M0,100 Q400,50 800,300 T1600,200" stroke="url(#line-gradient)" stroke-width="2" fill="none" />
-        <path d="M0,300 Q600,400 1200,250 T1600,500" stroke="url(#line-gradient)" stroke-width="1.5" fill="none" />
-        <path d="M0,500 Q300,300 900,400 T1600,300" stroke="url(#line-gradient)" stroke-width="1" fill="none" />
       </svg>
     </div>
   </div>
 
   <div class="container mx-auto px-4 max-w-7xl relative z-10">
-    <!-- Header Section con diseño 3D y efectos visuales avanzados -->
-    <div class="relative mb-20">
-      <!-- Elementos decorativos del encabezado -->
-      <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-full h-40 opacity-20 overflow-hidden">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="url(#header-gradient)" />
-          <defs>
-            <linearGradient id="header-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#CA241C" />
-              <stop offset="50%" stop-color="#3D5A80" />
-              <stop offset="100%" stop-color="#A2C8A2" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      
+    <!-- Header Section con diseño minimalista y profesional -->
+    <div class="relative mb-16">
       <div class="text-center relative">
-        <!-- Icono 3D con efectos de iluminación -->
-        <div class="relative inline-block mb-10 group perspective">
-          <div class="absolute inset-0 rounded-full bg-gradient-to-r from-primary-500 via-accent-yellow to-secondary-500 opacity-70 blur-md group-hover:opacity-100 transition-all duration-700 animate-pulse-slow"></div>
-          <div class="relative inline-flex items-center justify-center w-28 h-28 bg-white rounded-full shadow-2xl transform group-hover:rotate-y-12 transition-transform duration-500">
-            <div class="absolute inset-2 rounded-full bg-gradient-to-br from-gray-50 to-white opacity-80"></div>
-            <div class="absolute inset-0 rounded-full shadow-inner"></div>
-            <svg class="relative w-14 h-14 text-primary-500 transform group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <!-- Icono minimalista -->
+        <div class="relative inline-block mb-8">
+          <div class="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-md">
+            <svg class="w-10 h-10 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <!-- Efecto de brillo -->
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white opacity-0 group-hover:opacity-30 blur-xl rounded-full transition-opacity duration-700"></div>
         </div>
         
-        <!-- Título con efecto de profundidad y textura -->
-        <h2 class="relative text-5xl lg:text-7xl font-bold mb-8 leading-tight inline-block">
-          <span class="absolute inset-0 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 blur-sm opacity-50 transform -translate-y-1 translate-x-1"></span>
-          <span class="relative bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600">
-            {headline}
-          </span>
-          <!-- Decoración de líneas de conexión -->
-          <div class="absolute -bottom-4 left-0 right-0 h-1 overflow-hidden">
-            <div class="h-full w-full bg-gradient-to-r from-transparent via-primary-500 to-transparent rounded-full animate-pulse-slow"></div>
-          </div>
+        <!-- Título con estilo profesional -->
+        <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-primary-600">
+          {headline}
         </h2>
         
-        <!-- Subtítulo con tipografía mejorada y efecto de aparición -->
-        <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-10 animate-fade-in">
+        <!-- Subtítulo con tipografía clara -->
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
           {subheadline}
         </p>
         
-        <!-- Separador decorativo con animación -->
-        <div class="relative h-1 max-w-md mx-auto">
-          <div class="absolute inset-0 bg-gradient-to-r from-primary-500 via-accent-yellow to-secondary-500 rounded-full animate-pulse-slow"></div>
-          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent rounded-full opacity-50 animate-pulse-fast"></div>
-        </div>
+        <!-- Separador minimalista -->
+        <div class="h-1 w-24 bg-primary-600 mx-auto rounded-full"></div>
       </div>
     </div>
 
@@ -357,7 +284,7 @@ function getIconSVG(iconName: string) {
                           </div>
                         </div>
                         
-                        <h3 class="text-2xl font-bold text-gray-800 group-hover:text-gray-900 transition-colors duration-300">{step.title}</h3>
+                        <h3 class="text-2xl font-bold text-primary-600 group-hover:text-primary-700 transition-colors duration-300">{step.title}</h3>
                       </div>
                       
                       {/* Descripción con mejor tipografía */}
@@ -401,7 +328,7 @@ function getIconSVG(iconName: string) {
                       <span class="text-white font-bold text-lg">{step.id}</span>
                     </div>
                     <div class="ml-4">
-                      <h3 class="text-xl font-bold text-gray-800">{step.title}</h3>
+                      <h3 class="text-xl font-bold text-primary-600">{step.title}</h3>
                       <span class={`text-xs font-medium px-2 py-1 rounded-full bg-white shadow-sm ${colorMap.border} ${colorMap.text} inline-block mt-1`}>
                         {step.duration}
                       </span>
@@ -446,132 +373,77 @@ function getIconSVG(iconName: string) {
       </div>
     </div>
 
-    <!-- Process Metrics - Modern Dashboard Style with 3D Effects -->
-    <div class="relative bg-white/90 backdrop-blur-sm rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl border border-gray-100 overflow-hidden transform perspective-1000">
-      <!-- Background pattern for metrics section with enhanced 3D depth -->
-      <div class="absolute inset-0 bg-gradient-to-br from-gray-50/80 to-white/80 opacity-70"></div>
-      <div class="absolute inset-0 opacity-5 transform rotate-1" 
-           style="background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%23000000" fill-opacity="0.1" fill-rule="evenodd"/%3E%3C/svg%3E');"></div>
-      
-      <!-- Floating 3D decorative elements -->
-      <div class="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-gradient-to-br from-primary-500/5 to-secondary-500/5 blur-xl animate-float-slow"></div>
-      <div class="absolute top-20 -left-10 w-32 h-32 rounded-full bg-gradient-to-br from-accent-yellow/5 to-accent-green/5 blur-xl animate-float-medium"></div>
-      
+    <!-- Process Metrics - Diseño minimalista y profesional -->
+    <div class="relative bg-white rounded-lg p-6 shadow-sm border border-gray-100 overflow-hidden">
       <div class="relative z-10">
-        <!-- Header with modern typography and 3D effects -->
-        <div class="text-center mb-8 sm:mb-12">
-          <h3 class="text-2xl sm:text-3xl lg:text-5xl font-bold mb-3 sm:mb-4 relative inline-block">
-            <!-- Shadow for 3D text effect -->
-            <span class="absolute inset-0 text-primary-600/10 blur-sm transform translate-x-1 translate-y-1">Resultados que Garantizamos</span>
-            <span class="relative text-primary-600">
-              Resultados que <span class="relative inline-block">
-                <span class="relative z-10 text-primary-600">Garantizamos</span>
-                <span class="absolute -bottom-1 left-0 right-0 h-2 sm:h-3 bg-accent-yellow/30 rounded-full -z-10 transform skew-x-3"></span>
-              </span>
-            </span>
+        <!-- Header con tipografía profesional -->
+        <div class="text-center mb-8">
+          <h3 class="text-2xl lg:text-3xl font-bold mb-3 text-primary-600">
+            Resultados que Garantizamos
           </h3>
-          <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
+          <p class="text-sm text-gray-600 max-w-2xl mx-auto">
             Nuestro proceso optimizado nos permite mantener los más altos estándares de calidad
           </p>
           
-          <!-- Decorative separator with 3D effect -->
-          <div class="relative h-1 max-w-md mx-auto mt-8">
-            <div class="absolute inset-0 bg-gradient-to-r from-primary-500/50 via-accent-yellow/50 to-secondary-500/50 rounded-full blur-sm"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-primary-500 via-accent-yellow to-secondary-500 rounded-full opacity-70"></div>
-          </div>
+          <!-- Separador minimalista -->
+          <div class="h-px w-12 bg-primary-600/40 mx-auto mt-4 rounded-full"></div>
         </div>
         
-        <!-- Metrics Dashboard with 3D cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 perspective">
-          <!-- Accuracy Metric with enhanced 3D effects -->
-          <div class="process-metric relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 hover:rotate-y-3">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-primary-500/5 rounded-full -mr-8 -mt-8 group-hover:bg-primary-500/10 transition-colors duration-500"></div>
-            <div class="absolute bottom-0 left-0 w-16 h-16 bg-primary-500/5 rounded-full -ml-6 -mb-6 group-hover:bg-primary-500/10 transition-colors duration-500"></div>
-            
-            <div class="relative">
-              <div class="flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-500">
-                <div class="absolute w-12 h-12 bg-primary-500/10 rounded-full blur-md group-hover:bg-primary-500/20 transition-colors duration-500"></div>
-                <svg class="w-8 h-8 text-primary-500/70 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-500 mb-1 sm:mb-2 text-center group-hover:scale-105 transition-transform duration-500">{metrics.accuracy}</div>
-              <div class="text-sm sm:text-base text-gray-600 font-medium text-center">Precisión en Pedidos</div>
-              <div class="w-full h-2 bg-gray-100 rounded-full mt-2 sm:mt-4 overflow-hidden shadow-inner">
-                <div class="h-full bg-gradient-to-r from-primary-600 to-primary-500 rounded-full shadow" style="width: 99.8%">
-                  <!-- Shine effect -->
-                  <div class="absolute inset-0 w-full h-full bg-gradient-to-b from-white/30 to-transparent"></div>
-                </div>
-              </div>
+        <!-- Metrics Dashboard con diseño limpio -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Accuracy Metric -->
+          <div class="process-metric bg-white rounded-md p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+            <div class="flex items-center justify-center mb-2">
+              <svg class="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div class="text-2xl lg:text-3xl font-bold text-primary-600 mb-1 text-center">{metrics.accuracy}</div>
+            <div class="text-xs text-gray-600 font-medium text-center mb-3">Precisión en Pedidos</div>
+            <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+              <div class="h-full bg-primary-600 rounded-full" style="width: 99.8%"></div>
             </div>
           </div>
           
-          <!-- On-Time Delivery Metric with 3D effects -->
-          <div class="process-metric relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 hover:rotate-y-3">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-secondary-500/5 rounded-full -mr-8 -mt-8 group-hover:bg-secondary-500/10 transition-colors duration-500"></div>
-            <div class="absolute bottom-0 left-0 w-16 h-16 bg-secondary-500/5 rounded-full -ml-6 -mb-6 group-hover:bg-secondary-500/10 transition-colors duration-500"></div>
-            
-            <div class="relative">
-              <div class="flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-500">
-                <div class="absolute w-12 h-12 bg-secondary-500/10 rounded-full blur-md group-hover:bg-secondary-500/20 transition-colors duration-500"></div>
-                <svg class="w-8 h-8 text-secondary-500/70 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary-500 mb-1 sm:mb-2 text-center group-hover:scale-105 transition-transform duration-500">{metrics.onTimeDelivery}</div>
-              <div class="text-sm sm:text-base text-gray-600 font-medium text-center">Entregas a Tiempo</div>
-              <div class="w-full h-2 bg-gray-100 rounded-full mt-2 sm:mt-4 overflow-hidden shadow-inner">
-                <div class="h-full bg-gradient-to-r from-secondary-600 to-secondary-500 rounded-full shadow" style="width: 96.5%">
-                  <!-- Shine effect -->
-                  <div class="absolute inset-0 w-full h-full bg-gradient-to-b from-white/30 to-transparent"></div>
-                </div>
-              </div>
+          <!-- On-Time Delivery Metric -->
+          <div class="process-metric bg-white rounded-md p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+            <div class="flex items-center justify-center mb-2">
+              <svg class="w-6 h-6 text-secondary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="text-2xl lg:text-3xl font-bold text-secondary-600 mb-1 text-center">{metrics.onTimeDelivery}</div>
+            <div class="text-xs text-gray-600 font-medium text-center mb-3">Entregas a Tiempo</div>
+            <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+              <div class="h-full bg-secondary-600 rounded-full" style="width: 96.5%"></div>
             </div>
           </div>
           
-          <!-- Customer Satisfaction Metric with 3D effects -->
-          <div class="process-metric relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 hover:rotate-y-3">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-accent-green/5 rounded-full -mr-8 -mt-8 group-hover:bg-accent-green/10 transition-colors duration-500"></div>
-            <div class="absolute bottom-0 left-0 w-16 h-16 bg-accent-green/5 rounded-full -ml-6 -mb-6 group-hover:bg-accent-green/10 transition-colors duration-500"></div>
-            
-            <div class="relative">
-              <div class="flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-500">
-                <div class="absolute w-12 h-12 bg-accent-green/10 rounded-full blur-md group-hover:bg-accent-green/20 transition-colors duration-500"></div>
-                <svg class="w-8 h-8 text-accent-green/70 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-accent-green mb-1 sm:mb-2 text-center group-hover:scale-105 transition-transform duration-500">{metrics.customerSatisfaction}</div>
-              <div class="text-sm sm:text-base text-gray-600 font-medium text-center">Satisfacción Cliente</div>
-              <div class="w-full h-2 bg-gray-100 rounded-full mt-2 sm:mt-4 overflow-hidden shadow-inner">
-                <div class="h-full bg-gradient-to-r from-accent-green-dark to-accent-green rounded-full shadow" style="width: 98.2%">
-                  <!-- Shine effect -->
-                  <div class="absolute inset-0 w-full h-full bg-gradient-to-b from-white/30 to-transparent"></div>
-                </div>
-              </div>
+          <!-- Customer Satisfaction Metric -->
+          <div class="process-metric bg-white rounded-md p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+            <div class="flex items-center justify-center mb-2">
+              <svg class="w-6 h-6 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="text-2xl lg:text-3xl font-bold text-accent-green mb-1 text-center">{metrics.customerSatisfaction}</div>
+            <div class="text-xs text-gray-600 font-medium text-center mb-3">Satisfacción Cliente</div>
+            <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+              <div class="h-full bg-accent-green rounded-full" style="width: 98.2%"></div>
             </div>
           </div>
           
-          <!-- Processing Time Metric with 3D effects -->
-          <div class="process-metric relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 hover:rotate-y-3">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-accent-yellow/5 rounded-full -mr-8 -mt-8 group-hover:bg-accent-yellow/10 transition-colors duration-500"></div>
-            <div class="absolute bottom-0 left-0 w-16 h-16 bg-accent-yellow/5 rounded-full -ml-6 -mb-6 group-hover:bg-accent-yellow/10 transition-colors duration-500"></div>
-            
-            <div class="relative">
-              <div class="flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-500">
-                <div class="absolute w-12 h-12 bg-accent-yellow/10 rounded-full blur-md group-hover:bg-accent-yellow/20 transition-colors duration-500"></div>
-                <svg class="w-8 h-8 text-accent-yellow/70 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-accent-yellow mb-1 sm:mb-2 text-center group-hover:scale-105 transition-transform duration-500">{metrics.processingTime}</div>
-              <div class="text-sm sm:text-base text-gray-600 font-medium text-center">Tiempo Procesamiento</div>
-              <div class="w-full h-2 bg-gray-100 rounded-full mt-2 sm:mt-4 overflow-hidden shadow-inner">
-                <div class="h-full bg-gradient-to-r from-accent-yellow-dark to-accent-yellow rounded-full shadow" style="width: 95%">
-                  <!-- Shine effect -->
-                  <div class="absolute inset-0 w-full h-full bg-gradient-to-b from-white/30 to-transparent"></div>
-                </div>
-              </div>
+          <!-- Processing Time Metric -->
+          <div class="process-metric bg-white rounded-md p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+            <div class="flex items-center justify-center mb-2">
+              <svg class="w-6 h-6 text-accent-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div class="text-2xl lg:text-3xl font-bold text-accent-yellow mb-1 text-center">{metrics.processingTime}</div>
+            <div class="text-xs text-gray-600 font-medium text-center mb-3">Tiempo Procesamiento</div>
+            <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+              <div class="h-full bg-accent-yellow rounded-full" style="width: 95%"></div>
             </div>
           </div>
         </div>
@@ -579,31 +451,26 @@ function getIconSVG(iconName: string) {
     </div>
   </div>
 
-  <!-- Interactive Script - Enhanced for timeline animation -->
+  <!-- Interactive Script - Simplified for basic functionality -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const processSteps = document.querySelectorAll('.process-step-container');
       const processNodes = document.querySelectorAll('.process-node');
       
-      // Función para activar un paso específico (sin autoavance)
+      // Función simplificada para activar un paso
       function activateStep(stepIndex) {
         // Remove active class from all steps
         processSteps.forEach(step => step.classList.remove('active'));
         processNodes.forEach(node => {
           node.classList.remove('scale-110');
-          node.classList.remove('border-4');
-          node.style.boxShadow = '';
         });
         
-        // Add active class to selected step with 3D effects
+        // Add active class to selected step
         if (processSteps[stepIndex]) {
           processSteps[stepIndex].classList.add('active');
           const currentNode = processNodes[stepIndex];
           if (currentNode) {
             currentNode.classList.add('scale-110');
-            currentNode.classList.add('border-4');
-            // Add 3D glow effect
-            currentNode.style.boxShadow = '0 0 15px rgba(202, 36, 28, 0.3), 0 10px 20px -5px rgba(0, 0, 0, 0.2)';
           }
         }
       }
@@ -611,75 +478,43 @@ function getIconSVG(iconName: string) {
       // Activar el primer paso inicialmente
       activateStep(0);
       
-      // Control manual de pasos con efectos interactivos mejorados
+      // Control manual de pasos con efectos básicos
       processSteps.forEach((step, index) => {
         step.addEventListener('click', () => {
-          // Add click feedback animation
-          step.style.transform = 'scale(1.02)';
-          setTimeout(() => {
-            step.style.transform = '';
-          }, 300);
-          
           // Activar el paso seleccionado
           activateStep(index);
         });
 
-        // Efectos de hover mejorados para mejor interactividad
+        // Efectos de hover simplificados
         step.addEventListener('mouseenter', () => {
           if (!step.classList.contains('active')) {
-            step.style.transform = 'scale(1.03) translateY(-5px)';
-            step.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
-            
-            // Resaltar el nodo al pasar el mouse
-            const nodeIndex = Array.from(processSteps).indexOf(step);
-            if (nodeIndex >= 0 && processNodes[nodeIndex]) {
-              processNodes[nodeIndex].style.transform = 'scale(1.1)';
-              processNodes[nodeIndex].style.boxShadow = '0 0 15px rgba(202, 36, 28, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1)';
-              processNodes[nodeIndex].style.transition = 'all 0.3s ease';
-            }
+            step.style.transform = 'scale(1.02)';
           }
         });
         
         step.addEventListener('mouseleave', () => {
           if (!step.classList.contains('active')) {
-            step.style.transform = 'scale(1) translateY(0)';
-            
-            // Restaurar el nodo al quitar el mouse
-            const nodeIndex = Array.from(processSteps).indexOf(step);
-            if (nodeIndex >= 0 && processNodes[nodeIndex]) {
-              processNodes[nodeIndex].style.transform = '';
-              processNodes[nodeIndex].style.boxShadow = '';
-            }
+            step.style.transform = '';
           }
         });
       });
       
-      // Enhanced Intersection Observer for 3D animations
+      // Intersection Observer simplificado
       const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
       };
       
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Add staggered entrance for 3D effect
-            setTimeout(() => {
-              entry.target.classList.add('animate-in');
-              // Add subtle rotation for 3D effect
-              if (entry.target.classList.contains('process-metric')) {
-                entry.target.style.transform = 'translateY(0) rotateY(2deg)';
-              }
-            }, i * 150); // Staggered timing
+            entry.target.classList.add('animate-in');
           }
         });
       }, observerOptions);
       
-      // Observe all process elements with initial 3D setup
+      // Observe all process elements
       document.querySelectorAll('.process-step-container, .process-metric').forEach(el => {
-        if (el.classList.contains('process-metric')) {
-          el.style.transform = 'translateY(30px) rotateY(-2deg)';
-        }
         observer.observe(el);
       });
     });
@@ -695,7 +530,7 @@ function getIconSVG(iconName: string) {
       --color-accent-green: #A2C8A2;
     }
 
-    /* 3D Perspective and transform styles */
+    /* 3D Perspective and transform styles - simplificados */
     .perspective {
       perspective: 1000px;
     }
@@ -704,15 +539,11 @@ function getIconSVG(iconName: string) {
       perspective: 1000px;
     }
     
-    .rotate-y-3 {
-      transform: rotateY(3deg);
-    }
-
-    /* Process Step Styles */
+    /* Process Step Styles - simplificados */
     .process-step-container {
-      transition: all 0.5s ease;
+      transition: all 0.4s ease-out;
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(10px);
     }
     
     .process-step-container.animate-in {
@@ -721,16 +552,14 @@ function getIconSVG(iconName: string) {
     }
     
     .process-step-container.active .process-node {
-      box-shadow: 0 0 0 8px rgba(202, 36, 28, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 0 4px rgba(202, 36, 28, 0.1), 0 5px 10px -2px rgba(0, 0, 0, 0.1);
     }
     
-
-    
-    /* Metric Animations */
+    /* Metric Animations - simplificadas */
     .process-metric {
-      transition: all 0.5s ease;
+      transition: all 0.4s ease-out;
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(10px);
     }
     
     .process-metric.animate-in {
@@ -738,31 +567,31 @@ function getIconSVG(iconName: string) {
       transform: translateY(0);
     }
     
-    /* Background grid pattern for 3D depth */
+    /* Background grid pattern - simplificado */
     .bg-grid-pattern {
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
       background-size: 20px 20px;
     }
     
-    /* Animation delay for staggered entrance */
+    /* Animation delay - simplificado */
     .process-step-container:nth-child(1) { transition-delay: 0ms; }
-    .process-step-container:nth-child(2) { transition-delay: 100ms; }
-    .process-step-container:nth-child(3) { transition-delay: 200ms; }
-    .process-step-container:nth-child(4) { transition-delay: 300ms; }
-    .process-step-container:nth-child(5) { transition-delay: 400ms; }
-    .process-step-container:nth-child(6) { transition-delay: 500ms; }
+    .process-step-container:nth-child(2) { transition-delay: 50ms; }
+    .process-step-container:nth-child(3) { transition-delay: 100ms; }
+    .process-step-container:nth-child(4) { transition-delay: 150ms; }
+    .process-step-container:nth-child(5) { transition-delay: 200ms; }
+    .process-step-container:nth-child(6) { transition-delay: 250ms; }
     
-    .process-metric:nth-child(1) { transition-delay: 200ms; }
-    .process-metric:nth-child(2) { transition-delay: 300ms; }
-    .process-metric:nth-child(3) { transition-delay: 400ms; }
-    .process-metric:nth-child(4) { transition-delay: 500ms; }
+    .process-metric:nth-child(1) { transition-delay: 100ms; }
+    .process-metric:nth-child(2) { transition-delay: 150ms; }
+    .process-metric:nth-child(3) { transition-delay: 200ms; }
+    .process-metric:nth-child(4) { transition-delay: 250ms; }
     
-    /* Animation keyframes */
+    /* Animation keyframes - simplificados */
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(10px);
       }
       to {
         opacity: 1;
@@ -775,99 +604,12 @@ function getIconSVG(iconName: string) {
         transform: scale(1);
       }
       50% {
-        transform: scale(1.05);
+        transform: scale(1.03);
       }
-    }
-    
-    /* Spin animation for decorative elements */
-    .animate-spin-slow {
-      animation: spin 20s linear infinite;
-    }
-    
-    @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-    
-    /* Float animations for 3D elements */
-    @keyframes float-slow {
-      0% {
-        transform: translateY(0px) translateX(0px);
-      }
-      50% {
-        transform: translateY(-15px) translateX(5px);
-      }
-      100% {
-        transform: translateY(0px) translateX(0px);
-      }
-    }
-    
-    @keyframes float-medium {
-      0% {
-        transform: translateY(0px) translateX(0px);
-      }
-      50% {
-        transform: translateY(-8px) translateX(-5px);
-      }
-      100% {
-        transform: translateY(0px) translateX(0px);
-      }
-    }
-    
-    @keyframes float-slow-reverse {
-      0% {
-        transform: translateY(0px) translateX(0px);
-      }
-      50% {
-        transform: translateY(-10px) translateX(-8px);
-      }
-      100% {
-        transform: translateY(0px) translateX(0px);
-      }
-    }
-    
-    @keyframes float-fast {
-      0% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-5px);
-      }
-      100% {
-        transform: translateY(0px);
-      }
-    }
-    
-    .animate-float-slow {
-      animation: float-slow 8s ease-in-out infinite;
-    }
-    
-    .animate-float-slow-reverse {
-      animation: float-slow-reverse 9s ease-in-out infinite;
-    }
-    
-    .animate-float-medium {
-      animation: float-medium 7s ease-in-out infinite;
-    }
-    
-    .animate-float-fast {
-      animation: float-fast 5s ease-in-out infinite;
-    }
-    
-    .animate-pulse-slow {
-      animation: pulse 4s ease-in-out infinite;
-    }
-    
-    .animate-pulse-fast {
-      animation: pulse 2s ease-in-out infinite;
     }
     
     .animate-fade-in {
-      animation: fadeInUp 1.2s ease-out forwards;
+      animation: fadeInUp 0.6s ease-out forwards;
     }
   </style>
 </section>

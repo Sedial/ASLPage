@@ -1,11 +1,13 @@
 {
-  "name": "Astro Landing Template",
-  "description": "A modular landing page template built with Astro and Tailwind CSS",
-  "url": "https://your-site.com",
+  "name": "ASL - Logística 4PL Colombia",
+  "title": "ASL - Operador Logístico 4PL Colombia",
+  "description": "Líder en logística 4PL en Colombia. Optimizamos tu cadena de suministro, eCommerce y distribución con tecnología avanzada y visibilidad total.",
+  "url": "https://asl-logistica.com",
   "ogImage": "/images/og-image.jpg",
+  "image": "/images/og-image.jpg",
+  "twitterHandle": "@ASLLogistica",
   "links": {
-    "twitter": "https://twitter.com/youraccount",
-    "github": "https://github.com/youraccount",
-    "linkedin": "https://linkedin.com/in/youraccount"
+    "twitter": "https://twitter.com/ASLLogistica",
+    "linkedin": "https://linkedin.com/company/asl-logistica-colombia"
   }
 }
