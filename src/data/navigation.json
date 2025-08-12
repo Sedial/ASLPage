@@ -15,44 +15,58 @@
     {
       "title": "Contacto",
       "href": "/#contacto"
-    },
-    {
-      "title": "Contact",
-      "href": "/contact"
     }
   ],
   "footerNav": [
     {
-      "title": "Company",
+      "title": "Empresa",
       "items": [
         {
-          "title": "About",
+          "title": "Nosotros",
           "href": "/about"
         },
         {
-          "title": "Services",
+          "title": "Servicios",
           "href": "/services"
         },
         {
-          "title": "Team",
-          "href": "/team"
+          "title": "Contacto",
+          "href": "/#contacto"
         }
       ]
     },
     {
-      "title": "Resources",
+      "title": "Servicios",
+      "items": [
+        {
+          "title": "Logística 4PL",
+          "href": "/services#logistica-4pl"
+        },
+        {
+          "title": "eCommerce",
+          "href": "/services#ecommerce"
+        },
+        {
+          "title": "Distribución",
+          "href": "/services#distribucion"
+        },
+        {
+          "title": "Almacenamiento",
+          "href": "/services#almacenamiento"
+        }
+      ]
+    },
+    {
+      "title": "Recursos",
       "items": [
         {
           "title": "Blog",
           "href": "/blog"
         },
+
         {
-          "title": "Documentation",
-          "href": "/docs"
-        },
-        {
-          "title": "FAQ",
-          "href": "/faq"
+          "title": "Solicitar Cotización",
+          "href": "/#contacto"
         }
       ]
     },
@@ -60,11 +74,11 @@
       "title": "Legal",
       "items": [
         {
-          "title": "Privacy Policy",
+          "title": "Política de Privacidad",
           "href": "/privacy"
         },
         {
-          "title": "Terms of Service",
+          "title": "Términos de Servicio",
           "href": "/terms"
         }
       ]
