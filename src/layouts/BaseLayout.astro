@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Navbar from '../components/navigation/Navbar.astro';
 
 export interface Props {
   title?: string;
@@ -48,6 +49,7 @@ const siteData = await import('../data/site.json');
     <link href="https://fonts.googleapis.com/css2?family=Dubai:wght@400;700&display=swap" rel="stylesheet" />
   </head>
   <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <Navbar transparent={transparent} />
     <slot />
   </body>
 </html>
