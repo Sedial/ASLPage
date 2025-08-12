@@ -1,15 +1,15 @@
 {
   "mainNav": [
     {
-      "title": "Home",
+      "title": "Inicio",
       "href": "/"
     },
     {
-      "title": "About",
+      "title": "Nosotros",
       "href": "/about"
     },
     {
-      "title": "Services",
+      "title": "Servicios",
       "href": "/services"
     },
     {
