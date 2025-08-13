@@ -1,0 +1,333 @@
+---
+interface Props {
+  phoneNumber?: string;
+  class?: string;
+}
+
+const {
+  phoneNumber = '+573112057108',
+  class: className = '',
+} = Astro.props;
+---
+
+<!-- Modal de formulario -->
+<div id="whatsapp-modal" class="fixed inset-0 bg-black/60 backdrop-blur-md z-[60] hidden items-center justify-center p-3 sm:p-4">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-sm sm:max-w-md w-full mx-auto transform transition-all duration-300 scale-95 opacity-0 max-h-[95vh] overflow-y-auto" id="modal-content">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-primary-500 to-primary-600 text-white p-4 sm:p-6 rounded-t-2xl">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2 sm:gap-3">
+          <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.386"/>
+          </svg>
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold">Contactar por WhatsApp</h3>
+            <p class="text-primary-100 text-xs sm:text-sm">ASL - Logística 3PL Colombia</p>
+          </div>
+        </div>
+        <button id="close-modal" class="text-white/80 hover:text-white transition-colors p-1">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Formulario -->
+    <form id="whatsapp-form" class="p-4 sm:p-6 space-y-3 sm:space-y-4">
+      <div class="text-center mb-3 sm:mb-4">
+        <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Complete sus datos para un contacto más personalizado</p>
+      </div>
+
+      <!-- Nombre -->
+      <div>
+        <label for="name" class="block text-xs sm:text-sm font-semibold text-gray-800 mb-1.5 sm:mb-2">Nombre completo *</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          required 
+          class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-sm bg-white hover:border-primary-300"
+          placeholder="Ej: Juan Pérez"
+        >
+      </div>
+
+      <!-- Teléfono -->
+      <div>
+        <label for="phone" class="block text-xs sm:text-sm font-semibold text-gray-800 mb-1.5 sm:mb-2">Número de teléfono *</label>
+        <input 
+          type="tel" 
+          id="phone" 
+          name="phone" 
+          required 
+          class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-sm bg-white hover:border-primary-300"
+          placeholder="Ej: +57 300 123 4567"
+        >
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-xs sm:text-sm font-semibold text-gray-800 mb-1.5 sm:mb-2">Correo electrónico *</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          required 
+          class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-sm bg-white hover:border-primary-300"
+          placeholder="Ej: juan@empresa.com"
+        >
+      </div>
+
+      <!-- Empresa -->
+      <div>
+        <label for="company" class="block text-xs sm:text-sm font-semibold text-gray-800 mb-1.5 sm:mb-2">Empresa *</label>
+        <input 
+          type="text" 
+          id="company" 
+          name="company" 
+          required 
+          class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-sm bg-white hover:border-primary-300"
+          placeholder="Ej: Mi Empresa S.A.S"
+        >
+      </div>
+
+      <!-- Mensaje adicional -->
+      <div>
+        <label for="message" class="block text-xs sm:text-sm font-semibold text-gray-800 mb-1.5 sm:mb-2">Mensaje adicional (opcional)</label>
+        <textarea 
+          id="message" 
+          name="message" 
+          rows="3"
+          class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 resize-none text-sm bg-white hover:border-primary-300"
+          placeholder="Cuéntanos sobre tu consulta o necesidad específica..."
+        ></textarea>
+      </div>
+
+      <!-- Botones -->
+      <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-3 sm:pt-4">
+        <button 
+          type="button" 
+          id="cancel-form" 
+          class="w-full sm:flex-1 px-4 sm:px-6 py-2.5 sm:py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 font-semibold text-sm order-2 sm:order-1"
+        >
+          Cancelar
+        </button>
+        <button 
+          type="submit" 
+          class="w-full sm:flex-1 px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] text-sm order-1 sm:order-2"
+        >
+          Enviar por WhatsApp
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  /* Animaciones del modal */
+  #whatsapp-modal.show {
+    display: flex !important;
+  }
+  
+  #whatsapp-modal.show #modal-content {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  /* Estilos de validación con colores de marca */
+  .error {
+    border-color: #CA241C !important;
+    box-shadow: 0 0 0 3px rgba(202, 36, 28, 0.1) !important;
+    background-color: rgba(202, 36, 28, 0.02) !important;
+  }
+  
+  .error-message {
+    color: #CA241C;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+  }
+  
+  /* Mejoras responsivas */
+  @media (max-width: 640px) {
+    #whatsapp-modal {
+      padding: 0.75rem;
+    }
+    
+    #modal-content {
+      max-height: 90vh;
+    }
+    
+    /* Ajustar tamaño de inputs en móvil */
+    input, textarea {
+      font-size: 16px; /* Previene zoom en iOS */
+    }
+  }
+  
+  /* Estados de focus mejorados */
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #CA241C;
+    box-shadow: 0 0 0 3px rgba(202, 36, 28, 0.1);
+  }
+  
+  /* Animación suave para botones */
+  button {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Mejora visual para labels */
+  label {
+    color: #374151;
+    font-weight: 600;
+  }
+</style>
+
+<script define:vars={{ phoneNumber }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('whatsapp-modal');
+    const modalContent = document.getElementById('modal-content');
+    const form = document.getElementById('whatsapp-form');
+    const closeBtn = document.getElementById('close-modal');
+    const cancelBtn = document.getElementById('cancel-form');
+    
+    // Función para abrir el modal
+    window.openWhatsAppModal = () => {
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+      
+      // Animar entrada
+      setTimeout(() => {
+        modalContent.style.transform = 'scale(1)';
+        modalContent.style.opacity = '1';
+      }, 10);
+    };
+    
+    // Función para cerrar el modal
+    const closeModal = () => {
+      modalContent.style.transform = 'scale(0.95)';
+      modalContent.style.opacity = '0';
+      
+      setTimeout(() => {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+        form.reset();
+        clearErrors();
+      }, 300);
+    };
+    
+    // Event listeners para cerrar
+    closeBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+    
+    // Cerrar al hacer click fuera del modal
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+    
+    // Cerrar con ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('show')) {
+        closeModal();
+      }
+    });
+    
+    // Función para limpiar errores
+    const clearErrors = () => {
+      const errorInputs = form.querySelectorAll('.error');
+      const errorMessages = form.querySelectorAll('.error-message');
+      
+      errorInputs.forEach(input => input.classList.remove('error'));
+      errorMessages.forEach(msg => msg.remove());
+    };
+    
+    // Función para mostrar error
+    const showError = (input, message) => {
+      input.classList.add('error');
+      
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'error-message';
+      errorDiv.textContent = message;
+      
+      input.parentNode.appendChild(errorDiv);
+    };
+    
+    // Validación del formulario
+    const validateForm = (formData) => {
+      clearErrors();
+      let isValid = true;
+      
+      // Validar nombre
+      if (!formData.name.trim()) {
+        showError(form.name, 'El nombre es requerido');
+        isValid = false;
+      }
+      
+      // Validar teléfono
+      if (!formData.phone.trim()) {
+        showError(form.phone, 'El teléfono es requerido');
+        isValid = false;
+      }
+      
+      // Validar email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!formData.email.trim()) {
+        showError(form.email, 'El correo electrónico es requerido');
+        isValid = false;
+      } else if (!emailRegex.test(formData.email)) {
+        showError(form.email, 'Ingrese un correo electrónico válido');
+        isValid = false;
+      }
+      
+      // Validar empresa
+      if (!formData.company.trim()) {
+        showError(form.company, 'La empresa es requerida');
+        isValid = false;
+      }
+      
+      return isValid;
+    };
+    
+    // Manejar envío del formulario
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const formData = {
+        name: form.name.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        company: form.company.value,
+        message: form.message.value
+      };
+      
+      if (!validateForm(formData)) {
+        return;
+      }
+      
+      // Crear mensaje personalizado
+      let whatsappMessage = `¡Hola! Soy ${formData.name} de ${formData.company}.\n\n`;
+      whatsappMessage += `📋 *Mis datos de contacto:*\n`;
+      whatsappMessage += `• Nombre: ${formData.name}\n`;
+      whatsappMessage += `• Empresa: ${formData.company}\n`;
+      whatsappMessage += `• Teléfono: ${formData.phone}\n`;
+      whatsappMessage += `• Email: ${formData.email}\n\n`;
+      
+      if (formData.message.trim()) {
+        whatsappMessage += `💬 *Mi consulta:*\n${formData.message}\n\n`;
+      }
+      
+      whatsappMessage += `Me interesa conocer más sobre los servicios logísticos de ASL - Logística 3PL Colombia. ¿Podrían brindarme más información?`;
+      
+      // Crear URL de WhatsApp
+      const whatsappUrl = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
+      
+      // Abrir WhatsApp
+      window.open(whatsappUrl, '_blank');
+      
+      // Cerrar modal
+      closeModal();
+    });
+  });
+</script>
