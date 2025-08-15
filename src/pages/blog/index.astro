@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/ui/Button.astro';
+import CTA from '../../components/sections/CTA.astro';
 import blogData from '../../data/blog.json';
 
 // Page metadata
@@ -166,4 +167,11 @@ const categories = [...new Set(allPosts.map(post => post.category))];
       </div>
     </div>
   </section>
+  <CTA 
+    title="¿Listo para comenzar?" 
+    description="Contáctanos hoy para descubrir cómo podemos ayudar a que tu negocio crezca."
+    primaryCTA={{ text: 'Contáctanos', href: '/contact' }}
+    secondaryCTA={{ text: 'Ver Servicios', href: '/services' }}
+    showSocialIcons={true}
+  />
 </BaseLayout>

@@ -7,6 +7,8 @@ export interface SiteConfig {
     twitter?: string;
     github?: string;
     linkedin?: string;
+    instagram?: string;
+    whatsapp?: string; // puede ser número o URL completa
   };
 }
 

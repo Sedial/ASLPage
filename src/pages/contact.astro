@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/sections/ContactForm.astro';
+import CTA from '../components/sections/CTA.astro';
 import { Icon } from 'astro-icon/components';
 
 // Contact information
@@ -171,4 +172,11 @@ const socialLinks = [
       </div>
     </div>
   </section>
+  <CTA 
+    title="¿Listo para comenzar?" 
+    description="Contáctanos hoy para descubrir cómo podemos ayudar a que tu negocio crezca."
+    primaryCTA={{ text: 'Contáctanos', href: '/contact' }}
+    secondaryCTA={{ text: 'Ver Servicios', href: '/services' }}
+    showSocialIcons={true}
+  />
 </BaseLayout>
