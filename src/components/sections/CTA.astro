@@ -160,10 +160,11 @@ const socials = (socialLinks && socialLinks.length)
         <div class="flex items-center justify-center gap-10 sm:gap-16 flex-wrap">
           {socials.map((s) => (
             <a
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Visitar ${s.name}`}
+              href={s.brand === 'whatsapp' ? '#' : s.href}
+              target={s.brand === 'whatsapp' ? undefined : '_blank'}
+              rel={s.brand === 'whatsapp' ? undefined : 'noopener noreferrer'}
+              aria-label={s.brand === 'whatsapp' ? 'Abrir formulario de WhatsApp' : `Visitar ${s.name}`}
+              onclick={s.brand === 'whatsapp' ? 'if(window.openWhatsAppModal){window.openWhatsAppModal();} return false;' : undefined}
               class={`social-icon group focus:outline-none focus:ring-4 focus:ring-white/30 rounded-xl ${background !== 'light' ? 'text-white' : 'text-gray-800'}`}
               style={`--brand-color: ${s.color}`}
             >
