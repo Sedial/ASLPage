@@ -8,8 +8,8 @@ const services = [
     title: 'Soluciones Logísticas Integrales',
     subtitle: 'ASL - Tu socio estratégico en logística 3PL',
     description: 'Con más de 16 años de experiencia, ofrecemos soluciones logísticas completas que optimizan tu cadena de suministro y potencian el crecimiento de tu negocio.',
-    background: 'bg-gray-900',
-    textColor: 'text-white',
+    background: 'bg-white',
+    textColor: 'text-gray-900',
     icon: '🚛',
     stats: [
       { number: '16+', label: 'Años de experiencia' },
@@ -22,8 +22,8 @@ const services = [
     title: 'Almacenamiento y Gestión de Inventarios',
     subtitle: 'Tecnología avanzada para tu inventario',
     description: 'Bodegas especializadas con control climático, sistemas WMS de última generación y protocolos de seguridad que garantizan la integridad de tu mercancía.',
-    background: 'bg-gray-900',
-    textColor: 'text-white',
+    background: 'bg-white',
+    textColor: 'text-gray-900',
     icon: '📦',
     features: [
       'Sistema WMS en tiempo real',
@@ -38,8 +38,8 @@ const services = [
     title: 'Distribución Nacional',
     subtitle: 'Conectamos todo el país',
     description: 'Red de distribución que cubre todo el territorio nacional con flota propia y aliados estratégicos, garantizando entregas oportunas y seguras.',
-    background: 'bg-gray-900',
-    textColor: 'text-white',
+    background: 'bg-white',
+    textColor: 'text-gray-900',
     icon: '🗺️',
     coverage: [
       'Bogotá y Cundinamarca',
@@ -55,8 +55,8 @@ const services = [
     title: 'Soluciones eCommerce',
     subtitle: 'Impulsa tu tienda online',
     description: 'Servicios especializados para comercio electrónico: picking automatizado, empaque personalizado, integración con plataformas y entrega last mile.',
-    background: 'bg-gray-900',
-    textColor: 'text-white',
+    background: 'bg-white',
+    textColor: 'text-gray-900',
     icon: '🛒',
     ecommerceServices: [
       'Integración con plataformas',
@@ -72,8 +72,8 @@ const services = [
     title: 'Tecnología e Innovación',
     subtitle: 'Sistemas inteligentes para logística',
     description: 'Plataforma tecnológica propia con IA para optimización de rutas, IoT para tracking en tiempo real y dashboards para completa visibilidad.',
-    background: 'bg-gray-900',
-    textColor: 'text-white',
+    background: 'bg-white',
+    textColor: 'text-gray-900',
     icon: '🤖',
     technologies: [
       'IA para optimización de rutas',
@@ -89,8 +89,8 @@ const services = [
     title: '¿Listo para optimizar tu logística?',
     subtitle: 'Comencemos a trabajar juntos',
     description: 'Solicita una consultoría gratuita y descubre cómo ASL puede transformar tu cadena de suministro con soluciones a la medida.',
-    background: 'bg-gray-900',
-    textColor: 'text-white',
+    background: 'bg-white',
+    textColor: 'text-gray-900',
     icon: '🚀',
     contact: true
   }
@@ -136,12 +136,11 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
   {services.map((service, index) => (
     <section 
       id={service.id}
-      class={`scrolly-section min-h-screen flex items-center justify-center relative ${service.background} ${service.textColor} section-parallax`}
+      class={`scrolly-section min-h-screen flex items-center justify-center relative ${service.background} ${service.textColor} section-parallax ${index === 0 ? 'pt-20' : ''}`}
       data-section={service.id}
       data-index={index}
     >
-      <!-- Overlay dinámico y acento lateral animado -->
-      <div class="absolute inset-0 bg-black/40 z-0 section-overlay"></div>
+      <!-- Acento lateral animado -->
       <div class="absolute left-0 top-0 bottom-0 w-2 bg-primary-500 z-[1] hidden md:block section-accent transform scale-y-0 origin-top"></div>
       
       <!-- Contenido principal -->
@@ -150,7 +149,7 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
           
           {service.id === 'intro' && (
             <div class="text-center space-y-12">
-              <img src={getIconSrc(service.id)} alt={service.title} class="mx-auto mb-12 icon-entrance w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36" data-animate="icon-bounce" data-delay="0" width="144" height="144" loading="eager" decoding="async" />
+              <img src={getIconSrc(service.id)} alt={service.title} class="mx-auto mb-12 icon-entrance w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain" data-animate="icon-bounce" data-delay="0" width="112" height="112" loading="eager" decoding="async" />
               <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight text-primary-500" data-animate="title-slide" data-delay="200">
                 {service.title}
               </h1>
@@ -174,17 +173,16 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
               
               <!-- Imagen principal de introducción -->
               <div class="mt-20 transform scale-90 opacity-0" data-animate="image-reveal" data-delay="1600">
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-primary-500/20">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-primary-500/20 max-w-4xl mx-auto">
                   <img 
                     src={getImageSrc('intro')} 
                     alt="Centro logístico de ASL - Vista aérea" 
-                    class="w-full h-auto object-cover rounded-3xl" 
-                    width="1920" 
-                    height="1080" 
+                    class="w-full h-64 md:h-80 lg:h-96 object-contain" 
+                    width="1200" 
+                    height="600" 
                     loading="lazy" 
                     decoding="async"
                   />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
               </div>
             </div>
@@ -194,7 +192,7 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
             <div class="grid lg:grid-cols-2 gap-20 items-center">
               <!-- Contenido textual -->
               <div class="space-y-10">
-                <img src={getIconSrc(service.id)} alt={service.title} class="mb-6 icon-float w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24" data-animate="icon-spin" data-delay="0" width="96" height="96" loading="lazy" decoding="async" />
+                <img src={getIconSrc(service.id)} alt={service.title} class="mb-6 icon-float w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" data-animate="icon-spin" data-delay="0" width="80" height="80" loading="lazy" decoding="async" />
                 <h2 class="text-5xl md:text-6xl font-black leading-tight text-primary-500 transform -translate-x-12 opacity-0" data-animate="title-sweep" data-delay="200">
                   {service.title}
                 </h2>
@@ -210,7 +208,7 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
                 {service.features && (
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
                     {service.features.map((feature, featureIndex) => (
-                      <div class="flex items-center space-x-4 bg-white/15 backdrop-blur-sm rounded-xl p-6 border border-white/20 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0" data-animate="card-slide" data-delay={1000 + (featureIndex * 100)}>
+                      <div class="flex items-center space-x-4 bg-gray-50 rounded-xl p-6 border border-gray-200 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0 shadow-sm hover:shadow-md transition-shadow" data-animate="card-slide" data-delay={1000 + (featureIndex * 100)}>
                         <div class="w-3 h-3 bg-primary-500 rounded-full flex-shrink-0 pulse-dot"></div>
                         <span class="font-semibold text-lg">{feature}</span>
                       </div>
@@ -221,7 +219,7 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
                 {service.coverage && (
                   <div class="grid grid-cols-2 gap-6 mt-12">
                     {service.coverage.map((location, locationIndex) => (
-                      <div class="flex items-center space-x-4 bg-white/15 backdrop-blur-sm rounded-xl p-6 border border-white/20 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0" data-animate="card-slide" data-delay={1000 + (locationIndex * 100)}>
+                      <div class="flex items-center space-x-4 bg-gray-50 rounded-xl p-6 border border-gray-200 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0 shadow-sm hover:shadow-md transition-shadow" data-animate="card-slide" data-delay={1000 + (locationIndex * 100)}>
                         <div class="w-3 h-3 bg-primary-500 rounded-full flex-shrink-0 pulse-dot"></div>
                         <span class="font-semibold text-lg">{location}</span>
                       </div>
@@ -232,7 +230,7 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
                 {service.ecommerceServices && (
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
                     {service.ecommerceServices.map((eservice, eserviceIndex) => (
-                      <div class="flex items-center space-x-4 bg-white/15 backdrop-blur-sm rounded-xl p-6 border border-white/20 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0" data-animate="card-slide" data-delay={1000 + (eserviceIndex * 100)}>
+                      <div class="flex items-center space-x-4 bg-gray-50 rounded-xl p-6 border border-gray-200 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0 shadow-sm hover:shadow-md transition-shadow" data-animate="card-slide" data-delay={1000 + (eserviceIndex * 100)}>
                         <div class="w-3 h-3 bg-primary-500 rounded-full flex-shrink-0 pulse-dot"></div>
                         <span class="font-semibold text-lg">{eservice}</span>
                       </div>
@@ -243,7 +241,7 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
                 {service.technologies && (
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
                     {service.technologies.map((tech, techIndex) => (
-                      <div class="flex items-center space-x-4 bg-white/15 backdrop-blur-sm rounded-xl p-6 border border-white/20 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0" data-animate="card-slide" data-delay={1000 + (techIndex * 100)}>
+                      <div class="flex items-center space-x-4 bg-gray-50 rounded-xl p-6 border border-gray-200 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0 shadow-sm hover:shadow-md transition-shadow" data-animate="card-slide" data-delay={1000 + (techIndex * 100)}>
                         <div class="w-3 h-3 bg-primary-500 rounded-full flex-shrink-0 pulse-dot"></div>
                         <span class="font-semibold text-lg">{tech}</span>
                       </div>
@@ -254,20 +252,20 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
               
               <!-- Área visual con animaciones dinámicas -->
               <div class="relative transform scale-75 opacity-0" data-animate="visual-zoom" data-delay="1000">
-                <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-12 lg:p-16 border border-primary-500/30 will-change-transform visual-card">
+                <div class="bg-gray-50 rounded-3xl p-12 lg:p-16 border border-gray-200 shadow-lg will-change-transform visual-card">
                   <div class="text-center space-y-8">
-                    <img src={getIconSrc(service.id)} alt="" aria-hidden="true" class="mx-auto opacity-80 icon-pulse w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28" data-animate="icon-glow" data-delay="1200" width="112" height="112" loading="lazy" decoding="async" />
-                    <h3 class="text-3xl font-bold text-primary-400 transform translate-y-4 opacity-0" data-animate="visual-title" data-delay="1400">
+                    <img src={getIconSrc(service.id)} alt="" aria-hidden="true" class="mx-auto opacity-80 icon-pulse w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain" data-animate="icon-glow" data-delay="1200" width="96" height="96" loading="lazy" decoding="async" />
+                    <h3 class="text-3xl font-bold text-primary-500 transform translate-y-4 opacity-0" data-animate="visual-title" data-delay="1400">
                       {service.id === 'almacenamiento' && 'Gestión Avanzada'}
                       {service.id === 'distribucion' && 'Cobertura Total'}
                       {service.id === 'ecommerce' && 'E-commerce Ready'}
                       {service.id === 'tecnologia' && 'Innovación Continua'}
                     </h3>
-                    <div class="w-full h-40 md:h-56 bg-white/10 rounded-2xl flex items-center justify-center border border-primary-500/30 shadow-inner image-placeholder transform scale-90 opacity-0" data-animate="image-reveal" data-delay="1600">
+                    <div class="w-full h-56 md:h-72 lg:h-80 bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 shadow-inner image-placeholder transform scale-90 opacity-0" data-animate="image-reveal" data-delay="1600">
                       <img 
                         src={getImageSrc(service.id)} 
                         alt={`Imagen de ${service.title}`} 
-                        class="w-full h-full object-cover rounded-2xl shadow-lg" 
+                        class="w-full h-full object-contain" 
                         width="600" 
                         height="400" 
                         loading="lazy" 
@@ -282,7 +280,7 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
 
           {service.id === 'contacto' && (
             <div class="text-center space-y-12">
-              <img src={getIconSrc(service.id)} alt={service.title} class="mx-auto mb-8 icon-entrance w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32" data-animate="icon-bounce" data-delay="0" width="128" height="128" loading="lazy" decoding="async" />
+              <img src={getIconSrc(service.id)} alt={service.title} class="mx-auto mb-8 icon-entrance w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain" data-animate="icon-bounce" data-delay="0" width="112" height="112" loading="lazy" decoding="async" />
               <h2 class="text-6xl md:text-8xl font-black mb-6 leading-tight text-primary-500" data-animate="title-slide" data-delay="200">
                 {service.title}
               </h2>
