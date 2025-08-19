@@ -106,6 +106,7 @@ const partners = [
 
 ---
 
+
 <BaseLayout title={pageTitle} description={pageDescription}>
   <!-- Hero Section -->
   <section class="bg-gradient-to-br from-slate-50 via-white to-gray-100 py-32 relative overflow-hidden">
@@ -172,7 +173,7 @@ const partners = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
             </svg>
           </div>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary-600 mb-6">
             {mission.headline}
           </h2>
           <p class="text-lg text-gray-600 leading-relaxed">
@@ -188,7 +189,7 @@ const partners = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
             </svg>
           </div>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary-600 mb-6">
             {vision.headline}
           </h2>
           <p class="text-lg text-gray-600 leading-relaxed">
@@ -204,7 +205,7 @@ const partners = [
     <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 class="text-4xl md:text-5xl font-bold text-primary-600 mb-6">
             {story.headline}
           </h2>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -261,7 +262,7 @@ const partners = [
   <section class="py-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <h2 class="text-4xl md:text-5xl font-bold text-primary-600 mb-6">
           Nuestros Valores
         </h2>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -307,7 +308,7 @@ const partners = [
                   )}
                 </svg>
               </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-4 text-center group-hover:text-primary-600 transition-colors">
+              <h3 class="text-xl font-bold text-primary-600 mb-4 text-center group-hover:text-primary-700 transition-colors">
                 {value.title}
               </h3>
               <p class="text-gray-600 text-center leading-relaxed">
@@ -324,7 +325,7 @@ const partners = [
   <section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <h2 class="text-4xl md:text-5xl font-bold text-primary-600 mb-6">
           Nuestros Aliados Estratégicos
         </h2>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -348,7 +349,7 @@ const partners = [
               loading="lazy"
               class="w-[200px] h-[200px] rounded-xl object-contain mx-auto mb-6 shadow-md ring-1 ring-slate-200 bg-white p-2"
             />
-            <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
+            <h3 class="text-xl font-bold text-primary-600 mb-2 group-hover:text-primary-700 transition-colors">
               {partner.name}
             </h3>
             <p class="text-gray-600 text-sm">
@@ -362,9 +363,7 @@ const partners = [
         <p class="text-lg text-gray-600 mb-6">
           Nuestra red de aliados estratégicos nos permite ampliar nuestro alcance y ofrecer servicios especializados en toda Colombia.
         </p>
-        <Button href="/contact" variant="primary" size="lg">
-          Conoce Más Sobre Nuestras Alianzas
-        </Button>
+        <!-- Botón eliminado -->
       </div>
     </div>
   </section>
