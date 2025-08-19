@@ -1,0 +1,451 @@
+---
+import Button from '../ui/Button.astro';
+
+// Datos de servicios logísticos de ASL basados en grupoasl.com
+const services = [
+  {
+    id: 'intro',
+    title: 'Soluciones Logísticas Integrales',
+    subtitle: 'ASL - Tu socio estratégico en logística 3PL',
+    description: 'Con más de 16 años de experiencia, ofrecemos soluciones logísticas completas que optimizan tu cadena de suministro y potencian el crecimiento de tu negocio.',
+    background: 'bg-gray-900',
+    textColor: 'text-white',
+    icon: '🚛',
+    stats: [
+      { number: '16+', label: 'Años de experiencia' },
+      { number: '500+', label: 'Empresas atendidas' },
+      { number: '99.8%', label: 'Precisión en entregas' }
+    ]
+  },
+  {
+    id: 'almacenamiento',
+    title: 'Almacenamiento y Gestión de Inventarios',
+    subtitle: 'Tecnología avanzada para tu inventario',
+    description: 'Bodegas especializadas con control climático, sistemas WMS de última generación y protocolos de seguridad que garantizan la integridad de tu mercancía.',
+    background: 'bg-gray-900',
+    textColor: 'text-white',
+    icon: '📦',
+    features: [
+      'Sistema WMS en tiempo real',
+      'Control de temperatura y humedad',
+      'Seguridad 24/7 con CCTV',
+      'Trazabilidad completa',
+      'Gestión FIFO automatizada'
+    ]
+  },
+  {
+    id: 'distribucion',
+    title: 'Distribución Nacional',
+    subtitle: 'Conectamos todo el país',
+    description: 'Red de distribución que cubre todo el territorio nacional con flota propia y aliados estratégicos, garantizando entregas oportunas y seguras.',
+    background: 'bg-gray-900',
+    textColor: 'text-white',
+    icon: '🗺️',
+    coverage: [
+      'Bogotá y Cundinamarca',
+      'Medellín y Antioquia',
+      'Cali y Valle del Cauca',
+      'Barranquilla y Costa Atlántica',
+      'Bucaramanga y Santanderes',
+      'Cobertura nacional completa'
+    ]
+  },
+  {
+    id: 'ecommerce',
+    title: 'Soluciones eCommerce',
+    subtitle: 'Impulsa tu tienda online',
+    description: 'Servicios especializados para comercio electrónico: picking automatizado, empaque personalizado, integración con plataformas y entrega last mile.',
+    background: 'bg-gray-900',
+    textColor: 'text-white',
+    icon: '🛒',
+    ecommerceServices: [
+      'Integración con plataformas',
+      'Picking y packing automatizado',
+      'Empaque personalizado',
+      'Entrega same day',
+      'Gestión de devoluciones',
+      'Analytics en tiempo real'
+    ]
+  },
+  {
+    id: 'tecnologia',
+    title: 'Tecnología e Innovación',
+    subtitle: 'Sistemas inteligentes para logística',
+    description: 'Plataforma tecnológica propia con IA para optimización de rutas, IoT para tracking en tiempo real y dashboards para completa visibilidad.',
+    background: 'bg-gray-900',
+    textColor: 'text-white',
+    icon: '🤖',
+    technologies: [
+      'IA para optimización de rutas',
+      'IoT y sensores en tiempo real',
+      'Dashboard personalizado',
+      'API para integraciones',
+      'Reportes automáticos',
+      'Alertas inteligentes'
+    ]
+  },
+  {
+    id: 'contacto',
+    title: '¿Listo para optimizar tu logística?',
+    subtitle: 'Comencemos a trabajar juntos',
+    description: 'Solicita una consultoría gratuita y descubre cómo ASL puede transformar tu cadena de suministro con soluciones a la medida.',
+    background: 'bg-gray-900',
+    textColor: 'text-white',
+    icon: '🚀',
+    contact: true
+  }
+];
+---
+
+<div class="scrollytelling-container relative">
+  <!-- Indicadores de navegación -->
+  <div class="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 hidden lg:flex flex-col space-y-3">
+    {services.map((service, index) => (
+      <button 
+        class="nav-dot w-3 h-3 rounded-full bg-gray-400/70 hover:bg-primary-500 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500/40"
+        data-target={service.id}
+        aria-label={`Ir a ${service.title}`}
+      ></button>
+    ))}
+  </div>
+
+  <!-- Secciones de scrollytelling -->
+  {services.map((service, index) => (
+    <section 
+      id={service.id}
+      class={`scrolly-section min-h-screen flex items-center justify-center relative ${service.background} ${service.textColor}`}
+      data-section={service.id}
+    >
+      <!-- Overlay base y acento lateral sólido -->
+      <div class="absolute inset-0 bg-black/30 z-0"></div>
+      <div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-600/50 z-[1] hidden md:block"></div>
+      
+      <!-- Contenido principal -->
+      <div class="container mx-auto px-4 relative z-10 py-24 md:py-28">
+        <div class="max-w-6xl mx-auto">
+          
+          {service.id === 'intro' && (
+            <div class="text-center space-y-8">
+              <div class="text-8xl mb-8" data-animate="scale-in" data-delay="0">{service.icon}</div>
+              <h1 class="text-5xl md:text-7xl font-black mb-4 leading-tight" data-animate="fade-up" data-delay="40">
+                {service.title}
+              </h1>
+              <div class="h-1 w-24 bg-primary-500 mx-auto rounded-full" data-animate="fade-up" data-delay="80"></div>
+              <p class="text-2xl md:text-3xl font-light mt-4 opacity-90" data-animate="fade-up" data-delay="120">
+                {service.subtitle}
+              </p>
+              <p class="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed opacity-80" data-animate="fade-up" data-delay="160">
+                {service.description}
+              </p>
+              
+              <!-- Stats -->
+              <div class="grid grid-cols-3 gap-8 mt-14 max-w-3xl mx-auto">
+                {service.stats?.map((stat) => (
+                  <div class="text-center" data-animate="slide-up" data-delay="200">
+                    <div class="text-4xl md:text-5xl font-black text-primary-500 mb-2">{stat.number}</div>
+                    <div class="text-lg font-semibold opacity-90">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {service.id !== 'intro' && service.id !== 'contacto' && (
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+              <!-- Contenido textual -->
+              <div class="space-y-8">
+                <div class="text-6xl mb-4" data-animate="scale-in">{service.icon}</div>
+                <h2 class="text-4xl md:text-5xl font-black leading-tight" data-animate="fade-up">
+                  {service.title}
+                </h2>
+                <div class="h-1 w-20 bg-primary-500 rounded-full" data-animate="fade-up" data-delay="40"></div>
+                <p class="text-2xl font-light opacity-90" data-animate="fade-up" data-delay="80">
+                  {service.subtitle}
+                </p>
+                <p class="text-xl leading-relaxed opacity-80" data-animate="fade-up" data-delay="120">
+                  {service.description}
+                </p>
+                
+                <!-- Lista de características -->
+                {service.features && (
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                    {service.features.map((feature) => (
+                      <div class="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 border-l-2 border-l-primary-600/40" data-animate="slide-up">
+                        <div class="w-2.5 h-2.5 bg-primary-500 rounded-full flex-shrink-0"></div>
+                        <span class="font-medium">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {service.coverage && (
+                  <div class="grid grid-cols-2 gap-4 mt-8">
+                    {service.coverage.map((location) => (
+                      <div class="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 border-l-2 border-l-primary-600/40" data-animate="slide-up">
+                        <div class="w-2.5 h-2.5 bg-primary-500 rounded-full flex-shrink-0"></div>
+                        <span class="font-medium">{location}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {service.ecommerceServices && (
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                    {service.ecommerceServices.map((eservice) => (
+                      <div class="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 border-l-2 border-l-primary-600/40" data-animate="slide-up">
+                        <div class="w-2.5 h-2.5 bg-primary-500 rounded-full flex-shrink-0"></div>
+                        <span class="font-medium">{eservice}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {service.technologies && (
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                    {service.technologies.map((tech) => (
+                      <div class="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 border-l-2 border-l-primary-600/40" data-animate="slide-up">
+                        <div class="w-2.5 h-2.5 bg-primary-500 rounded-full flex-shrink-0"></div>
+                        <span class="font-medium">{tech}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
+              <!-- Área visual -->
+              <div class="relative" data-animate="fade-up" data-delay="80">
+                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 lg:p-12 border border-primary-600/20 will-change-transform">
+                  <div class="text-center space-y-6">
+                    <div class="text-8xl opacity-70" data-animate="scale-in">{service.icon}</div>
+                    <h3 class="text-2xl font-bold">
+                      {service.id === 'almacenamiento' && 'Gestión Avanzada'}
+                      {service.id === 'distribucion' && 'Cobertura Total'}
+                      {service.id === 'ecommerce' && 'E-commerce Ready'}
+                      {service.id === 'tecnologia' && 'Innovación Continua'}
+                    </h3>
+                    <div class="w-full h-36 md:h-48 bg-white/5 rounded-lg flex items-center justify-center border border-primary-600/20 shadow-inner image-placeholder" data-animate="fade-up" data-delay="120">
+                      <span class="text-white/70 text-base md:text-lg">Área para gráficos/imágenes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {service.id === 'contacto' && (
+            <div class="text-center space-y-8">
+              <div class="text-8xl mb-6" data-animate="scale-in">{service.icon}</div>
+              <h2 class="text-5xl md:text-7xl font-black mb-4 leading-tight" data-animate="fade-up">
+                {service.title}
+              </h2>
+              <div class="h-1 w-24 bg-primary-500 mx-auto rounded-full" data-animate="fade-up" data-delay="40"></div>
+              <p class="text-2xl md:text-3xl font-light mb-6 opacity-90" data-animate="fade-up" data-delay="80">
+                {service.subtitle}
+              </p>
+              <p class="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed opacity-80 mb-10" data-animate="fade-up" data-delay="120">
+                {service.description}
+              </p>
+              
+              <!-- CTAs -->
+              <div class="flex flex-col sm:flex-row gap-6 justify-center items-center" data-animate="fade-up" data-delay="160">
+                <Button 
+                  href="/contact" 
+                  size="lg"
+                  class="bg-primary-500 hover:bg-primary-600 text-white font-bold px-8 py-4 text-xl rounded-xl shadow-lg hover:shadow-xl transition-colors"
+                >
+                  Solicitar Consultoría Gratuita
+                </Button>
+                <Button 
+                  href="tel:+57-311-123-4567" 
+                  variant="outline" 
+                  size="lg"
+                  class="border-white text-white hover:bg-white hover:text-primary-600 font-bold px-8 py-4 text-xl rounded-xl"
+                >
+                  Llamar Ahora
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <!-- Indicador de scroll -->
+      {index < services.length - 1 && (
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-subtle-bounce">
+          <div class="w-8 h-12 border-2 border-white/50 rounded-full flex justify-center">
+            <div class="w-1 h-3 bg-white/70 rounded-full mt-2"></div>
+          </div>
+        </div>
+      )}
+    </section>
+  ))}
+</div>
+
+<style>
+  /* Habilitar scroll-snap a nivel del documento solo en esta página */
+  body.scrolly-enabled {
+    scroll-snap-type: y mandatory;
+  }
+  
+  .scrollytelling-container {}
+  
+  .scrolly-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  
+  .nav-dot.active {
+    background-color: theme('colors.primary.500') !important;
+    transform: scale(1.15);
+    box-shadow: 0 0 0 4px rgba(202,36,28,0.12);
+  }
+  
+  /* Asegurar que las secciones ocupen toda la pantalla */
+  .scrolly-section {
+    min-height: 100vh;
+    min-height: 100dvh; /* Para navegadores modernos */
+  }
+  
+  /* Animaciones discretas y profesionales */
+  [data-animate] { opacity: 0; }
+  .animated { opacity: 1; }
+  .animated.fade-up { animation: fadeUp 500ms ease-out both; }
+  .animated.slide-up { animation: slideUp 500ms ease-out both; }
+  .animated.scale-in { animation: scaleIn 450ms ease-out both; }
+  .animated.blur-in { animation: blurIn 500ms ease-out both; }
+  .image-placeholder { animation: floatY 8s ease-in-out infinite; }
+
+  @keyframes fadeUp {
+    0% { transform: translateY(6px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes slideUp {
+    0% { transform: translateY(8px) scale(0.99); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+  }
+  @keyframes scaleIn {
+    0% { transform: scale(0.98); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes blurIn {
+    0% { filter: blur(6px); opacity: 0; }
+    100% { filter: blur(0); opacity: 1; }
+  }
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+  @keyframes subtleBounce {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -5px); }
+  }
+  .animate-subtle-bounce { animation: subtleBounce 2.6s ease-in-out infinite; }
+
+  /* Accesibilidad: reducir movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    .animated.fade-up,
+    .animated.slide-up,
+    .animated.scale-in,
+    .animated.blur-in,
+    .image-placeholder,
+    .animate-subtle-bounce {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .scrolly-section {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+</style>
+
+<script>
+  // Mantener scroll del documento, navbar fluido y animaciones discretas
+  document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.scrolly-section');
+    const navDots = document.querySelectorAll('.nav-dot');
+
+    // Activar scroll-snap en body solo en esta página
+    document.body.classList.add('scrolly-enabled');
+
+    // Navbar: mantener comportamiento de esta página (transparente -> sólido al scrollear)
+    const nav = document.querySelector('nav');
+    const onScroll = () => {
+      if (window.scrollY > 10) {
+        nav?.classList.add('navbar-scrolled');
+      } else {
+        nav?.classList.remove('navbar-scrolled');
+      }
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Observador de intersección para activar indicadores y animaciones
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.getAttribute('data-section');
+          // Actualizar indicadores
+          navDots.forEach(dot => {
+            dot.classList.remove('active');
+            if (dot.getAttribute('data-target') === sectionId) {
+              dot.classList.add('active');
+            }
+          });
+          // Animaciones discretas
+          const animated = entry.target.querySelectorAll('[data-animate]:not(.animated)');
+          animated.forEach((el) => {
+            const type = el.getAttribute('data-animate');
+            const delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+            setTimeout(() => {
+              el.classList.add('animated', type);
+            }, delay);
+          });
+        }
+      });
+    }, { threshold: 0.55 });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Navegación con clicks en los dots
+    navDots.forEach(dot => {
+      dot.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Navegación con teclado (flechas arriba/abajo)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        const currentActive = document.querySelector('.nav-dot.active');
+        if (!currentActive) return;
+        const currentIndex = Array.from(navDots).indexOf(currentActive);
+        let nextIndex;
+        if (e.key === 'ArrowDown') {
+          nextIndex = currentIndex < navDots.length - 1 ? currentIndex + 1 : currentIndex;
+        } else {
+          nextIndex = currentIndex > 0 ? currentIndex - 1 : currentIndex;
+        }
+        if (nextIndex !== currentIndex) {
+          navDots[nextIndex].click();
+        }
+      }
+    });
+
+    // Limpieza cuando el usuario salga de la página
+    window.addEventListener('beforeunload', () => {
+      document.body.classList.remove('scrolly-enabled');
+      window.removeEventListener('scroll', onScroll);
+    });
+  });
+</script>
