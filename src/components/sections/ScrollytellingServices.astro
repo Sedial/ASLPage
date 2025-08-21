@@ -70,18 +70,18 @@ const services = [
   {
     id: 'tecnologia',
     title: 'Tecnología e Innovación',
-    subtitle: 'Sistemas inteligentes para logística',
-    description: 'Plataforma tecnológica propia con IA para optimización de rutas, IoT para tracking en tiempo real y dashboards para completa visibilidad.',
+    subtitle: 'Sistemas avanzados para logística',
+    description: 'Plataforma tecnológica propia con optimización de rutas, tracking GPS en tiempo real y dashboards para completa visibilidad de operaciones.',
     background: 'bg-white',
     textColor: 'text-gray-900',
     icon: '🤖',
     technologies: [
-      'IA para optimización de rutas',
-      'IoT y sensores en tiempo real',
+      'Optimización de rutas GPS',
+      'Tracking en tiempo real',
       'Dashboard personalizado',
       'API para integraciones',
       'Reportes automáticos',
-      'Alertas inteligentes'
+      'Alertas de estado'
     ]
   },
   {
@@ -102,7 +102,7 @@ const iconMap: Record<string, string> = {
   almacenamiento: 'warehouse-box.webp',
   distribucion: 'colombia-distribution.webp',
   ecommerce: 'ecommerce-cart.webp',
-  tecnologia: 'ai-chip.webp',
+  tecnologia: 'tracking-icon.webp',
   contacto: 'rocket-launch.webp',
 };
 
@@ -122,10 +122,10 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
 
 <div class="scrollytelling-container relative">
   <!-- Indicadores de navegación -->
-  <div class="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 hidden lg:flex flex-col space-y-4">
+  <div class="fixed right-4 md:right-6 lg:right-8 top-1/2 transform -translate-y-1/2 z-40 hidden md:flex flex-col space-y-3 md:space-y-4">
     {services.map((service, index) => (
       <button 
-        class="nav-dot w-4 h-4 rounded-full bg-gray-400/70 hover:bg-primary-500 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500/50 transform hover:scale-125"
+        class="nav-dot w-3 h-3 md:w-4 md:h-4 rounded-full bg-gray-400/70 hover:bg-primary-500 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500/50 transform hover:scale-125"
         data-target={service.id}
         aria-label={`Ir a ${service.title}`}
       ></button>
@@ -150,14 +150,14 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
           {service.id === 'intro' && (
             <div class="text-center space-y-12">
               <img src={getIconSrc(service.id)} alt={service.title} class="mx-auto mb-12 icon-entrance w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain" data-animate="icon-bounce" data-delay="0" width="112" height="112" loading="eager" decoding="async" />
-              <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight text-primary-500" data-animate="title-slide" data-delay="200">
+              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 leading-tight text-primary-500" data-animate="title-slide" data-delay="200">
                 {service.title}
               </h1>
-              <div class="h-2 w-32 bg-primary-500 mx-auto rounded-full transform scale-x-0" data-animate="line-expand" data-delay="400"></div>
-              <p class="text-3xl md:text-4xl font-light mt-6 opacity-90 text-primary-400" data-animate="subtitle-fade" data-delay="600">
+              <div class="h-2 w-24 sm:w-32 bg-primary-500 mx-auto rounded-full transform scale-x-0" data-animate="line-expand" data-delay="400"></div>
+              <p class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mt-6 opacity-90 text-primary-400" data-animate="subtitle-fade" data-delay="600">
                 {service.subtitle}
               </p>
-              <p class="text-2xl md:text-3xl max-w-4xl mx-auto leading-relaxed opacity-80" data-animate="desc-rise" data-delay="800">
+              <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto leading-relaxed opacity-80" data-animate="desc-rise" data-delay="800">
                 {service.description}
               </p>
               
@@ -173,16 +173,17 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
               
               <!-- Imagen principal de introducción -->
               <div class="mt-20 transform scale-90 opacity-0" data-animate="image-reveal" data-delay="1600">
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-primary-500/20 max-w-4xl mx-auto">
+                <div class="relative max-w-5xl mx-auto">
                   <img 
                     src={getImageSrc('intro')} 
                     alt="Centro logístico de ASL - Vista aérea" 
-                    class="w-full h-64 md:h-80 lg:h-96 object-contain" 
+                    class="w-full h-auto rounded-2xl shadow-2xl border border-primary-500/10 hover:shadow-3xl transition-all duration-500" 
                     width="1200" 
                     height="600" 
                     loading="lazy" 
                     decoding="async"
                   />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl pointer-events-none"></div>
                 </div>
               </div>
             </div>
@@ -193,57 +194,120 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
               <!-- Contenido textual -->
               <div class="space-y-10">
                 <img src={getIconSrc(service.id)} alt={service.title} class="mb-6 icon-float w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" data-animate="icon-spin" data-delay="0" width="80" height="80" loading="lazy" decoding="async" />
-                <h2 class="text-5xl md:text-6xl font-black leading-tight text-primary-500 transform -translate-x-12 opacity-0" data-animate="title-sweep" data-delay="200">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-primary-500 transform -translate-x-12 opacity-0" data-animate="title-sweep" data-delay="200">
                   {service.title}
                 </h2>
-                <div class="h-2 w-24 bg-primary-500 rounded-full transform scale-x-0 origin-left" data-animate="line-expand" data-delay="400"></div>
-                <p class="text-3xl font-light opacity-90 text-primary-400 transform translate-y-8 opacity-0" data-animate="subtitle-rise" data-delay="600">
+                <div class="h-2 w-20 sm:w-24 bg-primary-500 rounded-full transform scale-x-0 origin-left" data-animate="line-expand" data-delay="400"></div>
+                <p class="text-xl sm:text-2xl md:text-3xl font-light opacity-90 text-primary-400 transform translate-y-8 opacity-0" data-animate="subtitle-rise" data-delay="600">
                   {service.subtitle}
                 </p>
-                <p class="text-2xl leading-relaxed opacity-80 transform translate-y-12 opacity-0" data-animate="desc-fade" data-delay="800">
+                <p class="text-lg sm:text-xl md:text-2xl leading-relaxed opacity-80 transform translate-y-12 opacity-0" data-animate="desc-fade" data-delay="800">
                   {service.description}
                 </p>
                 
-                <!-- Lista de características con animaciones escalonadas -->
+                <!-- Lista de características con diseño responsivo -->
                 {service.features && (
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-                    {service.features.map((feature, featureIndex) => (
-                      <div class="flex items-center space-x-4 bg-gray-50 rounded-xl p-6 border border-gray-200 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0 shadow-sm hover:shadow-md transition-shadow" data-animate="card-slide" data-delay={1000 + (featureIndex * 100)}>
-                        <div class="w-3 h-3 bg-primary-500 rounded-full flex-shrink-0 pulse-dot"></div>
-                        <span class="font-semibold text-lg">{feature}</span>
+                  <div class="relative w-full max-w-5xl mx-auto mt-16 mb-16">
+                    <!-- Diseño circular para pantallas grandes -->
+                    <div class="hidden md:block relative w-96 h-96 lg:w-[550px] lg:h-[550px] mx-auto">
+                      <!-- Centro del círculo (fijo, no gira) -->
+                      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center shadow-2xl z-30 animate-pulse">
+                        <img src={getIconSrc(service.id)} alt="" class="w-14 h-14 lg:w-16 lg:h-16 object-contain filter brightness-0 invert" />
                       </div>
-                    ))}
+                      
+                      <!-- Contenedor giratorio para las tarjetas -->
+                      <div class="circular-container absolute inset-0">
+                        {service.features.map((feature, featureIndex) => {
+                          const angle = (360 / service.features.length) * featureIndex;
+                          const radius = 160; // Radio aumentado para evitar superposición
+                          const x = Math.cos((angle - 90) * Math.PI / 180) * radius;
+                          const y = Math.sin((angle - 90) * Math.PI / 180) * radius;
+                         
+                         return (
+                           <div 
+                             class="absolute w-32 h-32 lg:w-36 lg:h-36 bg-white rounded-full shadow-xl border-3 border-primary-200 flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 hover:scale-110 transition-all duration-300 cursor-pointer group feature-card hover:shadow-2xl hover:border-primary-400"
+                             style={`left: calc(50% + ${x}px); top: calc(50% + ${y}px); animation-delay: ${featureIndex * 200}ms;`}
+                             data-animate="circular-appear"
+                             data-delay={1000 + (featureIndex * 200)}
+                           >
+                             <div class="text-center p-3 card-content">
+                                <div class="w-4 h-4 bg-primary-500 rounded-full mx-auto mb-2 group-hover:animate-bounce"></div>
+                                <span class="text-sm lg:text-base font-bold text-gray-800 leading-tight block">{feature.split(' ').slice(0, 2).join(' ')}</span>
+                                {feature.split(' ').length > 2 && (
+                                  <span class="text-xs text-gray-600 block mt-1">{feature.split(' ').slice(2).join(' ')}</span>
+                                )}
+                              </div>
+                           </div>
+                         );
+                       })}
+                      </div>
+                    </div>
+                    
+                    <!-- Diseño de grid para móviles y tablets -->
+                    <div class="md:hidden grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
+                      {service.features.map((feature, featureIndex) => (
+                        <div 
+                          class="bg-white rounded-xl p-4 shadow-lg border-2 border-primary-200 hover:border-primary-400 hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                          data-animate="card-slide"
+                          data-delay={1000 + (featureIndex * 100)}
+                        >
+                          <div class="text-center">
+                            <div class="w-3 h-3 bg-primary-500 rounded-full mx-auto mb-3"></div>
+                            <span class="text-sm font-bold text-gray-800 leading-tight block">{feature}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
 
                 {service.coverage && (
-                  <div class="grid grid-cols-2 gap-6 mt-12">
-                    {service.coverage.map((location, locationIndex) => (
-                      <div class="flex items-center space-x-4 bg-gray-50 rounded-xl p-6 border border-gray-200 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0 shadow-sm hover:shadow-md transition-shadow" data-animate="card-slide" data-delay={1000 + (locationIndex * 100)}>
-                        <div class="w-3 h-3 bg-primary-500 rounded-full flex-shrink-0 pulse-dot"></div>
-                        <span class="font-semibold text-lg">{location}</span>
-                      </div>
-                    ))}
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-12">
+                    {service.coverage.map((location, locationIndex) => {
+                      const backgroundImages = {
+                        'Bogotá y Cundinamarca': '/images/coverage/bogota-cundinamarca-bg.webp',
+                        'Medellín y Antioquia': '/images/coverage/medellin-antioquia-bg.webp',
+                        'Cali y Valle del Cauca': '/images/coverage/cali-valle-bg.webp',
+                        'Barranquilla y Costa Atlántica': '/images/coverage/barranquilla-costa-bg.webp',
+                        'Bucaramanga y Santanderes': '/images/coverage/bucaramanga-santanderes-bg.webp',
+                        'Cobertura nacional completa': '/images/coverage/cobertura-nacional-bg.webp'
+                      };
+                      const bgImage = backgroundImages[location] || '';
+                      return (
+                        <div 
+                          class="relative flex items-center space-x-3 sm:space-x-4 rounded-xl p-4 sm:p-6 border border-gray-200 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden min-h-[70px] sm:min-h-[80px]" 
+                          data-animate="card-slide" 
+                          data-delay={1000 + (locationIndex * 100)}
+                          style={`background-image: url('${bgImage}'); background-size: cover; background-position: center; background-repeat: no-repeat;`}
+                        >
+                          <div class="absolute inset-0 bg-white/25 backdrop-blur-sm"></div>
+                          <div class="relative z-10 flex items-center space-x-3 sm:space-x-4">
+                            <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-primary-500 rounded-full flex-shrink-0 pulse-dot"></div>
+                            <span class="font-semibold text-base sm:text-lg text-gray-900">{location}</span>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
 
                 {service.ecommerceServices && (
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-12">
                     {service.ecommerceServices.map((eservice, eserviceIndex) => (
-                      <div class="flex items-center space-x-4 bg-gray-50 rounded-xl p-6 border border-gray-200 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0 shadow-sm hover:shadow-md transition-shadow" data-animate="card-slide" data-delay={1000 + (eserviceIndex * 100)}>
-                        <div class="w-3 h-3 bg-primary-500 rounded-full flex-shrink-0 pulse-dot"></div>
-                        <span class="font-semibold text-lg">{eservice}</span>
+                      <div class="flex items-center space-x-3 sm:space-x-4 bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0 shadow-sm hover:shadow-md transition-shadow" data-animate="card-slide" data-delay={1000 + (eserviceIndex * 100)}>
+                        <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-primary-500 rounded-full flex-shrink-0 pulse-dot"></div>
+                        <span class="font-semibold text-base sm:text-lg">{eservice}</span>
                       </div>
                     ))}
                   </div>
                 )}
 
                 {service.technologies && (
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-12">
                     {service.technologies.map((tech, techIndex) => (
-                      <div class="flex items-center space-x-4 bg-gray-50 rounded-xl p-6 border border-gray-200 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0 shadow-sm hover:shadow-md transition-shadow" data-animate="card-slide" data-delay={1000 + (techIndex * 100)}>
-                        <div class="w-3 h-3 bg-primary-500 rounded-full flex-shrink-0 pulse-dot"></div>
-                        <span class="font-semibold text-lg">{tech}</span>
+                      <div class="flex items-center space-x-3 sm:space-x-4 bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200 border-l-4 border-l-primary-500 transform translate-x-8 opacity-0 shadow-sm hover:shadow-md transition-shadow" data-animate="card-slide" data-delay={1000 + (techIndex * 100)}>
+                        <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-primary-500 rounded-full flex-shrink-0 pulse-dot"></div>
+                        <span class="font-semibold text-base sm:text-lg">{tech}</span>
                       </div>
                     ))}
                   </div>
@@ -251,27 +315,28 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
               </div>
               
               <!-- Área visual con animaciones dinámicas -->
-              <div class="relative transform scale-75 opacity-0" data-animate="visual-zoom" data-delay="1000">
-                <div class="bg-gray-50 rounded-3xl p-12 lg:p-16 border border-gray-200 shadow-lg will-change-transform visual-card">
-                  <div class="text-center space-y-8">
-                    <img src={getIconSrc(service.id)} alt="" aria-hidden="true" class="mx-auto opacity-80 icon-pulse w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain" data-animate="icon-glow" data-delay="1200" width="96" height="96" loading="lazy" decoding="async" />
-                    <h3 class="text-3xl font-bold text-primary-500 transform translate-y-4 opacity-0" data-animate="visual-title" data-delay="1400">
-                      {service.id === 'almacenamiento' && 'Gestión Avanzada'}
-                      {service.id === 'distribucion' && 'Cobertura Total'}
-                      {service.id === 'ecommerce' && 'E-commerce Ready'}
-                      {service.id === 'tecnologia' && 'Innovación Continua'}
-                    </h3>
-                    <div class="w-full h-56 md:h-72 lg:h-80 bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 shadow-inner image-placeholder transform scale-90 opacity-0" data-animate="image-reveal" data-delay="1600">
-                      <img 
-                        src={getImageSrc(service.id)} 
-                        alt={`Imagen de ${service.title}`} 
-                        class="w-full h-full object-contain" 
-                        width="600" 
-                        height="400" 
-                        loading="lazy" 
-                        decoding="async"
-                      />
-                    </div>
+              <div class="relative transform scale-90 opacity-0" data-animate="visual-zoom" data-delay="1000">
+                <div class="text-center space-y-6 md:space-y-8">
+                  <div class="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-primary-50 rounded-full border-2 border-primary-100 shadow-lg" data-animate="icon-glow" data-delay="1200">
+                    <img src={getIconSrc(service.id)} alt="" aria-hidden="true" class="opacity-90 icon-pulse w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain" width="64" height="64" loading="lazy" decoding="async" />
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-500 transform translate-y-4 opacity-0" data-animate="visual-title" data-delay="1400">
+                    {service.id === 'almacenamiento' && 'Gestión Avanzada'}
+                    {service.id === 'distribucion' && 'Cobertura Total'}
+                    {service.id === 'ecommerce' && 'E-commerce Ready'}
+                    {service.id === 'tecnologia' && 'Innovación Continua'}
+                  </h3>
+                  <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto transform scale-90 opacity-0" data-animate="image-reveal" data-delay="1600">
+                    <img 
+                      src={getImageSrc(service.id)} 
+                      alt={`Imagen de ${service.title}`} 
+                      class="w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl border border-primary-500/10 hover:shadow-3xl transition-all duration-500" 
+                      width="600" 
+                      height="400" 
+                      loading="lazy" 
+                      decoding="async"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-xl sm:rounded-2xl pointer-events-none"></div>
                   </div>
                 </div>
               </div>
@@ -281,23 +346,23 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
           {service.id === 'contacto' && (
             <div class="text-center space-y-12">
               <img src={getIconSrc(service.id)} alt={service.title} class="mx-auto mb-8 icon-entrance w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain" data-animate="icon-bounce" data-delay="0" width="112" height="112" loading="lazy" decoding="async" />
-              <h2 class="text-6xl md:text-8xl font-black mb-6 leading-tight text-primary-500" data-animate="title-slide" data-delay="200">
+              <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 leading-tight text-primary-500" data-animate="title-slide" data-delay="200">
                 {service.title}
               </h2>
-              <div class="h-2 w-32 bg-primary-500 mx-auto rounded-full transform scale-x-0" data-animate="line-expand" data-delay="400"></div>
-              <p class="text-3xl md:text-4xl font-light mb-8 opacity-90 text-primary-400" data-animate="subtitle-fade" data-delay="600">
+              <div class="h-2 w-24 sm:w-32 bg-primary-500 mx-auto rounded-full transform scale-x-0" data-animate="line-expand" data-delay="400"></div>
+              <p class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-8 opacity-90 text-primary-400" data-animate="subtitle-fade" data-delay="600">
                 {service.subtitle}
               </p>
-              <p class="text-2xl md:text-3xl max-w-4xl mx-auto leading-relaxed opacity-80 mb-16" data-animate="desc-rise" data-delay="800">
+              <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto leading-relaxed opacity-80 mb-16" data-animate="desc-rise" data-delay="800">
                 {service.description}
               </p>
               
               <!-- CTAs con animaciones llamativas -->
-              <div class="flex flex-col sm:flex-row gap-8 justify-center items-center" data-animate="cta-appear" data-delay="1000">
+              <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 lg:gap-8 justify-center items-center w-full max-w-2xl mx-auto" data-animate="cta-appear" data-delay="1000">
                 <Button 
                   href="/contact" 
                   size="lg"
-                  class="bg-primary-500 hover:bg-primary-600 text-white font-bold px-12 py-6 text-2xl rounded-2xl shadow-2xl hover:shadow-primary-500/25 transition-all duration-300 transform hover:scale-105 cta-pulse"
+                  class="w-full sm:w-auto bg-primary-500 hover:bg-primary-600 text-white font-bold px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-4 md:py-5 lg:py-6 text-base sm:text-lg md:text-xl lg:text-2xl rounded-xl sm:rounded-2xl shadow-2xl hover:shadow-primary-500/25 transition-all duration-300 transform hover:scale-105 cta-pulse"
                 >
                   Solicitar Consultoría Gratuita
                 </Button>
@@ -305,7 +370,7 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
                   href="tel:+57-311-123-4567" 
                   variant="outline" 
                   size="lg"
-                  class="border-2 border-primary-500 text-primary-400 hover:bg-primary-500 hover:text-white font-bold px-12 py-6 text-2xl rounded-2xl transition-all duration-300 transform hover:scale-105"
+                  class="w-full sm:w-auto border-2 border-primary-500 text-primary-400 hover:bg-primary-500 hover:text-white font-bold px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-4 md:py-5 lg:py-6 text-base sm:text-lg md:text-xl lg:text-2xl rounded-xl sm:rounded-2xl transition-all duration-300 transform hover:scale-105"
                 >
                   Llamar Ahora
                 </Button>
@@ -465,8 +530,13 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
   .icon-float { animation: iconFloat 4s ease-in-out infinite; }
   .icon-pulse { animation: iconPulse 3s ease-in-out infinite; }
   .pulse-dot { animation: pulseDot 2s ease-in-out infinite; }
-  .visual-card { animation: visualFloat 6s ease-in-out infinite; }
   .cta-pulse { animation: ctaPulse 2s ease-in-out infinite; }
+  
+  /* Efectos hover para imágenes */
+  img:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+  }
   
   @keyframes iconFloat {
     0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -480,13 +550,114 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
     0%, 100% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.3); opacity: 0.7; }
   }
-  @keyframes visualFloat {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-8px) scale(1.02); }
+  /* Animación de imagen mejorada */
+  @keyframes imageHover {
+    0% { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1.02) rotate(0.5deg); }
   }
   @keyframes ctaPulse {
     0%, 100% { box-shadow: 0 10px 30px rgba(202,36,28,0.3); }
     50% { box-shadow: 0 15px 40px rgba(202,36,28,0.5); }
+  }
+
+  /* Animaciones circulares suaves y fluidas */
+  @keyframes circularRotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes circularAppear {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+  }
+  
+  @keyframes floatCard {
+    0%, 100% {
+      transform: translate(-50%, -50%) translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-6px) rotate(0deg);
+    }
+  }
+  
+  /* Contenedor principal con rotación suave */
+  .circular-container {
+    animation: circularRotate 60s linear infinite;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  .circular-container:hover {
+    animation-play-state: paused;
+  }
+  
+  /* Tarjetas con animaciones optimizadas */
+  .feature-card {
+    animation: circularAppear 1s ease-out forwards;
+    opacity: 0;
+    will-change: transform;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+  
+  .feature-card:hover {
+    z-index: 50;
+    transform: translate(-50%, -50%) scale(1.1) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Contrarotación perfectamente sincronizada */
+  .card-content {
+    animation: circularRotate 60s linear infinite reverse;
+    will-change: transform;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .circular-container:hover .card-content {
+    animation-play-state: paused;
+  }
+  
+  /* Mejoras visuales adicionales */
+  .feature-card:hover .card-content {
+    animation-play-state: paused;
+  }
+  
+  /* Optimizaciones responsive */
+  @media (max-width: 768px) {
+    .circular-container {
+      animation-duration: 50s;
+    }
+    .card-content {
+      animation-duration: 50s;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .circular-container {
+      animation-duration: 45s;
+    }
+    .card-content {
+      animation-duration: 45s;
+    }
   }
 
   /* Accesibilidad: reducir movimiento */
@@ -510,7 +681,6 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
     .icon-float,
     .icon-pulse,
     .pulse-dot,
-    .visual-card,
     .cta-pulse {
       animation: none !important;
       opacity: 1 !important;
@@ -519,10 +689,175 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
   }
 
   /* Responsive adjustments */
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     .scrolly-section {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
+      padding: 1rem;
+      min-height: 100vh;
+    }
+    
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    /* Títulos responsivos para móvil */
+    h2 {
+      font-size: 2.5rem !important;
+      line-height: 1.1 !important;
+    }
+    
+    /* Subtítulos responsivos */
+    .text-xl {
+      font-size: 1.125rem !important;
+    }
+    
+    /* Descripciones responsivas */
+    .text-lg {
+      font-size: 1rem !important;
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 768px) {
+    .scrolly-section {
+      padding: 1.5rem;
+      min-height: 100vh;
+    }
+    
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    
+    /* Títulos para tablet */
+    h2 {
+      font-size: 3.5rem !important;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .scrolly-section {
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    .scrolly-section {
+      padding: 3rem;
+      min-height: 100vh;
+    }
+    
+    .container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+  
+  /* Grid responsive adjustments */
+  @media (max-width: 640px) {
+    .grid.lg\:grid-cols-2 {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .grid.grid-cols-3 {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .grid.sm\:grid-cols-2 {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    /* Ajustes para tarjetas en móvil */
+    .grid.grid-cols-2 {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 767px) {
+    .grid.grid-cols-2 {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 1023px) {
+    .grid.lg\:grid-cols-2 {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+  
+  /* Mejoras específicas para el diseño circular responsivo */
+  @media (max-width: 768px) {
+    .circular-container {
+      display: none;
+    }
+  }
+  
+  /* Optimizaciones para imágenes responsivas */
+  @media (max-width: 640px) {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .w-20, .w-24 {
+      width: 4rem !important;
+    }
+    
+    /* Navegación lateral responsiva */
+    .nav-dots {
+      right: 0.5rem !important;
+      gap: 0.5rem !important;
+    }
+    
+    .nav-dot {
+      width: 0.75rem !important;
+      height: 0.75rem !important;
+    }
+    
+    /* Botones responsivos */
+    .cta-pulse {
+      animation-duration: 3s !important;
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 768px) {
+    .nav-dots {
+      right: 1rem !important;
+    }
+    
+    .nav-dot {
+      width: 1rem !important;
+      height: 1rem !important;
+    }
+  }
+  
+  /* Mejoras para accesibilidad táctil */
+  @media (max-width: 768px) {
+    .nav-dot {
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .nav-dot::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background-color: currentColor;
+      border-radius: 50%;
     }
   }
 </style>
@@ -548,31 +883,45 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
+    // Función para activar animaciones de una sección
+    const activateSection = (section) => {
+      const sectionId = section.getAttribute('data-section');
+      // Actualizar indicadores
+      navDots.forEach(dot => {
+        dot.classList.remove('active');
+        if (dot.getAttribute('data-target') === sectionId) {
+          dot.classList.add('active');
+        }
+      });
+      // Animaciones discretas
+      const animated = section.querySelectorAll('[data-animate]:not(.animated)');
+      animated.forEach((el) => {
+        const type = el.getAttribute('data-animate');
+        const rawDelay = parseInt(el.getAttribute('data-delay') || '0', 10);
+        const delay = Math.min(rawDelay, 300); // reducido para aparición más rápida
+        setTimeout(() => {
+          el.classList.add('animated', type);
+        }, delay);
+      });
+    };
+
+    // Activar inmediatamente la primera sección si está visible
+    const firstSection = sections[0];
+    if (firstSection) {
+      const rect = firstSection.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        activateSection(firstSection);
+      }
+    }
+
     // Observador de intersección para activar indicadores y animaciones
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const sectionId = entry.target.getAttribute('data-section');
-          // Actualizar indicadores
-          navDots.forEach(dot => {
-            dot.classList.remove('active');
-            if (dot.getAttribute('data-target') === sectionId) {
-              dot.classList.add('active');
-            }
-          });
-          // Animaciones discretas
-          const animated = entry.target.querySelectorAll('[data-animate]:not(.animated)');
-          animated.forEach((el) => {
-            const type = el.getAttribute('data-animate');
-            const rawDelay = parseInt(el.getAttribute('data-delay') || '0', 10);
-            const delay = Math.min(rawDelay, 400); // límite para evitar apariciones tardías
-            setTimeout(() => {
-              el.classList.add('animated', type);
-            }, delay);
-          });
+          activateSection(entry.target);
         }
       });
-    }, { threshold: 0.35 });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
 
     sections.forEach(section => observer.observe(section));
 
