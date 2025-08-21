@@ -14,7 +14,6 @@
     "@splinetool/viewer": "^1.10.4",
     "@types/three": "^0.177.0",
     "astro": "^5.9.2",
-    "astro-icon": "^0.8.1",
     "tailwindcss": "^3.3.5",
     "three": "^0.177.0"
   },
