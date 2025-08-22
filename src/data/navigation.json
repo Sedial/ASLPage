@@ -14,7 +14,7 @@
     },
     {
       "title": "Contacto",
-      "href": "/#contacto"
+      "href": "/contact"
     }
   ],
   "footerNav": [
@@ -31,7 +31,7 @@
         },
         {
           "title": "Contacto",
-          "href": "/#contacto"
+          "href": "/contact"
         }
       ]
     },
