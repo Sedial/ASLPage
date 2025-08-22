@@ -268,12 +268,12 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-12">
                     {service.coverage.map((location, locationIndex) => {
                       const backgroundImages = {
-                        'Bogotá y Cundinamarca': '/images/coverage/bogota-cundinamarca-bg.webp',
-                        'Medellín y Antioquia': '/images/coverage/medellin-antioquia-bg.webp',
-                        'Cali y Valle del Cauca': '/images/coverage/cali-valle-bg.webp',
-                        'Barranquilla y Costa Atlántica': '/images/coverage/barranquilla-costa-bg.webp',
-                        'Bucaramanga y Santanderes': '/images/coverage/bucaramanga-santanderes-bg.webp',
-                        'Cobertura nacional completa': '/images/coverage/cobertura-nacional-bg.webp'
+                        'Bogotá y Cundinamarca': '/images/cities/bogota-cundinamarca-bg.webp',
+                        'Medellín y Antioquia': '/images/cities/medellin-antioquia-bg.webp',
+                        'Cali y Valle del Cauca': '/images/cities/cali-valle-bg.webp',
+                        'Barranquilla y Costa Atlántica': '/images/cities/barranquilla-costa-bg.webp',
+                        'Bucaramanga y Santanderes': '/images/cities/bucaramanga-santanderes-bg.webp',
+                        'Cobertura nacional completa': '/images/cities/cobertura-nacional-bg.webp'
                       };
                       const bgImage = backgroundImages[location] || '';
                       return (
