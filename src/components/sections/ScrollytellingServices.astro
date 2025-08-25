@@ -1,94 +1,123 @@
 ---
 import Button from '../ui/Button.astro';
 
-// Datos de servicios logísticos de ASL basados en grupoasl.com
+// Datos de servicios logísticos de ASL - Información real de la empresa
 const services = [
   {
     id: 'intro',
-    title: 'Soluciones Logísticas Integrales',
-    subtitle: 'ASL - Tu socio estratégico en logística 3PL',
-    description: 'Con más de 16 años de experiencia, ofrecemos soluciones logísticas completas que optimizan tu cadena de suministro y potencian el crecimiento de tu negocio.',
+    title: 'ASL - Agencia de Servicios Logísticos',
+    subtitle: 'Operadores logísticos especializados en soluciones 3PL',
+    description: 'ASL - Agencia de Servicios Logísticos S.A. es una empresa que nace de la unión de conocimientos y experiencia de operadores logísticos de Bavaria. Tenemos presencia estratégica en múltiples departamentos: Córdoba, Nariño, Huila, Antioquia, Tolima, Cundinamarca, Valle del Cauca, Risaralda, Boyacá y Atlántico.',
     background: 'bg-white',
     textColor: 'text-gray-900',
     icon: '🚛',
     stats: [
-      { number: '16+', label: 'Años de experiencia' },
-      { number: '500+', label: 'Empresas atendidas' },
-      { number: '99.8%', label: 'Precisión en entregas' }
+      { number: 'Bavaria', label: 'Experiencia con' },
+      { number: '10', label: 'Departamentos' },
+      { number: '100%', label: 'Soluciones integrales' }
     ]
   },
   {
-    id: 'almacenamiento',
-    title: 'Almacenamiento y Gestión de Inventarios',
-    subtitle: 'Tecnología avanzada para tu inventario',
-    description: 'Bodegas especializadas con control climático, sistemas WMS de última generación y protocolos de seguridad que garantizan la integridad de tu mercancía.',
+    id: 'recepcion-despacho',
+    title: 'Recepción y Despacho de Mercancías',
+    subtitle: 'Gestión eficiente de entrada y salida',
+    description: 'Procesos optimizados para la recepción, verificación y despacho de mercancías con tecnologías apropiadas que aseguran la generación de valor agregado en la cadena de abastecimiento.',
     background: 'bg-white',
     textColor: 'text-gray-900',
     icon: '📦',
     features: [
-      'Sistema WMS en tiempo real',
-      'Control de temperatura y humedad',
-      'Seguridad 24/7 con CCTV',
-      'Trazabilidad completa',
-      'Gestión FIFO automatizada'
+      'Recepción con verificación completa',
+      'Despacho programado y eficiente',
+      'Control de calidad en cada proceso',
+      'Documentación completa',
+      'Trazabilidad total de mercancías'
     ]
   },
   {
-    id: 'distribucion',
-    title: 'Distribución Nacional',
-    subtitle: 'Conectamos todo el país',
-    description: 'Red de distribución que cubre todo el territorio nacional con flota propia y aliados estratégicos, garantizando entregas oportunas y seguras.',
+    id: 'almacenamiento',
+    title: 'Almacenamiento',
+    subtitle: 'Gestión profesional de inventarios',
+    description: 'Servicios de almacenamiento con personal experto y tecnologías apropiadas que aseguran la generación de valor agregado, ofreciendo soluciones integrales a la medida de nuestros clientes.',
     background: 'bg-white',
     textColor: 'text-gray-900',
-    icon: '🗺️',
-    coverage: [
-      'Bogotá y Cundinamarca',
-      'Medellín y Antioquia',
-      'Cali y Valle del Cauca',
-      'Barranquilla y Costa Atlántica',
-      'Bucaramanga y Santanderes',
-      'Cobertura nacional completa'
+    icon: '🏢',
+    features: [
+      'Almacenes especializados',
+      'Control de inventarios en tiempo real',
+      'Gestión FIFO y LIFO',
+      'Seguridad y protección de mercancías',
+      'Optimización de espacios'
     ]
   },
   {
-    id: 'ecommerce',
-    title: 'Soluciones eCommerce',
-    subtitle: 'Impulsa tu tienda online',
-    description: 'Servicios especializados para comercio electrónico: picking automatizado, empaque personalizado, integración con plataformas y entrega last mile.',
+    id: 'picking-packing',
+    title: 'Picking y Packing',
+    subtitle: 'Preparación especializada de pedidos',
+    description: 'Servicios de picking y packing con operaciones in house distribuidas por agrega valor en la cadena de abastecimiento, al efectuar entregas perfectas, con mínimos costos y tiempos justos.',
     background: 'bg-white',
     textColor: 'text-gray-900',
-    icon: '🛒',
-    ecommerceServices: [
-      'Integración con plataformas',
-      'Picking y packing automatizado',
-      'Empaque personalizado',
-      'Entrega same day',
-      'Gestión de devoluciones',
-      'Analytics en tiempo real'
+    icon: '📋',
+    features: [
+      'Picking optimizado por zonas',
+      'Packing personalizado',
+      'Control de calidad en empaque',
+      'Etiquetado especializado',
+      'Preparación de pedidos express'
     ]
   },
   {
-    id: 'tecnologia',
-    title: 'Tecnología e Innovación',
-    subtitle: 'Sistemas avanzados para logística',
-    description: 'Plataforma tecnológica propia con optimización de rutas, tracking GPS en tiempo real y dashboards para completa visibilidad de operaciones.',
+    id: 'armado-ofertas',
+    title: 'Armado de Ofertas',
+    subtitle: 'Servicios de valor agregado',
+    description: 'Armado especializado de ofertas y promociones, permitiendo convertimos en un socio estratégico para nuestros clientes, asegurando su rentabilidad y satisfacción a través de nuestras operaciones.',
     background: 'bg-white',
     textColor: 'text-gray-900',
-    icon: '🤖',
-    technologies: [
-      'Optimización de rutas GPS',
-      'Tracking en tiempo real',
-      'Dashboard personalizado',
-      'API para integraciones',
-      'Reportes automáticos',
-      'Alertas de estado'
+    icon: '🎁',
+    features: [
+      'Armado de promociones especiales',
+      'Kits personalizados',
+      'Empaque promocional',
+      'Control de fechas de vencimiento',
+      'Gestión de ofertas estacionales'
+    ]
+  },
+  {
+    id: 'administracion-inventarios',
+    title: 'Administración y Manejo de Inventarios',
+    subtitle: 'Control total de tu stock',
+    description: 'Administración completa de inventarios con personal experto y tecnologías apropiadas, ofreciendo soluciones integrales a la medida de nuestros clientes con mínimos costos y tiempos justos.',
+    background: 'bg-white',
+    textColor: 'text-gray-900',
+    icon: '📊',
+    features: [
+      'Sistema WMS avanzado',
+      'Reportes en tiempo real',
+      'Control de rotación de inventarios',
+      'Gestión de obsoletos',
+      'Optimización de stock'
+    ]
+  },
+  {
+    id: 'operacion-in-home',
+    title: 'Operación Logística In Home',
+    subtitle: 'Soluciones logísticas en sitio',
+    description: 'Operaciones logísticas especializadas in home que permiten a nuestros clientes enfocarse en su core business mientras nosotros gestionamos eficientemente su cadena de suministro.',
+    background: 'bg-white',
+    textColor: 'text-gray-900',
+    icon: '🏠',
+    features: [
+      'Operaciones en las instalaciones del cliente',
+      'Personal especializado dedicado',
+      'Gestión integral de procesos',
+      'Adaptación a necesidades específicas',
+      'Optimización de recursos del cliente'
     ]
   },
   {
     id: 'contacto',
     title: '¿Listo para optimizar tu logística?',
     subtitle: 'Comencemos a trabajar juntos',
-    description: 'Solicita una consultoría gratuita y descubre cómo ASL puede transformar tu cadena de suministro con soluciones a la medida.',
+    description: 'Solicita una consultoría gratuita y descubre cómo ASL puede transformar tu cadena de suministro con soluciones a la medida de tus necesidades específicas.',
     background: 'bg-white',
     textColor: 'text-gray-900',
     icon: '🚀',
@@ -211,7 +240,8 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
                 <!-- Lista de características con diseño responsivo -->
                 {service.features && (
                   <div class="relative w-full max-w-5xl mx-auto mt-16 mb-16">
-                    <!-- Diseño circular para pantallas grandes -->
+                    <!-- Diseño circular SOLO para la sección de almacenamiento -->
+                    {service.id === 'almacenamiento' && (
                     <div class="hidden md:block relative w-96 h-96 lg:w-[550px] lg:h-[550px] mx-auto">
                       <!-- Centro del círculo (fijo, no gira) -->
                       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
@@ -245,8 +275,10 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
                        })}
                       </div>
                     </div>
+                    )}
                     
-                    <!-- Diseño de grid para móviles y tablets -->
+                    <!-- Diseño de grid para móviles y tablets (almacenamiento) -->
+                    {service.id === 'almacenamiento' && (
                     <div class="md:hidden grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
                       {service.features.map((feature, featureIndex) => (
                         <div 
@@ -261,8 +293,27 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
                         </div>
                       ))}
                     </div>
-                  </div>
-                )}
+                    )}
+                    
+                    <!-- Diseño de lista simple para otras secciones -->
+                    {service.id !== 'almacenamiento' && (
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                      {service.features.map((feature, featureIndex) => (
+                        <div 
+                          class="bg-white rounded-xl p-4 shadow-lg border-2 border-primary-200 hover:border-primary-400 hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                          data-animate="card-slide"
+                          data-delay={1000 + (featureIndex * 100)}
+                        >
+                          <div class="text-center">
+                            <div class="w-3 h-3 bg-primary-500 rounded-full mx-auto mb-3"></div>
+                            <span class="text-sm font-bold text-gray-800 leading-tight block">{feature}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                     )}
+                   </div>
+                 )}
 
                 {service.coverage && (
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-12">
