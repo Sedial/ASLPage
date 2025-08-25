@@ -19,7 +19,7 @@ const {
     <p class="text-gray-600 text-sm leading-relaxed">{subtitle}</p>
   </div>
   
-  <form id="contactForm" class="space-y-5">
+  <form id="contactForm" class="space-y-5" action="https://formsubmit.co/operacionesasl@grupoasl.com" method="POST">
     <!-- Form status messages -->
     <div id="formStatus" class="hidden rounded-lg p-4 mb-4 text-sm font-medium"></div>
     
@@ -118,6 +118,14 @@ const {
       ></textarea>
     </div>
     
+    <!-- Opciones avanzadas FormSubmit -->
+    <input type="hidden" name="_subject" value="Nuevo contacto desde ASL Logística" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_cc" value="financiero@grupoasl.com" />
+    <!-- Para desactivar reCAPTCHA (no recomendado):
+    <input type="hidden" name="_captcha" value="false" />
+    -->
+
     <!-- Botón de envío -->
     <div class="pt-2">
       <Button type="submit" variant="primary" customClasses="w-full py-3 text-base font-semibold">
@@ -132,60 +140,3 @@ const {
     </p>
   </form>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm') as HTMLFormElement;
-    const statusDiv = document.getElementById('formStatus') as HTMLDivElement;
-    const submitText = document.getElementById('submitText') as HTMLSpanElement;
-    const loadingText = document.getElementById('loadingText') as HTMLSpanElement;
-    
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // Mostrar estado de carga
-        submitText.classList.add('hidden');
-        loadingText.classList.remove('hidden');
-        
-        try {
-          // Obtener datos del formulario
-          const formData = new FormData(form);
-          
-          // Enviar datos al endpoint de la API
-          const response = await fetch('/api/contact', {
-            method: 'POST',
-            body: formData,
-          });
-          
-          const result = await response.json();
-          
-          // Mostrar mensaje de éxito o error
-          statusDiv.classList.remove('hidden');
-          
-          if (result.success) {
-            statusDiv.classList.add('bg-green-100', 'text-green-800', 'border', 'border-green-200');
-            statusDiv.classList.remove('bg-red-100', 'text-red-800', 'border-red-200');
-            statusDiv.textContent = result.message || '¡Gracias! Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo pronto.';
-            form.reset(); // Limpiar el formulario en caso de éxito
-          } else {
-            statusDiv.classList.add('bg-red-100', 'text-red-800', 'border', 'border-red-200');
-            statusDiv.classList.remove('bg-green-100', 'text-green-800', 'border-green-200');
-            statusDiv.textContent = result.message || 'Ocurrió un error al enviar el mensaje. Por favor, inténtalo de nuevo.';
-          }
-        } catch (error) {
-          // Manejar errores de red
-          statusDiv.classList.remove('hidden');
-          statusDiv.classList.add('bg-red-100', 'text-red-800', 'border', 'border-red-200');
-          statusDiv.classList.remove('bg-green-100', 'text-green-800', 'border-green-200');
-          statusDiv.textContent = 'Error de conexión. Por favor, verifica tu conexión a internet e inténtalo de nuevo.';
-          console.error('Error al enviar formulario:', error);
-        } finally {
-          // Ocultar estado de carga
-          submitText.classList.remove('hidden');
-          loadingText.classList.add('hidden');
-        }
-      });
-    }
-  });
-</script>
