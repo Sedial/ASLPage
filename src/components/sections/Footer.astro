@@ -18,7 +18,15 @@ const footerNav = navigationData.footerNav || [];
       <!-- Brand -->
       <div class="lg:col-span-5">
         <a href="/" class="inline-flex items-center space-x-3 group">
-          <img src="/images/logo2.webp" alt="ASL Logo" class="w-16 h-16 object-contain" />
+          <img 
+            srcset="/images/logo2.webp 64w, /images/logo2.webp 128w"
+            sizes="(max-width: 768px) 64px, 64px"
+            width="64"
+            height="64"
+            src="/images/logo2.webp" 
+            alt="ASL Logo" 
+            class="w-16 h-16 object-contain" 
+          />
           <div class="leading-tight">
             <div class="text-2xl font-extrabold tracking-tight text-white group-hover:text-primary-400 transition-colors">ASL</div>
             <div class="text-sm text-white/60">Logística 3PL Colombia</div>

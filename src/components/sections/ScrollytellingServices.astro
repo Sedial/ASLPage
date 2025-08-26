@@ -184,7 +184,15 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
             <div class="text-center space-y-12 relative">
               <!-- Logo como fondo del div central -->
               <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-                <img src="/images/logo2.webp" alt="ASL Logo" class="w-96 h-96 object-contain" />
+                <img 
+                  srcset="/images/logo2.webp 384w, /images/logo2.webp 512w"
+                  sizes="384px"
+                  width="384"
+                  height="384"
+                  src="/images/logo2.webp" 
+                  alt="ASL Logo" 
+                  class="w-96 h-96 object-contain" 
+                />
               </div>
               <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 leading-tight text-primary-500" data-animate="title-slide" data-delay="200">
                 {service.title}
@@ -249,7 +257,15 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
                     <div class="hidden md:block relative w-96 h-96 lg:w-[550px] lg:h-[550px] mx-auto">
                       <!-- Centro del círculo (fijo, no gira) -->
                       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
-                           <img src="/images/logo2.webp" alt="ASL Logo" class="w-32 h-32 lg:w-40 lg:h-40 object-contain" />
+                           <img 
+                             srcset="/images/logo2.webp 128w, /images/logo2.webp 160w"
+                             sizes="(min-width: 1024px) 160px, 128px"
+                             width="160"
+                             height="160"
+                             src="/images/logo2.webp" 
+                             alt="ASL Logo" 
+                             class="w-32 h-32 lg:w-40 lg:h-40 object-contain" 
+                           />
                        </div>
                       
                       <!-- Contenedor giratorio para las tarjetas -->

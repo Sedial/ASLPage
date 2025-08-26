@@ -266,10 +266,14 @@ function getIconSVG(iconName: string) {
                       {/* Imagen del proceso con efecto 3D */}
                       <div class="relative mb-6 overflow-hidden rounded-xl shadow-md transform group-hover:scale-105 transition-all duration-500">
                         <img 
+                          srcset={`/images/process/step${step.id}.webp 433w, /images/process/step${step.id}.webp 600w, /images/process/step${step.id}.webp 800w`}
+                          sizes="(max-width: 640px) 433px, (max-width: 1024px) 600px, 800px"
                           src={`/images/process/step${step.id}.webp`} 
                           alt={step.title} 
                           class="w-full h-auto object-cover" 
                           loading="lazy"
+                          width="600"
+                          height="400"
                         />
                         {/* Overlay con gradiente del color del paso */}
                         <div class={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-br ${colorMap.gradient}`}></div>
@@ -315,10 +319,14 @@ function getIconSVG(iconName: string) {
                   {/* Imagen para móvil */}
                   <div class="relative mb-4 overflow-hidden rounded-lg shadow-sm">
                     <img 
-                      src={`/images/process/step${step.id}-mobile.webp`} 
+                      srcset={`/images/process/step${step.id}.webp 433w, /images/process/step${step.id}.webp 600w`}
+                      sizes="(max-width: 640px) 433px, 600px"
+                      src={`/images/process/step${step.id}.webp`} 
                       alt={step.title} 
                       class="w-full h-auto object-cover" 
                       loading="lazy"
+                      width="433"
+                      height="289"
                     />
                   </div>
                   

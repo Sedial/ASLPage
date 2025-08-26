@@ -163,18 +163,26 @@ const {
             <!-- Logo2 encima de la imagen principal - completamente oculto en móvil, visible solo en tablet/desktop -->
             <div class="absolute -top-32 sm:-top-36 md:-top-40 left-1/2 transform -translate-x-1/2 z-20 hidden md:block">
               <img 
+                srcset="/images/logo2.webp 192w, /images/logo2.webp 384w"
+                sizes="(min-width: 768px) 192px, 96px"
                 src="/images/logo2.webp" 
                 alt="Logo ASL" 
                 class="md:w-48 md:h-48 object-contain drop-shadow-xl animate-float"
                 loading="eager"
+                width="192"
+                height="148"
               />
             </div>
             
             <img 
+              srcset="/images/hero/hero1.webp 413w, /images/hero/hero1.webp 826w, /images/hero/hero1.webp 1072w"
+              sizes="(max-width: 640px) 413px, (max-width: 1024px) 600px, 800px"
               src="/images/hero/hero1.webp" 
               alt="Soluciones logísticas ASL - Almacenamiento y distribución profesional"
               class="w-full h-auto object-contain rounded-xl md:rounded-2xl transform hover:scale-105 transition-transform duration-500"
               loading="eager"
+              width="1072"
+              height="800"
             />
             
             <!-- Badge flotante "En línea" -->
@@ -203,18 +211,26 @@ const {
 
           <!-- Imagen Inventarios - Superior Derecha -->
           <img 
+            srcset="/images/hero/inventario.webp 64w, /images/hero/inventario.webp 128w"
+            sizes="64px"
             src="/images/hero/inventario.webp" 
             alt="Inventarios - Gestión de stock ASL"
             class="hidden lg:block absolute -top-12 -right-16 w-16 h-16 z-5 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 drop-shadow-lg"
             loading="lazy"
+            width="64"
+            height="64"
           />
 
           <!-- Imagen Distribución - Inferior Izquierda -->
           <img 
+            srcset="/images/hero/distribucion.webp 64w, /images/hero/distribucion.webp 128w"
+            sizes="64px"
             src="/images/hero/distribucion.webp" 
             alt="Distribución - Logística de entrega ASL"
             class="hidden lg:block absolute -bottom-12 -left-16 w-16 h-16 z-5 opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-110 drop-shadow-lg"
             loading="lazy"
+            width="64"
+            height="64"
           />
         </div>
         
