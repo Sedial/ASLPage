@@ -1,40 +1,89 @@
 ---
-// Primero aseguramos que existe la carpeta common
+// SEO Component with enhanced metadata and structured data
 interface Props {
   title?: string;
   description?: string;
   canonical?: string;
   image?: string;
-  ogType?: 'website' | 'article' | 'profile';
+  ogType?: 'website' | 'article' | 'profile' | 'business.business';
   twitterCard?: 'summary' | 'summary_large_image' | 'app' | 'player';
   noindex?: boolean;
   nofollow?: boolean;
+  structuredData?: any;
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  section?: string;
+  tags?: string[];
+  locale?: string;
+  alternateLocales?: string[];
+  siteName?: string;
 }
 
 const site = await import('../../data/site.json');
+const { title: siteTitle, description: siteDescription, url: siteUrl } = site.default;
 
 const {
-  title = site.default.title,
-  description = site.default.description,
+  title = siteTitle,
+  description = siteDescription,
   canonical = Astro.url.pathname,
   image = site.default.image,
   ogType = 'website',
   twitterCard = 'summary_large_image',
   noindex = false,
-  nofollow = false
+  nofollow = false,
+  structuredData,
+  publishedTime,
+  modifiedTime,
+  author = site.default.title,
+  section = 'Logística',
+  tags = ['logística', '3PL', 'almacenamiento', 'distribución', 'Colombia'],
+  locale = 'es_CO',
+  alternateLocales = ['es_ES', 'en_US'],
+  siteName = siteTitle
 } = Astro.props;
 
-const fullUrl = new URL(canonical, Astro.site || 'https://example.com').toString();
-const imageUrl = image.startsWith('http') ? image : new URL(image, Astro.site || 'https://example.com').toString();
+const fullUrl = new URL(canonical, Astro.site || siteUrl).toString();
+const imageUrl = image.startsWith('http') ? image : new URL(image, Astro.site || siteUrl).toString();
 
+// Robots meta tag
 const robots = [];
 if (noindex) robots.push('noindex');
 if (nofollow) robots.push('nofollow');
+const robotsContent = robots.length > 0 ? robots.join(',') : 'index, follow';
+
+// Default structured data if not provided
+const defaultStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: siteTitle,
+  url: siteUrl,
+  logo: new URL(site.default.image, siteUrl).toString(),
+  sameAs: [
+    site.default.links.twitter,
+    site.default.links.linkedin,
+    site.default.links.instagram
+  ].filter(Boolean),
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: site.default.links.whatsapp,
+    contactType: 'customer service',
+    availableLanguage: ['Spanish', 'English']
+  }
+};
+
+const ldJson = {
+  ...(structuredData || defaultStructuredData)
+};
 ---
 
-<!-- SEO -->
-<title>{title}</title>
+<!-- Primary Meta Tags -->
+<title>{title} | {siteTitle}</title>
+<meta name="title" content={`${title} | ${siteTitle}`} />
 <meta name="description" content={description} />
+<meta name="keywords" content={tags.join(', ')} />
+<meta name="author" content={author} />
+<meta name="robots" content={robotsContent} />
 <link rel="canonical" href={fullUrl} />
 
 <!-- Open Graph / Facebook -->
@@ -43,18 +92,120 @@ if (nofollow) robots.push('nofollow');
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageUrl} />
-<meta property="og:site_name" content={site.default.title} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content={locale} />
 
-<!-- Twitter -->
+{ogType === 'article' && (
+  <>
+    <meta property="article:published_time" content={publishedTime} />
+    <meta property="article:modified_time" content={modifiedTime || publishedTime} />
+    <meta property="article:author" content={author} />
+    <meta property="article:section" content={section} />
+    {tags.map((tag: string) => (
+      <meta property="article:tag" content={tag} />
+    ))}
+  </>
+)}
+
+{ogType === 'business.business' && (
+  <meta property="business:contact_data:street_address" content="Calle 123 #45-67" />
+  <meta property="business:contact_data:locality" content="Bogotá" />
+  <meta property="business:contact_data:region" content="Bogotá D.C." />
+  <meta property="business:contact_data:postal_code" content="110111" />
+  <meta property="business:contact_data:country_name" content="Colombia" />
+  <meta property="place:location:latitude" content="4.7109" />
+  <meta property="place:location:longitude" content="-74.0721" />
+)}
+
+{/* Twitter Card */}
 <meta name="twitter:card" content={twitterCard} />
 <meta name="twitter:url" content={fullUrl} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageUrl} />
-{site.default.twitterHandle && <meta name="twitter:site" content={site.default.twitterHandle} />}
 
-<!-- Robots -->
-{robots.length > 0 && <meta name="robots" content={robots.join(', ')} />}
+{site.default.twitterHandle && (
+  <>
+    <meta name="twitter:site" content={site.default.twitterHandle} />
+    <meta name="twitter:creator" content={site.default.twitterHandle} />
+  </>
+)}
+
+{/* Additional Meta Tags */}
+<meta name="theme-color" content="#CA241C" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content={siteTitle} />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+{/* Favicons - Ensure these files exist in your public directory */}
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#CA241C" />
+
+{/* Alternate Languages */}
+<link rel="alternate" href={fullUrl} hreflang={locale} />
+{alternateLocales.map((locale) => (
+  <link rel="alternate" href={`${siteUrl}/${locale}${canonical}`} hreflang={locale} />
+))}
+
+{/* Structured Data */}
+<script type="application/ld+json" set:html={JSON.stringify(ldJson)} />
+
+{/* Additional structured data for Local Business */}
+{ogType === 'business.business' && (
+  <script type="application/ld+json">
+    {JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: siteTitle,
+      image: imageUrl,
+      '@id': `${siteUrl}#business`,
+      url: siteUrl,
+      telephone: site.default.links.whatsapp,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Calle 123 #45-67',
+        addressLocality: 'Bogotá',
+        addressRegion: 'Bogotá D.C.',
+        postalCode: '110111',
+        addressCountry: 'CO'
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 4.7109,
+        longitude: -74.0721
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '08:00',
+          closes: '18:00'
+        },
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: 'Saturday',
+          opens: '09:00',
+          closes: '13:00'
+        }
+      ],
+      priceRange: '$$',
+      sameAs: [
+        site.default.links.twitter,
+        site.default.links.linkedin,
+        site.default.links.instagram
+      ]
+    })}
+  </script>
+)}
+
+{/* Preconnect to important third-party domains */}
+<link rel="preconnect" href="https://www.google-analytics.com" />
+<link rel="preconnect" href="https://www.googletagmanager.com" />
+<link rel="dns-prefetch" href="https://www.google-analytics.com" />
+<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
 <!-- Favicon -->
 <link rel="icon" type="image/webp" href="/images/logo2.webp" />

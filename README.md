@@ -1,10 +1,15 @@
-# ASL - Sitio Web Corporativo
+# ASL - Agencia de Servicios Logísticos
 
-![Astro Badge](https://img.shields.io/badge/Astro-5.9-orange?logo=astro)
+![Astro Badide](https://img.shields.io/badge/Astro-5.9-orange?logo=astro)
 ![TypeScript Badge](https://img.shields.io/badge/TypeScript-5.2-blue?logo=typescript)
 ![Tailwind CSS Badge](https://img.shields.io/badge/Tailwind_CSS-3.3-38B2AC?logo=tailwindcss&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-000000?logo=three.js&logoColor=white)
 
-Sitio web corporativo para ASL (Almacenamiento y Servicios Logísticos), construido con Astro, TypeScript y Tailwind CSS. Este proyecto implementa un diseño moderno y responsivo que destaca los servicios logísticos integrales de la empresa con navegación optimizada, footer modernizado y experiencia de usuario mejorada.
+Sitio web corporativo para **ASL - Agencia de Servicios Logísticos**, líder en soluciones logísticas 3PL en Colombia. Desarrollado con tecnologías modernas para ofrecer un rendimiento excepcional y una experiencia de usuario superior en el sector logístico.
+
+## 🚚 Visión General
+
+ASL es una agencia especializada en servicios logísticos integrales, ofreciendo soluciones personalizadas para la gestión de cadena de suministro, almacenamiento, distribución y comercio electrónico. Nuestra plataforma web refleja nuestro compromiso con la eficiencia, tecnología y servicio al cliente que nos caracteriza.
 
 ## Características del Proyecto
 
@@ -21,33 +26,71 @@ Sitio web corporativo para ASL (Almacenamiento y Servicios Logísticos), constru
 - 🎨 **Paleta de Colores Corporativa** - Implementación de la identidad visual de ASL
 - 📊 **Visualización de Datos** - Métricas y estadísticas presentadas de forma atractiva
 
-## Páginas Incluidas
+## 🌐 Estructura del Sitio
 
-- **Inicio** - Landing page moderna con sección hero, características, proceso, métricas y contacto
-- **Nosotros** - Información de la empresa, historia, equipo y valores corporativos
-- **Servicios** - Presentación detallada de los servicios logísticos de ASL
-- **Blog** - Listado de artículos con categorías y publicaciones recientes
-- **Artículo de Blog** - Plantilla individual para artículos con publicaciones relacionadas
-- **Contacto** - Página dedicada con formulario, información de contacto, horarios y placeholder para mapa
+### Páginas Principales
+1. **Inicio**
+   - Hero con video/animación 3D
+   - Servicios destacados
+   - Ventajas competitivas
+   - Proceso logístico
+   - Llamado a la acción
+   - Testimonios
 
-## Comenzando
+2. **Servicios**
+   - Almacenamiento 3PL
+   - Distribución Nacional
+   - Logística de Última Milla
+   - Soluciones E-commerce
+   - Cadena de Frío
+   - Servicios Personalizados
 
-### Prerrequisitos
+3. **Sobre Nosotros**
+   - Nuestra Historia
+   - Equipo Directivo
+   - Certificaciones
+   - Responsabilidad Social
+   - Trabaja con Nosotros
 
-- Node.js (v18 o superior)
-- npm o yarn
+4. **Blog**
+   - Artículos sobre logística
+   - Noticias del sector
+   - Guías y recursos
+   - Casos de éxito
 
-### Instalación
+5. **Contacto**
+   - Formulario de contacto
+   - Ubicaciones y sucursales
+   - Canales de atención
+   - Preguntas frecuentes
 
-1. Clonar este repositorio
-   ```sh
+### Secciones Especiales
+- **Seguimiento de Envíos** - Integración con sistemas de rastreo
+- **Cotizador en Línea** - Cálculo de costos logísticos
+- **Portal de Clientes** - Acceso seguro a información de envíos
+- **Centro de Soporte** - Documentación y ayuda en línea
+
+## 🚀 Empezando
+
+### Requisitos Previos
+
+- Node.js 18 o superior
+- npm 8+ o yarn
+- Git para control de versiones
+
+### Instalación Local
+
+1. Clonar el repositorio
+   ```bash
    git clone https://github.com/sedial/asl-website.git
    cd asl-website
    ```
 
 2. Instalar dependencias
-   ```sh
+   ```bash
    npm install
+   # o
+   yarn install
    ```
 
 3. Iniciar el servidor de desarrollo
@@ -69,31 +112,95 @@ Sitio web corporativo para ASL (Almacenamiento y Servicios Logísticos), constru
 - `npm run preview`: Sirve la build de producción localmente
 - `npm run astro`: Acceso directo a la CLI de Astro
 
-## Estructura del Proyecto
+## 🏗️ Estructura Detallada del Proyecto
 
 ```
-/
-├── public/          # Activos estáticos
-│   └── images/      # Archivos de imágenes
+asl-website/
+├── public/                     # Archivos estáticos
+│   ├── images/                 # Imágenes y recursos multimedia
+│   │   ├── about/             # Imágenes para la sección Nosotros
+│   │   ├── blog/              # Imágenes para artículos del blog
+│   │   ├── cities/            # Imágenes de ciudades/ubicaciones
+│   │   └── og-image.jpg       # Imagen por defecto para redes sociales
+│   ├── icons/                 # Íconos y favicons
+│   └── gift/                  # Archivos multimedia (GIFs, videos)
+│
 ├── src/
-│   ├── assets/      # Activos procesados por Astro
-│   │   └── images/  # Imágenes optimizadas
-│   ├── components/  # Componentes UI
-│   │   ├── common/    # Componentes comunes (Analytics, SEO, etc.)
-│   │   ├── navigation/# Componentes de navegación (Navbar, Breadcrumb)
-│   │   ├── sections/  # Secciones de página (Hero, Features, Process, etc.)
-│   │   └── ui/        # Elementos UI reutilizables (Button, Card, etc.)
-│   ├── content/     # Contenido estructurado (blog)
-│   │   └── blog/    # Artículos del blog en formato Markdown
-│   ├── data/        # Archivos JSON de datos
-│   ├── layouts/     # Layouts de página
-│   ├── pages/       # Componentes de página
-│   │   ├── api/     # Endpoints de API
-│   │   └── blog/    # Páginas del blog
-│   ├── scripts/     # Scripts JavaScript
-│   ├── styles/      # Estilos globales
-│   └── utils/       # Utilidades y tipos
-└── astro.config.mjs # Configuración de Astro
+│   ├── assets/                # Recursos procesados por Astro
+│   │   └── images/            # Imágenes optimizadas
+│   │
+│   ├── components/            # Componentes reutilizables
+│   │   ├── common/            # Componentes comunes
+│   │   │   ├── Analytics.astro  # Integración con herramientas de análisis
+│   │   │   ├── SEO.astro        # Gestión de metadatos SEO
+│   │   │   ├── ScrollToTop.astro# Botón de volver arriba
+│   │   │   └── WhatsAppButton.astro # Botón flotante de WhatsApp
+│   │   │
+│   │   ├── navigation/        # Componentes de navegación
+│   │   │   ├── Navbar.astro   # Barra de navegación principal
+│   │   │   └── Breadcrumb.astro# Migas de pan
+│   │   │
+│   │   ├── sections/          # Secciones de página
+│   │   │   ├── Blog.astro     # Listado de artículos
+│   │   │   ├── ContactForm.astro # Formulario de contacto
+│   │   │   ├── Features.astro # Características principales
+│   │   │   ├── Footer.astro   # Pie de página
+│   │   │   └── Hero.astro     # Sección principal
+│   │   │
+│   │   └── ui/                # Componentes de interfaz
+│   │       ├── Button.astro    # Botones personalizados
+│   │       ├── Card.astro      # Tarjetas de contenido
+│   │       └── Modal.astro     # Ventanas modales
+│   │
+│   ├── content/               # Contenido en Markdown
+│   │   └── blog/              # Artículos del blog
+│   │       └── primer-articulo.md # Ejemplo de artículo
+│   │
+│   ├── data/                  # Datos estáticos en JSON
+│   │   ├── blog.json          # Datos del blog
+│   │   ├── features.json      # Características principales
+│   │   ├── navigation.json    # Estructura de navegación
+│   │   ├── process.json       # Procesos logísticos
+│   │   └── site.json          # Configuración global del sitio
+│   │
+│   ├── layouts/               # Plantillas de diseño
+│   │   ├── BaseLayout.astro   # Diseño base para todas las páginas
+│   │   ├── BlogLayout.astro   # Diseño específico para el blog
+│   │   └── LandingLayout.astro# Diseño para la página de inicio
+│   │
+│   ├── pages/                 # Rutas de la aplicación
+│   │   ├── api/               # Endpoints de la API
+│   │   │   └── contact.ts     # API para el formulario de contacto
+│   │   │
+│   │   ├── blog/              # Rutas del blog
+│   │   │   ├── [slug].astro   # Página individual de artículo
+│   │   │   └── index.astro    # Listado de artículos
+│   │   │
+│   │   ├── about.astro        # Página Nosotros
+│   │   ├── contact.astro      # Página de Contacto
+│   │   ├── index.astro        # Página de Inicio
+│   │   ├── services.astro     # Página de Servicios
+│   │   └── sitemap.xml.ts     # Generador de sitemap
+│   │
+│   ├── scripts/               # Scripts personalizados
+│   │   └── animations.js      # Lógica de animaciones
+│   │
+│   ├── styles/                # Estilos globales
+│   │   └── global.css         # Estilos globales
+│   │
+│   ├── utils/                 # Utilidades y helpers
+│   │   └── types.ts           # Definiciones de TypeScript
+│   │
+│   ├── env.d.ts               # Tipos de entorno
+│   └── types.ts               # Tipos globales
+│
+├── .gitignore                # Archivos ignorados por Git
+├── astro.config.mjs          # Configuración de Astro
+├── package.json              # Dependencias y scripts
+├── README.md                 # Este archivo
+├── tailwind.config.mjs       # Configuración de Tailwind CSS
+├── tsconfig.json             # Configuración de TypeScript
+└── vercel.json               # Configuración de despliegue en Vercel
 ```
 
 ## Personalización
@@ -125,33 +232,127 @@ El proyecto incluye los siguientes endpoints de API:
 - `/api/contact` - Maneja los envíos del formulario de contacto
 - `/sitemap.xml` - Genera un sitemap dinámico para SEO
 
-## SEO
+## 🔍 Estrategia SEO Avanzada
 
-El proyecto implementa las mejores prácticas para SEO:
+### Optimización Técnica
+- **Rendimiento Web Vitals**
+  - Puntuación >90 en Lighthouse
+  - Tiempo de carga optimizado con Astro Islands
+  - Imágenes optimizadas con WebP y carga diferida
+  - Preconexión a dominios críticos
+  - Minificación de CSS/JS
 
-- Meta tags con títulos y descripciones apropiadas
-- Estructura HTML semántica
-- Sitemap generado automáticamente
-- Diseño responsivo (optimizado para móviles)
-- Componente SEO dedicado para gestión centralizada
+### Estructura y Contenido
+- **Arquitectura de la Información**
+  - URL limpias y descriptivas
+  - Estructura de encabezados jerárquica (H1, H2, H3)
+  - Sitemap XML dinámico
+  - URLs canónicas implementadas
+  - Estructura de datos organizada (JSON-LD)
 
-## Despliegue
+### Palabras Clave
+- **Enfoque en Logística 3PL**
+  - Servicios de almacenamiento
+  - Distribución nacional
+  - Logística de última milla
+  - Soluciones e-commerce
+  - Cadena de frío
+  - Operador logístico en Colombia
 
-Este proyecto puede ser desplegado en cualquier proveedor de hosting estático que soporte Astro, como Netlify, Vercel o GitHub Pages.
+### Experiencia de Usuario
+- **Mobile-First**
+  - Diseño 100% responsivo
+  - Navegación táctil optimizada
+  - Tiempos de interacción rápidos
+  - Contenido legible en todos los dispositivos
 
-## Licencia
+### Herramientas Implementadas
+- **Google Analytics**
+- Google Search Console
+- Meta Tags dinámicos
+- OpenGraph para redes sociales
+- Twitter Cards
+- Esquema JSON-LD para negocio local
 
-Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
+## 🚀 Despliegue y Producción
 
-## Agradecimientos
+### Configuración de Entorno
+1. Crear archivo `.env` en la raíz:
+   ```env
+   # Configuración de Analytics
+   PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+   
+   # Configuración del formulario
+   PUBLIC_CONTACT_FORM_ENDPOINT=/api/contact
+   
+   # URL base de la API
+   PUBLIC_API_BASE_URL=https://api.asl-logistica.com
+   ```
 
-- [Astro](https://astro.build/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [TypeScript](https://www.typescriptlang.org/)
+### Pasos para Despliegue
+1. **Compilación para Producción**
+   ```bash
+   npm run build
+   ```
+   Genera archivos optimizados en el directorio `dist/`
+
+2. **Previsualización Local**
+   ```bash
+   npm run preview
+   ```
+   Sirve la versión de producción localmente para pruebas
+
+### Plataformas de Despliegue
+- **Vercel** (Recomendado)
+  - Integración con GitHub/GitLab
+  - Despliegues automáticos
+  - Funciones serverless para API
+  - CDN global
+
+- **Netlify**
+  - Despliegue continuo
+  - Formularios estáticos
+  - Redirecciones y headers personalizados
+
+- **GitHub Pages**
+  - Configuración simple
+  - Ideal para sitios estáticos
+  - Integración con GitHub Actions
+
+### Variables de Entorno de Producción
+| Variable | Descripción | Requerido |
+|----------|-------------|-----------|
+| `NODE_ENV` | Entorno de ejecución | Sí |
+| `PUBLIC_SITE_URL` | URL base del sitio | Sí |
+| `PUBLIC_GA_MEASUREMENT_ID` | ID de Google Analytics | No |
+| `CONTACT_FORM_ENDPOINT` | Endpoint del formulario | Sí |
+
+## 📄 Licencia
+
+Este proyecto está bajo la [Licencia MIT](LICENSE) - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 🏆 Reconocimientos
+
+### Tecnologías Principales
+- [Astro](https://astro.build/) - El framework web para crear sitios rápidos
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utility-first
+- [TypeScript](https://www.typescriptlang.org/) - JavaScript con sintaxis de tipos
+- [Three.js](https://threejs.org/) - Biblioteca 3D para la web
+- [Vercel](https://vercel.com/) - Plataforma de despliegue
+
+### Recursos Adicionales
+- [Hero Icons](https://heroicons.com/) - Iconos SVG de código abierto
+- [Google Fonts](https://fonts.google.com/) - Tipografía web
+- [Unsplash](https://unsplash.com/) - Imágenes libres de derechos
 
 ---
 
-Desarrollado para ASL - Almacenamiento y Servicios Logísticos
+<div align="center">
+  <p>Desarrollado con ❤️ por <a href="https://sedial.com.co" target="_blank">Sedial</a> para</p>
+  <h3>ASL - Agencia de Servicios Logísticos</h3>
+  <p>Líder en soluciones logísticas 3PL en Colombia</p>
+  <p>© 2025 ASL Logística. Todos los derechos reservados.</p>
+</div>
 
 ## Progreso del Proyecto
 
