@@ -21,13 +21,18 @@ interface Props {
 }
 
 const site = await import('../../data/site.json');
-const { title: siteTitle, description: siteDescription, url: siteUrl } = site.default;
+const { 
+  title: siteTitle, 
+  description: siteDescription, 
+  url: siteUrl,
+  keywords: siteKeywords = ''
+} = site;
 
 const {
   title = siteTitle,
   description = siteDescription,
   canonical = Astro.url.pathname,
-  image = site.default.image,
+  image = site.image,
   ogType = 'website',
   twitterCard = 'summary_large_image',
   noindex = false,
@@ -35,9 +40,14 @@ const {
   structuredData,
   publishedTime,
   modifiedTime,
-  author = site.default.title,
+  author = site.title,
   section = 'Logística',
-  tags = ['logística', '3PL', 'almacenamiento', 'distribución', 'Colombia'],
+  tags = [
+    ...new Set([
+      ...('logística,3PL,almacenamiento,distribución,Colombia,logística 3PL Colombia,almacenamiento logístico,distribución nacional,operador logístico integral,gestión de inventarios,logística última milla,cadenas de frío,cross-docking,logística internacional,transporte de carga,rastreo GPS,logística inversa,centros de distribución,servicios 4PL,tecnología logística,optimización de rutas'.split(',')),
+      ...(siteKeywords ? siteKeywords.split(',').map(k => k.trim()) : [])
+    ])
+  ],
   locale = 'es_CO',
   alternateLocales = ['es_ES', 'en_US'],
   siteName = siteTitle
@@ -58,15 +68,15 @@ const defaultStructuredData = {
   '@type': 'Organization',
   name: siteTitle,
   url: siteUrl,
-  logo: new URL(site.default.image, siteUrl).toString(),
+  logo: new URL(site.image, siteUrl).toString(),
   sameAs: [
-    site.default.links.twitter,
-    site.default.links.linkedin,
-    site.default.links.instagram
+    site.links?.twitter,
+    site.links?.linkedin,
+    site.links?.instagram
   ].filter(Boolean),
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: site.default.links.whatsapp,
+    telephone: site.links?.whatsapp,
     contactType: 'customer service',
     availableLanguage: ['Spanish', 'English']
   }
