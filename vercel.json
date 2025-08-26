@@ -70,16 +70,6 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
-    },
-    {
-      "source": "/es",
-      "destination": "/es/",
-      "statusCode": 308
-    },
-    {
-      "source": "/en",
-      "destination": "/en/",
-      "statusCode": 308
     }
   ]
 }

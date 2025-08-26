@@ -49,7 +49,7 @@ const {
     ])
   ],
   locale = 'es_CO',
-  alternateLocales = ['es_ES', 'en_US'],
+  alternateLocales = [],
   siteName = siteTitle
 } = Astro.props;
 
@@ -156,9 +156,6 @@ const ldJson = {
 
 {/* Alternate Languages */}
 <link rel="alternate" href={fullUrl} hreflang={locale} />
-{alternateLocales.map((locale) => (
-  <link rel="alternate" href={`${siteUrl}/${locale}${canonical}`} hreflang={locale} />
-))}
 
 {/* Structured Data */}
 <script type="application/ld+json" set:html={JSON.stringify(ldJson)} />
