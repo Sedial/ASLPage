@@ -3,7 +3,7 @@ import siteData from '../data/site.json';
 
 const SITE = siteData;
 
-export async function get() {
+export async function GET() {
   // Get all pages
   const pages = import.meta.glob('./**/*.{md,mdx,astro}');
   const pageUrls = Object.keys(pages)
@@ -70,11 +70,10 @@ export async function get() {
         .join('')}
     </urlset>`;
 
-  return {
-    body: sitemap,
+  return new Response(sitemap, {
     headers: {
       'Content-Type': 'application/xml',
       'X-Robots-Tag': 'noindex, follow'
     }
-  };
+  });
 }
