@@ -4,52 +4,29 @@ import siteData from '../data/site.json';
 const SITE = siteData;
 
 export async function GET() {
-  // Get all pages
-  const pages = import.meta.glob('./**/*.{md,mdx,astro}');
-  const pageUrls = Object.keys(pages)
-    .filter(page => 
-      !page.includes('404.astro') && 
-      !page.includes('sitemap.xml.js') &&
-      !page.startsWith('./api/') &&
-      !page.includes('_') &&
-      !page.endsWith('/index.astro')
-    )
-    .map(page => {
-      const path = page
-        .replace('./', '/')
-        .replace('/index.astro', '')
-        .replace('.astro', '')
-        .replace('.mdx', '')
-        .replace('.md', '');
-      
-      // Set priority based on URL depth
-      let priority = 0.8;
-      const depth = path.split('/').filter(Boolean).length;
-      if (depth === 1) priority = 1.0;
-      else if (depth === 2) priority = 0.9;
-      
-      // Set change frequency based on section
-      let changefreq = 'monthly';
-      if (path === '/') changefreq = 'daily';
-      else if (path.startsWith('/blog')) changefreq = 'weekly';
-      
-      return {
-        url: path,
-        lastmod: new Date().toISOString(),
-        changefreq,
-        priority
-      };
-    });
+  // Static pages
+  const staticPages = [
+    { url: '/', changefreq: 'daily', priority: 1.0 },
+    { url: '/about', changefreq: 'monthly', priority: 0.9 },
+    { url: '/services', changefreq: 'monthly', priority: 0.9 },
+    { url: '/contact', changefreq: 'monthly', priority: 0.8 },
+    { url: '/blog', changefreq: 'weekly', priority: 0.8 }
+  ].map(page => ({
+    ...page,
+    lastmod: new Date().toISOString()
+  }));
 
   // Get all blog posts
   const blogPosts = (await getCollection('blog')).map(post => ({
     url: `/blog/${post.slug}`,
-    lastmod: post.data.updatedDate || post.data.pubDate,
+    lastmod: (post.data.updatedDate || post.data.pubDate || new Date()).toISOString ? 
+             (post.data.updatedDate || post.data.pubDate || new Date()).toISOString() : 
+             new Date().toISOString(),
     changefreq: 'weekly',
     priority: 0.7
   }));
 
-  const allPages = [...pageUrls, ...blogPosts];
+  const allPages = [...staticPages, ...blogPosts];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
