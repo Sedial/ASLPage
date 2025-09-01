@@ -71,5 +71,27 @@
       "destination": "/",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/services",
+      "destination": "/services.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/blog/(.*)",
+      "destination": "/blog/$1.html"
+    }
   ]
 }
