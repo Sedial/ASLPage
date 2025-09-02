@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = 'Política de Privacidad | ASL - Agencia de Servicios Logísticos S.A.';
+const pageDescription = 'Conoce cómo en ASL tratamos los datos personales: qué información recolectamos, con qué fines la usamos y cómo puedes ejercer tus derechos.';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <section class="bg-gradient-to-br from-slate-50 via-white to-gray-100 py-20">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h1 class="text-4xl md:text-6xl font-bold text-primary-600 mb-6">Política de Privacidad</h1>
+      <p class="text-lg text-black mb-10">Fecha de última actualización: {new Date().toLocaleDateString('es-CO')}</p>
+
+      <div class="legal-content max-w-none space-y-6">
+        <h2>1. Introducción</h2>
+        <p>En ASL - Agencia de Servicios Logísticos S.A. (en adelante, “ASL”) respetamos tu privacidad y protegemos tus datos personales conforme a la legislación colombiana vigente (Ley 1581 de 2012 y sus decretos reglamentarios) y buenas prácticas internacionales.</p>
+
+        <h2>2. Responsable del tratamiento</h2>
+        <p>ASL S.A., con domicilio en Colombia. Contacto principal: operaciones@grupoasl.com | Tel.: +57 311 205 7108.</p>
+
+        <h2>3. Datos que recolectamos</h2>
+        <ul>
+          <li>Datos de contacto: nombres, correo electrónico, teléfono y empresa.</li>
+          <li>Información enviada por formularios (mensajes, requerimientos y archivos adjuntos si aplica).</li>
+          <li>Datos técnicos de navegación de forma anónima o agregada (IP, navegador, páginas visitadas) para analítica.</li>
+        </ul>
+
+        <h2>4. Finalidades</h2>
+        <ul>
+          <li>Responder solicitudes y brindar información sobre nuestros servicios logísticos.</li>
+          <li>Gestionar relaciones comerciales y servicio al cliente.</li>
+          <li>Mejorar nuestro sitio web, seguridad y experiencia de usuario.</li>
+          <li>Enviar comunicaciones comerciales cuando exista autorización previa.</li>
+        </ul>
+
+        <h2>5. Bases legales</h2>
+        <p>Tratamos los datos con tu autorización, para la ejecución de relaciones contractuales y para el cumplimiento de obligaciones legales.</p>
+
+        <h2>6. Compartición de datos</h2>
+        <p>Podemos compartir datos con proveedores que prestan servicios de soporte (hosting, analítica, mensajería) bajo acuerdos de confidencialidad y encargo de tratamiento. No vendemos tus datos.</p>
+
+        <h2>7. Derechos del titular</h2>
+        <p>Puedes conocer, actualizar, rectificar y suprimir tus datos, así como revocar la autorización. Envíanos tu solicitud a <a href="mailto:operaciones@grupoasl.com">operaciones@grupoasl.com</a>.</p>
+
+        <h2>8. Cookies</h2>
+        <p>Utilizamos cookies necesarias y de analítica para el funcionamiento y mejora del sitio. Puedes gestionar su uso desde la configuración de tu navegador.</p>
+
+        <h2>9. Seguridad</h2>
+        <p>Implementamos medidas técnicas y organizativas razonables para proteger la información. Sin embargo, ningún sistema es totalmente infalible.</p>
+
+        <h2>10. Conservación</h2>
+        <p>Conservamos los datos por el tiempo necesario para cumplir las finalidades indicadas o según lo exija la ley.</p>
+
+        <h2>11. Cambios a esta política</h2>
+        <p>ASL podrá actualizar esta política. Publicaremos la nueva versión en esta misma página con su fecha de entrada en vigor.</p>
+
+        <h2>12. Contacto</h2>
+        <p>Si tienes preguntas sobre esta política o el tratamiento de tus datos, contáctanos en <a href="mailto:operaciones@grupoasl.com">operaciones@grupoasl.com</a> o a la línea +57 311 205 7108.</p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .legal-content { color: #000; }
+    .legal-content h2 { color: #CA241C; font-weight: 700; }
+    .legal-content h3, .legal-content h4 { color: #CA241C; font-weight: 700; }
+    .legal-content a { color: #CA241C; text-decoration: underline; }
+    .legal-content ul { padding-left: 1.25rem; list-style: disc; }
+  </style>
+</BaseLayout>

@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = 'Términos y Condiciones de Uso | ASL - Agencia de Servicios Logísticos S.A.';
+const pageDescription = 'Lee los términos que regulan el uso de nuestro sitio web y los servicios informativos ofrecidos por ASL.';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <section class="bg-gradient-to-br from-slate-50 via-white to-gray-100 py-20">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h1 class="text-4xl md:text-6xl font-bold text-primary-600 mb-6">Términos y Condiciones</h1>
+      <p class="text-lg text-black mb-10">Fecha de última actualización: {new Date().toLocaleDateString('es-CO')}</p>
+
+      <div class="legal-content max-w-none space-y-6">
+        <h2>1. Aceptación</h2>
+        <p>Al acceder y utilizar este sitio web aceptas los presentes Términos y Condiciones. Si no estás de acuerdo, por favor abstente de usarlo.</p>
+
+        <h2>2. Uso del sitio</h2>
+        <p>El contenido del sitio tiene fines informativos sobre los servicios logísticos de ASL. Te comprometes a usarlo de forma lícita, sin vulnerar derechos de terceros ni la normativa vigente.</p>
+
+        <h2>3. Propiedad intelectual</h2>
+        <p>Todos los contenidos (textos, imágenes, logos, diseño y código) pertenecen a ASL o a sus legítimos titulares y están protegidos por las leyes de propiedad intelectual. No se permite su reproducción sin autorización.</p>
+
+        <h2>4. Enlaces</h2>
+        <p>Este sitio puede incluir enlaces a sitios de terceros. ASL no se responsabiliza por su contenido ni por las prácticas de privacidad de dichos sitios.</p>
+
+        <h2>5. Limitación de responsabilidad</h2>
+        <p>El sitio se ofrece “tal cual”. Aunque buscamos precisión y disponibilidad, ASL no garantiza la ausencia total de errores o interrupciones.</p>
+
+        <h2>6. Protección de datos</h2>
+        <p>El tratamiento de datos personales se rige por nuestra <a href="/privacy">Política de Privacidad</a>.</p>
+
+        <h2>7. Modificaciones</h2>
+        <p>ASL puede actualizar estos Términos en cualquier momento. Los cambios serán efectivos desde su publicación en esta página.</p>
+
+        <h2>8. Legislación aplicable</h2>
+        <p>Estos Términos se rigen por las leyes de la República de Colombia. Cualquier controversia se someterá a los jueces competentes de acuerdo con la normativa vigente.</p>
+
+        <h2>9. Contacto</h2>
+        <p>Para consultas sobre estos Términos, escríbenos a <a href="mailto:operaciones@grupoasl.com">operaciones@grupoasl.com</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .legal-content { color: #000; }
+    .legal-content h2 { color: #CA241C; font-weight: 700; }
+    .legal-content h3, .legal-content h4 { color: #CA241C; font-weight: 700; }
+    .legal-content a { color: #CA241C; text-decoration: underline; }
+    .legal-content ul { padding-left: 1.25rem; list-style: disc; }
+  </style>
+</BaseLayout>

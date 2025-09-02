@@ -1,11 +1,11 @@
 # robots.txt for ASL - Agencia de Servicios Logísticos
-# https://asl-theta.vercel.app/
+# Dominio canónico: https://asl-logistica.com/
 
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://asl-theta.vercel.app/sitemap.xml
+# Sitemap (único, dominio canónico)
+Sitemap: https://asl-logistica.com/sitemap.xml
 
 # Crawl-delay: 10
 
@@ -35,6 +35,3 @@ Crawl-delay: 10
 # Image crawlers
 User-agent: Googlebot-Image
 Allow: /*
-
-# Sitemap location
-Sitemap: https://asl-theta.vercel.app/sitemap.xml

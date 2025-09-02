@@ -3,6 +3,8 @@ import siteData from '../data/site.json';
 
 const SITE = siteData;
 
+export const prerender = true;
+
 export async function GET() {
   // Static pages
   const staticPages = [
@@ -10,21 +12,28 @@ export async function GET() {
     { url: '/about', changefreq: 'monthly', priority: 0.9 },
     { url: '/services', changefreq: 'monthly', priority: 0.9 },
     { url: '/contact', changefreq: 'monthly', priority: 0.8 },
+    { url: '/privacy', changefreq: 'yearly', priority: 0.5 },
+    { url: '/terms', changefreq: 'yearly', priority: 0.5 },
     { url: '/blog', changefreq: 'weekly', priority: 0.8 }
   ].map(page => ({
     ...page,
     lastmod: new Date().toISOString()
   }));
 
-  // Get all blog posts
-  const blogPosts = (await getCollection('blog')).map(post => ({
-    url: `/blog/${post.slug}`,
-    lastmod: (post.data.updatedDate || post.data.pubDate || new Date()).toISOString ? 
-             (post.data.updatedDate || post.data.pubDate || new Date()).toISOString() : 
-             new Date().toISOString(),
-    changefreq: 'weekly',
-    priority: 0.7
-  }));
+  // Get all blog posts (safe fallback)
+  let blogPosts = [];
+  try {
+    blogPosts = (await getCollection('blog')).map(post => ({
+      url: `/blog/${post.slug}`,
+      lastmod: (post.data.updatedDate || post.data.pubDate || new Date()).toISOString ? 
+               (post.data.updatedDate || post.data.pubDate || new Date()).toISOString() : 
+               new Date().toISOString(),
+      changefreq: 'weekly',
+      priority: 0.7
+    }));
+  } catch (e) {
+    blogPosts = [];
+  }
 
   const allPages = [...staticPages, ...blogPosts];
 
@@ -49,8 +58,7 @@ export async function GET() {
 
   return new Response(sitemap, {
     headers: {
-      'Content-Type': 'application/xml',
-      'X-Robots-Tag': 'noindex, follow'
+      'Content-Type': 'application/xml; charset=utf-8'
     }
   });
 }
