@@ -52,11 +52,18 @@ const siteData = await import('../data/site.json');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Dubai:wght@400;700&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+  <body class="bg-white text-gray-900">
     <Navbar transparent={transparent} />
     <slot />
     <Footer />
     <WhatsAppButton phoneNumber="+57 311 2057108" position="left" size="lg" />
     <WhatsAppForm phoneNumber="+57 311 2057108" />
+
+    <style is:global>
+      /* Garantizar legibilidad en secciones legales incluso si el modo oscuro está activo */
+      .legal-content { color: #000; }
+      .legal-content h1, .legal-content h2, .legal-content h3, .legal-content h4 { color: #CA241C; }
+      .legal-content a { color: #CA241C; }
+    </style>
   </body>
 </html>
