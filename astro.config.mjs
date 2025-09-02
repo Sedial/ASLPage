@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://asl-logistica.com',
+  site: 'https://grupoasl.com',
   server: {
     port: 3000,
     host: true

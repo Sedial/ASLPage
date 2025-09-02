@@ -1,11 +1,11 @@
 # robots.txt for ASL - Agencia de Servicios Logísticos
-# Dominio canónico: https://asl-logistica.com/
+# Dominio canónico: https://grupoasl.com/
 
 User-agent: *
 Allow: /
 
 # Sitemap (único, dominio canónico)
-Sitemap: https://asl-logistica.com/sitemap.xml
+Sitemap: https://grupoasl.com/sitemap.xml
 
 # Crawl-delay: 10
 
