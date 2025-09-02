@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://asl-theta.vercel.app',
+  site: 'https://asl-logistica.com',
   server: {
     port: 3000,
     host: true
