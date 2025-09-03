@@ -150,7 +150,12 @@ const imageMap: Record<string, string> = {
 };
 
 const getIconSrc = (id: string) => `/icons/${iconMap[id] ?? 'truck-logistics.webp'}`;
-const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'logistics-center-aerial.webp'}`;
+const getImageSrc = (id: string) => {
+  // Verificar si la imagen existe en el mapa
+  const imageName = imageMap[id] ?? 'logistics-center-aerial.webp';
+  // Asegurar que la ruta sea correcta y esté bien formada
+  return `/images/services/intro/${imageName}`;
+};
 ---
 
 <div class="scrollytelling-container relative">
@@ -219,13 +224,13 @@ const getImageSrc = (id: string) => `/images/services/intro/${imageMap[id] ?? 'l
               <div class="mt-20 transform scale-90 opacity-0" data-animate="image-reveal" data-delay="1600">
                 <div class="relative max-w-5xl mx-auto">
                   <img 
-                    src={getImageSrc('intro')} 
+                    src="/images/services/intro/logistics.webp" 
                     alt="Centro logístico de ASL - Vista aérea" 
                     class="w-full h-auto rounded-2xl shadow-2xl border border-primary-500/10 hover:shadow-3xl transition-all duration-500" 
                     width="1200" 
                     height="600" 
-                    loading="lazy" 
-                    decoding="async"
+                    loading="eager" 
+                    decoding="sync"
                   />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl pointer-events-none"></div>
                 </div>
