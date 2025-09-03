@@ -1,0 +1,27 @@
+{
+  "name": "ASL - Agencia de Servicios Logísticos",
+  "short_name": "ASL Logística",
+  "description": "Líder en soluciones logísticas 3PL y 4PL en Colombia. Expertos en almacenamiento logístico, distribución nacional y gestión de inventarios.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#CA241C",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo2.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "logistics", "transportation"],
+  "lang": "es-CO",
+  "scope": "/"
+}

@@ -33,6 +33,20 @@ const siteData = await import('../data/site.json');
     <meta name="description" content={description} />
     <meta name="google-site-verification" content="H0j0oRmfNEAZNplviyoBBRkd4Y4Y9G7ErM1I93IuevQ" />
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href={`${siteData.url}${Astro.url.pathname}`} />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="ASL - Agencia de Servicios Logísticos" />
+    <meta name="language" content="es-CO" />
+    <meta name="geo.region" content="CO-ATL" />
+    <meta name="geo.placename" content="Barranquilla, Colombia" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#CA241C" />
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={siteData.url} />
@@ -46,6 +60,35 @@ const siteData = await import('../data/site.json');
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ASL - Agencia de Servicios Logísticos",
+        "url": "https://grupoasl.com",
+        "logo": "https://grupoasl.com/images/logo.webp",
+        "description": "Líder en soluciones logísticas 3PL y 4PL en Colombia. Expertos en almacenamiento logístico, distribución nacional y gestión de inventarios.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Carrera 48 # 25 - 30",
+          "addressLocality": "Barranquilla",
+          "addressRegion": "Atlántico",
+          "addressCountry": "CO"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+57-311-2057108",
+          "contactType": "customer service",
+          "availableLanguage": "Spanish"
+        },
+        "sameAs": [
+          "https://linkedin.com/company/asl-logistica-colombia",
+          "https://instagram.com/asl_logistica"
+        ]
+      }
+    </script>
     
     <!-- Fonts - Dubai -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

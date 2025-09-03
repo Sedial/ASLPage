@@ -7,30 +7,27 @@ Allow: /
 # Sitemap (único, dominio canónico)
 Sitemap: https://grupoasl.com/sitemap.xml
 
-# Crawl-delay: 10
-
 # Disallow access to certain directories
 Disallow: /admin/
 Disallow: /api/
 Disallow: /private/
 Disallow: /test/
 Disallow: /cgi-bin/
-Disallow: /*?*
-Disallow: /*&
-Disallow: /*#
+Disallow: /_astro/
+Disallow: /assets/
 
 # Allow all other pages
 Allow: /*
 
-# Crawl-delay for specific bots
+# Crawl-delay for specific bots (reduced for better indexing)
 User-agent: Googlebot
-Crawl-delay: 10
+Crawl-delay: 1
 
 User-agent: Bingbot
-Crawl-delay: 10
+Crawl-delay: 2
 
 User-agent: Slurp
-Crawl-delay: 10
+Crawl-delay: 2
 
 # Image crawlers
 User-agent: Googlebot-Image
