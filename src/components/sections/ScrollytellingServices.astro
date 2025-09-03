@@ -221,7 +221,7 @@ const getImageSrc = (id: string) => {
               </div>
               
               <!-- Imagen principal de introducción -->
-              <div class="mt-20 transform scale-90 opacity-0" data-animate="image-reveal" data-delay="1600">
+              <div class="mt-20 opacity-100" data-animate="fade-in" data-delay="800">
                 <div class="relative max-w-5xl mx-auto">
                   <img 
                     src="/images/services/intro/logistics.webp" 
@@ -985,19 +985,25 @@ const getImageSrc = (id: string) => {
               dot.classList.add('active');
             }
           });
-          // Animaciones discretas
+          // Animaciones discretas - optimizadas para zoom 100%
           const animated = entry.target.querySelectorAll('[data-animate]:not(.animated)');
           animated.forEach((el) => {
             const type = el.getAttribute('data-animate');
             const rawDelay = parseInt(el.getAttribute('data-delay') || '0', 10);
-            const delay = Math.min(rawDelay, 400); // límite para evitar apariciones tardías
+            const delay = Math.min(rawDelay, 200); // reducido para respuesta más rápida
+            
+            // Forzar repintado para evitar problemas con zoom
+            el.style.display = 'none';
+            el.offsetHeight; // forzar repintado
+            el.style.display = '';
+            
             setTimeout(() => {
               el.classList.add('animated', type);
             }, delay);
           });
         }
       });
-    }, { threshold: 0.35 });
+    }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
 
     sections.forEach(section => observer.observe(section));
 
