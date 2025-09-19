@@ -92,6 +92,31 @@ const isActive = (href: string) => {
 
     <!-- Botón CTA mejorado -->
     <div class="ml-6 xl:ml-8 flex items-center space-x-4">
+      <Button
+        variant="primary"
+        size="md"
+        href="https://portaltramites-prd-dot-vernal-acrobat-301119.uc.r.appspot.com/login"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-full shadow-md gap-2 px-5 py-2.5"
+        aria-label="Ir al Portal de Trámites (se abre en una nueva pestaña)"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-5 h-5"
+          aria-hidden="true"
+        >
+          <rect x="6" y="3" width="12" height="18" rx="2" ry="2"></rect>
+          <circle cx="14" cy="12" r="1"></circle>
+        </svg>
+        <span class="whitespace-nowrap">Portal de Trámites</span>
+      </Button>
       <SpaceButton href="/#contacto" text="Solicitar Ahora" />
     </div>
   </div>
@@ -210,6 +235,33 @@ const isActive = (href: string) => {
           </div>
           <div class="flex justify-center">
             <SpaceButton href="/#contacto" text="Solicitar Cotización" />
+          </div>
+          <div class="mt-4 flex justify-center">
+            <Button
+              href="https://portaltramites-prd-dot-vernal-acrobat-301119.uc.r.appspot.com/login"
+              variant="primary"
+              size="lg"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-full w-full max-w-[260px] justify-center gap-2"
+              aria-label="Ir al Portal de Trámites (se abre en una nueva pestaña)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5"
+                aria-hidden="true"
+              >
+                <rect x="6" y="3" width="12" height="18" rx="2" ry="2"></rect>
+                <circle cx="14" cy="12" r="1"></circle>
+              </svg>
+              <span>Portal de Trámites</span>
+            </Button>
           </div>
         </div>
       </div>
