@@ -184,4 +184,55 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* Scrollbar personalizado moderno y profesional - Colores Rojos ASL */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #fef2f2;
+    border-radius: 10px;
+    border: 1px solid #fee2e2;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #CA241C, #9E2420);
+    border-radius: 10px;
+    border: 2px solid #fef2f2;
+    transition: all 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #9E2420, #991b1b);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(202, 36, 28, 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(135deg, #991b1b, #7f1d1d);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: #fef2f2;
+  }
+
+  /* Scrollbar para Firefox */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #CA241C #fef2f2;
+  }
+
+  /* Efectos adicionales para el scroll */
+  body {
+    scroll-behavior: smooth;
+  }
+
+  /* Animación suave para el scroll */
+  @media (prefers-reduced-motion: no-preference) {
+    ::-webkit-scrollbar-thumb {
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+  }
 }
